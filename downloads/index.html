@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bitcoin Classic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="../assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="../assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+<script src="../assets/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    function updateIsoUrl(version) {
+        var architecture = document.getElementById(version + "select");
+        architecture = architecture.options[architecture.selectedIndex].value;
+        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v$1/bitcoin-$1-$2";
+        url = url.replace("$1", version);
+        url = url.replace("$1", version);
+        url = url.replace("$2", architecture);
+        var formID = version + "download";
+        document.getElementById(formID).action = url;
+    }
+jQuery('#16.10select').trigger('change');
+</script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+        <div class="grid">
+                <div class="col-1-3">
+                    <a href="/"><img src="../assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+                </div>
+                <div class="col-2-3">
+                    <button id="openMenu" class="openMenu" name="Menu toggle"><img src="assets/img/menu_open.png" alt="Open menu"></button>
+                </div>
+            </div>
+
+
+
+   <nav>
+   <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="../gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="../linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="../roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="https://github.com/bitcoinclassic/bitcoinclassic/" title="Github" target="_github">Github</a></li>
+        <li><a class="" href="../news.html" title="News">News</a></li>
+    </ul>
+    </nav>
+    </header>
+    
+     <div class="content">
+
+    <h1>Download Bitcoin Classic</h1>
+
+     <section>
+    <div class="release_box">
+    <div class="box eight-col">
+    <h2>Bitcoin Classic 1.1.1</h2>
+
+    <p>Bitcoin Classic 1.1.1 is based on Bitcoin Core version 0.12.1, and is compatible with its blockchain files and wallet.
+    Additionally, this release includes the increase of the block size limit from one megabyte to two megabytes.</p>
+
+    <p>This bugfix release fixes various issues and we believe this is the best stable version of Classic and we recommend everyone upgrade as soon as possible.</p>
+
+    <p>One notable change is that starting at this release Bitcoin Classic will no longer respond to network-alerts.</p>
+    </div>
+    <div class="box four-col">
+    <form id="1.1.1download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.1.1/bitcoin-1.1.1-linux64.tar.gz" method="get">
+    <fieldset><label>Choose your flavour</label><br />
+    <select class="download" id="1.1.1select" onchange="updateIsoUrl(&quot;1.1.1&quot;)">
+        <option selected="selected" value="linux64.tar.gz">Linux 64-bit</option>
+        <option value="linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
+        <option value="osx.dmg">Mac OSX</option>
+        <option value="win64-setup.exe">Windows setup 64-bit</option>
+        <option value="win32-setup.exe">Windows setup 32-bit</option>
+        <option value="armhf-cli.tar.gz">ARM-hf (raspberry-pi)</option>
+        <option value="win64.zip">Win-64 zip</option>
+        <option value="win32.zip">Win-32 zip</option>
+    </select></fieldset>
+    <div><button class="download" type="submit">Download</button></div>
+    </form>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.1.1">Github link</a></div>
+    </div></div>
+
+    <div class="release_box">
+    <div class="box eight-col">
+    <h2>Bitcoin Classic 1.2 BETA</h2>
+
+    <p>I’m happy to let you know that we have now reached our first milestone towards the release of Bitcoin Classic 1.2. The beta version is now ready, and can be downloaded below. As a new minor release, 1.2 comes with a lot of new features as well as many bug fixes and improvements. We’ll go through all the new features in more detail as we get closer to the release. For now, let me just mention two of the biggest changes.</p>
+    <h3>Flexible Transactions</h3>
+
+    <p>FlexTrans is a new transaction format that solves all cases of malleability and thus makes Bitcoin ready for future technologies like the Lightning Network. (blog) It also cleans up a lot of technical debt and provides a clean road forward for a long list of protocol improvements which will be possible equally clean and technical-debt free.</p>
+
+    <p>For instance FlexTrans allows us to remove signatures from a block after it has been validated, which in practice means about 75% size reduction. Additionally this technology completely replaces any need for segregated witness.</p>
+
+    <p>Flexible Transactions is a new technology and would benefit from more usage and testing. This release does not allow FT on main-net.</p>
+    <h3>xthin-blocks</h3>
+
+    <p>This release includes support for the extra-thin blocks technology which solves the problem of block propagation causing delays because it only sends a small fraction of the data when a block is found and cleverly rebuilds it from the mempool of its own node.</p>
+
+    <p>I hope you'll enjoy Bitcoin Classic 1.2beta. Please download it below and don't forget to give us feedback by writing to us on slack or reporting bugs.</p>
+
+    </div>
+    <div class="box four-col">
+    <form id="1.2.bDownload" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0.b1/bitcoin-1.2b-linux64.tar.gz" method="get">
+    <fieldset><label>Choose your flavour</label><br />
+    <select class="download" id="1.2.bselect" onchange="updateIsoUrl(&quot;1.2b&quot;)">
+        <option selected="selected" value="linux64.tar.gz">Linux 64-bit</option>
+        <option value="linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
+        <option value="osx.dmg">Mac OSX</option>
+        <option value="win64-setup.exe">Windows setup 64-bit</option>
+        <option value="win32-setup.exe">Windows setup 32-bit</option>
+        <option value="armhf-cli.tar.gz">ARM-hf (raspberry-pi)</option>
+        <option value="win64.zip">Win-64 zip</option>
+        <option value="win32.zip">Win-32 zip</option>
+    </select></fieldset>
+    <div><button class="download" type="submit">Download</button></div>
+    </form>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.0.b1">Github link</a></div>
+    </div></div>
+     </section>
+      </div>
+
+    <footer>
+    <div class="grid">
+        <div class="container"><img src="../assets/img/btcfooter.png"/><span id="copyright">© 2016 Bitcoin Classic</span>
+        </div>
+    </div>
+    </footer>
+
+    </div>
+<script src="../assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

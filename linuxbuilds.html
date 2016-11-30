@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bitcoin Classic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+        <div class="grid">
+                <div class="col-1-3">
+                    <a href="/"><img src="assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+                </div>
+                <div class="col-2-3">
+                    <button id="openMenu" class="openMenu" name="Menu toggle"><img src="assets/img/menu_open.png" alt="Open menu"></button>
+                </div>
+            </div>
+
+
+
+   <nav>
+   <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" title="Linux builds">Linux builds</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="https://github.com/bitcoinclassic/bitcoinclassic/" title="Github" target="_github">Github</a></li>
+        <li><a class="" href="news.html" title="News">News</a></li>
+    </ul>
+    </nav>
+    </header>
+    
+      <div class="content">
+                  <section>
+<h1>Installing on Ubuntu</h1>
+
+<p>The Classic project maintains a package repository at <a href="https://launchpad.net/%7Ebitcoinclassic/+archive/ubuntu/bitcoinclassic/" target="_ext">launchpad.net/~bitcoinclassic/+archive/ubuntu/bitcoinclassic/</a></p>
+
+<h2>Removing other clients / repos</h2>
+
+<p>if you have other Bitcoin repositories or clients installed, you should remove these using the package management features. If you are certain you do not have any other bitcoin installed, you may skip directly ahead to the installation.</p>
+
+<p>You can check if there is any bitcoin packages installed by running;</p>
+
+<pre><code>dpkg -l bitcoin*
+</code></pre>
+
+<p>If the output lists a <code>bitcoin-qt</code> or <code>bitcoind</code> package, you have some other Bitcoin software installed. If either of these are not returned in your listing, you can skip directly ahead to the installation.</p>
+
+<p>We will now remove the software, this will only remove the conflicting parts. The personal data, like a wallet or the blockchain-data will not be removed.  Before we start, please ensure that your bitcoind or bitcoin-qt application is not running (shut it down cleanly as necessary).<br>
+Then remove its package by running:</p>
+
+<pre><code>sudo apt-get remove bitcoin-qt bitcoind
+</code></pre>
+
+<p>Continue only if the removal of the package(s) was successful!</p>
+
+<p>As a next step, remove other Bitcoin software repositories, as their packages may conflict with those of Classic. For example, if you have the Bitcoin Core PPA installed previously, you can remove it as follows:</p>
+
+<pre><code>sudo apt-add-repository --remove ppa:bitcoin/bitcoin
+</code></pre>
+
+<p>Running the <code>apt-cache policy | grep bitcoin</code> command should now produce an empty output.</p>
+
+<p>You are now ready to install the Classic PPA and software packages.</p>
+
+<h2>Installing the Classic repository information (PPA)</h2>
+
+<p>The following command will install the repository information for Bitcoin Classic:</p>
+
+<pre><code>sudo apt-add-repository ppa:bitcoinclassic/bitcoinclassic
+</code></pre>
+
+<p>If that is successful, you should update the available package information using</p>
+
+<pre><code>sudo apt-get update
+</code></pre>
+
+<h2>Installing the Classic client software</h2>
+
+<p>There are two software packages which you can install:</p>
+
+<ul>
+<li>bitcoin-qt, the graphical client</li>
+<li>bitcoind, the headless client (usually run as a daemon, or service)</li>
+</ul>
+
+<p>You can install either or both of these with:</p>
+
+<pre><code>sudo apt-get install bitcoin-qt
+sudo apt-get install bitcoind
+</code></pre>
+
+<p>They can also be installed together (although only one of them can be run at a time).
+After installation, you should have the respective binary package installed in <code>/usr/bin/</code></p>
+
+<h1>Installing on generic Linux</h1>
+
+<p>Prebuilt binaries are also provided in compressed tar archives (.tgz) for 32- and 64-bit Linux systems.</p>
+
+<p>Attempting to run the 64-bit binaries on a 32-bit machine will fail. If in doubt, you can check your Linux using</p>
+
+<pre><code>uname -m
+</code></pre>
+
+<p>If the output is <code>x86_64</code> you should obtain the 64-bit version, otherwise the 32-bit version.</p>
+
+<p>Without going into full details, the installation steps are as follows:</p>
+
+<ol>
+<li><p>Download the appropriate tar archive. 
+The "Download" link at <a href="downloads">downloads</a> will take you to the latest release, where you should find .tar.gz files for 32- and 64 bit Linux systems.</p></li>
+<li><p>Unpack it in a place of your choice.
+The software can be run from any ordinary user's folder. For example:</p>
+
+<pre><code>cd /path/where/you/want/to/unpack
+tar xf bitcoin-1.x.y-linux64.tar.gz
+</code></pre>
+
+<p>In the example above, <code>x</code> and <code>y</code> indicate software versions.
+This will create a versioned subfolder, e.g. <code>bitcoin-1.x</code>, containing the Classic software.</p></li>
+<li><p>Run the executable from its installation location (if necessary adapting your PATH setting)</p>
+
+<pre><code>/path/where/you/unpacked/bitcoin-1.x.y/bin/bitcoin-qt
+</code></pre></li>
+</ol>
+
+<p>The archives contain both the graphical and headless clients. The executables are contained in the <code>bin</code> subfolder:</p>
+
+<pre><code>bitcoin-1.x.y/bin/bitcoind
+bitcoin-1.x.y/bin/bitcoin-qt
+</code></pre>
+
+<p>There are also other binaries such as the command line RPC client, <code>bitcoin-cli</code>.</p>
+</section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="container"><img src="assets/img/btcfooter.png"/><span id="copyright">© 2016 Bitcoin Classic</span>
+        </div>
+    </div>
+    </footer>
+
+    </div>
+  </body>
+  <script src="assets/js/bitcoin-classic.js"></script>
+</html>
