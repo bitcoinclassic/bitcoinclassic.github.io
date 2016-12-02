@@ -36,6 +36,16 @@
         var formID = version + "download";
         document.getElementById(formID).action = url;
     }
+    function updateIsoUrl12(version) {
+        var architecture = document.getElementById(version + "select");
+        architecture = architecture.options[architecture.selectedIndex].value;
+        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0.b1/bitcoin-$1-$2";
+        url = url.replace("$1", version);
+        url = url.replace("$1", version);
+        url = url.replace("$2", architecture);
+        var formID = version + "download";
+        document.getElementById(formID).action = url;
+    }
 jQuery('#16.10select').trigger('change');
 </script>
   </head>
@@ -124,9 +134,9 @@ jQuery('#16.10select').trigger('change');
 
     </div>
     <div class="box four-col">
-    <form id="1.2.bDownload" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0.b1/bitcoin-1.2b-linux64.tar.gz" method="get">
+    <form id="1.2bdownload" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0.b1/bitcoin-1.2b-linux64.tar.gz" method="get">
     <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.2.bselect" onchange="updateIsoUrl(&quot;1.2b&quot;)">
+    <select class="download" id="1.2bselect" onchange="updateIsoUrl12(&quot;1.2b&quot;)">
         <option selected="selected" value="linux64.tar.gz">Linux 64-bit</option>
         <option value="linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
         <option value="osx.dmg">Mac OSX</option>
