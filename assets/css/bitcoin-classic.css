@@ -207,8 +207,16 @@ footer div:first-of-type {
 #copyright{
     color: #555b64;
     font-size: 0.8em;
-    padding-top: 6%;}
+    padding-top: 6%;
+}
 
+#container {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
 #container, nav {
     transition: right 0.3s ease 0s, left 0.3s ease 0s;
 }
