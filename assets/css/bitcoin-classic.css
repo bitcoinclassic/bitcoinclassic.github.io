@@ -76,7 +76,10 @@ p, .roadmap ul {
     text-align: justify;
     padding-bottom: 1%;
     padding-top: 1%;
-    list-style: inside none disc;
+}
+.roadmap ul {
+    list-style: outside none disc;
+    padding-left: 2%;
 }
 
 a, a:link, a:visited, a:active, a.link-js {
@@ -457,7 +460,7 @@ nav > ul {
     margin-left: 23%;
     margin-right: 23%;
     max-width: 60%;
-    padding-top: 16px;
+    padding-top: 50px;
     font-size: 0.99em;
     line-height: 1.8em;
     font-family: Georgia,Cambria,"Times New Roman",Times,serif;
