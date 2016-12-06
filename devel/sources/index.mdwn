@@ -1,0 +1,16 @@
+# Bitcoin Classic for developers.
+
+Bitcoin Classic is an open source project that is hosted on
+[[github|https://github.com/bitcoinclassic/bitcoinclassic]].
+
+In Bitcoin Classic we have been working on several projects which
+are either shipped or in progress of being developed.
+
+## [[Flexible Transactions]]
+
+Flexible Transactions is a solution for a series of problems that were
+present in the initial version of Bitcoin. The most well known of which is
+the transaction-malleability issue.  
+FlexTrans is a protocol upgrade that is in the finishing state of research,
+but the actual roll-out plan to integrate this into Bitcoin is still being
+decided.

@@ -1,0 +1,95 @@
+# Flexible Transactions
+
+[[!toc levels=2 startlevel=2]]
+
+A very central part of Bitcoin is the transaction. Everything you do in
+Bitcoin will essentially use or depend on Bitcoin transactions.
+
+In the original Bitcoin 0.1 release Satoshi Nakamoto included a design that
+is a very good indication of his intentions for the future. He included a
+version field for transactions. This means that we can cleanly upgrade the
+transaction format by creating a new version.
+
+The first version has served us well for 8 years, in Bitcoin time that is a
+very long time indeed, but has seen many not very clean hacks to make it
+continue working and we have no way left to extend it into the future. New
+features can not be added in any safe way. It is time to look for a new
+format that we can use for decades to come.
+
+Flexible Transactions is that format, it has the version number '4' and it
+has been designed and programmed in Bitcoin Classic by Tom Zander. It
+solves a long list of problems that have eluded solution for years and it
+has been designed with future growth in mind. One of the main features is
+that it allows future upgrades to be done in a much clearer and controlled
+fashion making this a gateway for faster development and better safety for
+everyone's money that Bitcoin holds.
+
+## Bitcoin issues fixed by Flexible Transactions
+
+* Malleability
+* Linear scaling of signature checking
+* Hardware wallet support (proofs)
+* Very flexible future extensibility
+* Double spend proofs
+* Makes transactions smaller
+* Supports the Lightning Network
+* Support future Scripting version increase
+
+## Background
+
+Flexible Transactions is maybe best explained by watching this video where
+Tom explains the technology in a simple way for all audiences.
+
+<iframe src="https://player.vimeo.com/video/193595931" width="445"
+height="250" frameborder="0"></iframe>
+
+## Test application
+
+For users and developers that want to parse the relatively abstract binary
+datastream which make up bitcoin transactions there is a good test
+application that Bitcoin Classic made available for free to
+[[github|https://github.com/bitcoinclassic/transactions]]
+
+This application allows you to;
+
+* read any transaction and print its contents.
+* convert any transaction into the flextrans markup so you can test parsers.
+* read flextrans transactions and print warnings encoutered during parsing.
+
+The application depends on QtCore being available on the system it is
+being compiled on.
+
+## Language Bindings
+
+The parsing of the transaction is really not that hard, and made really
+easy with the language bindings that are stored in the
+[[transactions|https://github.com/bitcoinclassic/transactions]] git
+repository. The general approach is that there is a `MessageParser`
+and a `MessageBuilder` class. If you want to create a transaction you
+use the MessageBuilder and you add all the individual components using
+a very simple API.
+
+There currently are language bindings for
+
+* [[C#|https://github.com/bitcoinclassic/transactions/tree/master/support/C%23]]
+* [[C++Qt|https://github.com/bitcoinclassic/transactions/tree/master/support/cppQt]]
+* [[Java|https://github.com/bitcoinclassic/transactions/tree/master/support/java]]
+
+## Specification
+
+Flexible Transactions is a schema based on the
+Compact Message Format low level binary serialization.
+
+The CMF system is based on name/format/value tokens which are encoded with
+the aim to have the smallest resulting files.
+
+The specification for CMF can be found
+[[here|https://github.com/bitcoinclassic/documentation/blob/master/spec/compactmessageformat.md]].
+
+The specification for FlexTrans can be found
+[[here|https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md]]
+
+Additionally, the
+[[proposal|https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-September/013125.html]]
+to the Bitcoin community has been made in the form of a BIP. Which can be found
+[[here|https://github.com/bitcoin/bips/blob/master/bip-0134.mediawiki]].

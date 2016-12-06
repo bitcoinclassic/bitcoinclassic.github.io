@@ -1,0 +1,23 @@
+# IkiWiki::Setup::Yaml - YAML formatted setup file
+
+wikiname: devel
+srcdir: sources
+destdir: .
+url: http://bitcoinclassic.com/develop
+
+add_plugins:
+- goodstuff
+- format
+- embed
+- toggle
+- highlight
+- headinganchors
+
+disable_plugins:
+- smiley
+- htmlscrubber
+
+html5: 1
+indexpages: 0
+usedirs: 0
+wiki_file_chars: -[:alnum:]+/.(\ )?!,%&:_

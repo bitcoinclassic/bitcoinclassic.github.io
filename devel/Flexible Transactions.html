@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Flexible Transactions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+       <div class="grid">
+         <div class="col-1-3">
+           <a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+         </div>
+         <div class="col-2-3">
+             <button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button>
+         </div>
+       </div>
+      <nav>
+      <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+                <li><a class="" href="/howtos.html" title="HowTos">How Tos</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="/devel/index.html" title="Devel">Developers</a></li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+      <div class="content">
+        <section>
+<h1 id="Flexible_Transactions"><a name="index1h1"></a>Flexible Transactions</h1>
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">Bitcoin issues fixed by Flexible Transactions</a>
+		</li>
+		<li class="L2"><a href="#index2h2">Background</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Test application</a>
+		</li>
+		<li class="L2"><a href="#index4h2">Language Bindings</a>
+		</li>
+		<li class="L2"><a href="#index5h2">Specification</a>
+		</li>
+	</ol>
+</div>
+
+<p>A very central part of Bitcoin is the transaction. Everything you do in
+Bitcoin will essentially use or depend on Bitcoin transactions.</p>
+
+<p>In the original Bitcoin 0.1 release Satoshi Nakamoto included a design that
+is a very good indication of his intentions for the future. He included a
+version field for transactions. This means that we can cleanly upgrade the
+transaction format by creating a new version.</p>
+
+<p>The first version has served us well for 8 years, in Bitcoin time that is a
+very long time indeed, but has seen many not very clean hacks to make it
+continue working and we have no way left to extend it into the future. New
+features can not be added in any safe way. It is time to look for a new
+format that we can use for decades to come.</p>
+
+<p>Flexible Transactions is that format, it has the version number '4' and it
+has been designed and programmed in Bitcoin Classic by Tom Zander. It
+solves a long list of problems that have eluded solution for years and it
+has been designed with future growth in mind. One of the main features is
+that it allows future upgrades to be done in a much clearer and controlled
+fashion making this a gateway for faster development and better safety for
+everyone's money that Bitcoin holds.</p>
+
+<h2 id="Bitcoin_issues_fixed_by_Flexible_Transactions"><a name="index1h2"></a>Bitcoin issues fixed by Flexible Transactions</h2>
+
+<ul>
+<li>Malleability</li>
+<li>Linear scaling of signature checking</li>
+<li>Hardware wallet support (proofs)</li>
+<li>Very flexible future extensibility</li>
+<li>Double spend proofs</li>
+<li>Makes transactions smaller</li>
+<li>Supports the Lightning Network</li>
+<li>Support future Scripting version increase</li>
+</ul>
+
+<h2 id="Background"><a name="index2h2"></a>Background</h2>
+
+<p>Flexible Transactions is maybe best explained by watching this video where
+Tom explains the technology in a simple way for all audiences.</p>
+
+<iframe src="https://player.vimeo.com/video/193595931" width="445"
+height="250" frameborder="0"></iframe>
+
+<h2 id="Test_application"><a name="index3h2"></a>Test application</h2>
+
+<p>For users and developers that want to parse the relatively abstract binary
+datastream which make up bitcoin transactions there is a good test
+application that Bitcoin Classic made available for free to
+<a href="https://github.com/bitcoinclassic/transactions">github</a></p>
+
+<p>This application allows you to;</p>
+
+<ul>
+<li>read any transaction and print its contents.</li>
+<li>convert any transaction into the flextrans markup so you can test parsers.</li>
+<li>read flextrans transactions and print warnings encoutered during parsing.</li>
+</ul>
+
+<p>The application depends on QtCore being available on the system it is
+being compiled on.</p>
+
+<h2 id="Language_Bindings"><a name="index4h2"></a>Language Bindings</h2>
+
+<p>The parsing of the transaction is really not that hard, and made really
+easy with the language bindings that are stored in the
+<a href="https://github.com/bitcoinclassic/transactions">transactions</a> git
+repository. The general approach is that there is a <code>MessageParser</code>
+and a <code>MessageBuilder</code> class. If you want to create a transaction you
+use the MessageBuilder and you add all the individual components using
+a very simple API.</p>
+
+<p>There currently are language bindings for</p>
+
+<ul>
+<li><a href="https://github.com/bitcoinclassic/transactions/tree/master/support/C%23">C#</a></li>
+<li><a href="https://github.com/bitcoinclassic/transactions/tree/master/support/cppQt">C++Qt</a></li>
+<li><a href="https://github.com/bitcoinclassic/transactions/tree/master/support/java">Java</a></li>
+</ul>
+
+<h2 id="Specification"><a name="index5h2"></a>Specification</h2>
+
+<p>Flexible Transactions is a schema based on the
+Compact Message Format low level binary serialization.</p>
+
+<p>The CMF system is based on name/format/value tokens which are encoded with
+the aim to have the smallest resulting files.</p>
+
+<p>The specification for CMF can be found
+<a href="https://github.com/bitcoinclassic/documentation/blob/master/spec/compactmessageformat.md">here</a>.</p>
+
+<p>The specification for FlexTrans can be found
+<a href="https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md">here</a></p>
+
+<p>Additionally, the
+<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-September/013125.html">proposal</a>
+to the Bitcoin community has been made in the form of a BIP. Which can be found
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0134.mediawiki">here</a>.</p>
+
+        </section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="container"><img src="/assets/img/btcfooter.png"/><span id="copyright">© 2016 Bitcoin Classic</span>
+        </div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>
