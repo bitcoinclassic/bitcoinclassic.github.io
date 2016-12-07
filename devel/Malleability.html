@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Malleability</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+       <div class="grid">
+         <div class="col-1-3">
+           <a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+         </div>
+         <div class="col-2-3">
+             <button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button>
+         </div>
+       </div>
+      <nav>
+      <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+                <li><a class="" href="/howtos.html" title="HowTos">How Tos</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="/devel/index.html" title="Devel">Developers</a></li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+      <div class="content">
+        <section>
+<h1 id="Transaction_Malleability">Transaction Malleability</h1>
+
+<p>Malleability is a problem that has been in Bitcoin for many years, it is
+well known and it is not too hard to make sure a business can't loose money
+over this. The problem really should get fixed, though, as it is a rather
+embarrassing issue.</p>
+
+<p>The high level problem is this; <br />
+A user can create a transaction, which she signs and sends off to the
+network in order to get mined. Transactions get automatically assigned a
+transaction-ID. To uniquely identify that transaction. This assignment is
+done in a smart way such that the ID is assigned based on the content. This
+way we avoid having to ask a central server to give unique IDs.</p>
+
+<p>There is a way to change the transaction slightly so it still is a valid
+transaction that correctly moves money as the original author intended and
+doesn't break the signatures either.  This is called the malleability
+issue. The small change will have as an effect that the transaction-ID
+changes, as its based on slightly different content now.</p>
+
+<p>The result is that a company sending a transaction can not be certain that
+his transaction will have the same ID from the moment is was created to
+when it finally gets mined in a block.</p>
+
+<p>MtGox claimed that this was a reason they lost funds where users would
+complain a transfer from the company to them never arrived and the exchange
+would only check the transaction ID having been mined.</p>
+
+<p>A simple fix is to avoid address reuse and check balances on addresses
+instead.</p>
+
+<h1 id="Lightning_Network">Lightning Network</h1>
+
+<p>There is ongoing research into a framework that uses Bitcoin transactions
+in a rather interesting way. It allows 2 users or even a group to use
+low-trust hubs and exchange promises of Bitcoin transactions with each
+other. This allows a person to make many payments which get compressed
+into one transaction (settled) on the real Bitcoin chain.</p>
+
+<p>This system would, however, be very vulnerable to the malleability issue
+and cheating would become much easier for some parties.</p>
+
+<h1 id="How_can_you_malleate_a_transaction.3F">How can you malleate a transaction?</h1>
+
+<p>Quite technical, Feel free to skip to the solution below.</p>
+
+<p>A Bitcoin transaction of version 1 defines that the transaction-ID is
+calculated by taking the entire content of the transaction and hashing it.</p>
+
+<p>On the other hand, the thing that protects a transaction from being
+modified after the fact are signatures that are created for each input.
+These signatures ignore parts of the transaction. And exactly the
+difference in what is used for the Transaction ID and what is used for
+signing an input is where the malleability comes from.</p>
+
+<p>During signing of an input the signatures of all inputs are removed because
+of the cryptographic truism that signatures can't be part of the thing
+that is signed.</p>
+
+<p>In adding a signature in Bitcoin 2 things are added. First the amount of
+bytes that the signature takes, then the actual signature.  Both of these
+pieces of information are removed for signing but used for creating the
+transaction ID.</p>
+
+<p>The trick here is that we can add some dummy data, or we can encode the
+length in different ways that mean the same thing. 120 bytes is the same
+thing as 0120 bytes. But the latter is encoded differently. And thus
+creates a different transaction ID.</p>
+
+<h1 id="How_does_Flexible_Transactions_fix_this.3F">How does Flexible Transactions fix this?</h1>
+
+<p>The solution is rather simple and elegant, we removed the imbalance
+between what is used to sign a transaction and what is used to create a
+transaction ID.</p>
+
+<p>The way to do this is that FlexTrans simply removes from the body of the
+transaction the entire set of data that is the input-script (aka signature
+data).</p>
+
+<p>This is done by physically moving the signatures to the end of the
+transaction data-structure and defining that the 'body' of the transaction
+is the one to be signed and that the 'body' is to be used to create the
+transaction-id.</p>
+
+<p>This same solution also solves the <a href="./Quadratic Hashing.html">Quadratic Hashing</a> issue.</p>
+
+<p>For more technical information, see the
+<a href="https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md">specification</a>.</p>
+
+        </section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/>
+        </div>
+        <div class="col-2-3"><span id="copyright">© 2016 Bitcoin Classic</span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

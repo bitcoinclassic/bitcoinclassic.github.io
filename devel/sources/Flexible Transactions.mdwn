@@ -26,8 +26,8 @@ everyone's money that Bitcoin holds.
 
 ## Bitcoin issues fixed by Flexible Transactions
 
-* Malleability
-* Linear scaling of signature checking
+* Malleability ([[more|Malleability]])
+* Linear scaling of signature checking ([[more|Quadratic hashing]])
 * Hardware wallet support (proofs)
 * Very flexible future extensibility
 * Double spend proofs
@@ -54,7 +54,7 @@ This application allows you to;
 
 * read any transaction and print its contents.
 * convert any transaction into the flextrans markup so you can test parsers.
-* read flextrans transactions and print warnings encoutered during parsing.
+* read flextrans transactions and print warnings encountered during parsing.
 
 The application depends on QtCore being available on the system it is
 being compiled on.

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Quadratic Hashing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+       <div class="grid">
+         <div class="col-1-3">
+           <a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+         </div>
+         <div class="col-2-3">
+             <button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button>
+         </div>
+       </div>
+      <nav>
+      <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+                <li><a class="" href="/howtos.html" title="HowTos">How Tos</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="/devel/index.html" title="Devel">Developers</a></li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+      <div class="content">
+        <section>
+<h1 id="Quadratic_scaling_of_hashing_time">Quadratic scaling of hashing time</h1>
+
+<p>In Bitcoin a transaction moves money from one address to another and in
+order to only allow the actual owner of money the ability to move this, we
+use cryptographic signatures.</p>
+
+<p>An owner of a Bitcoin address has to add a cryptographic signature inside
+of that transaction that spends his money.</p>
+
+<p>There is a design flaw in Transactions v1, as Satoshi created it, which can
+lead to the validation of signatures taking much longer than expected.</p>
+
+<p>The issue is that a transaction with more than one input defines that the
+thing that is signed is not the same for each of those inputs.</p>
+
+<p>The cryptographic concept of signing is a two step process, one is to read
+and process the entire transaction with the output of first step being
+signed as a second step.
+This means that a transaction with 10 inputs will have a minimum of 10
+check-signature commands. Each of those will hash the entire transaction,
+with minor differences.</p>
+
+<p>A natural consequence of this is that adding another input will not only
+add one processing of the entire transaction, it will also make each already
+existing check-signature command process a larger transaction. Making the
+amount of work grow quadratically.</p>
+
+<h1 id="Isn.27t_checking_signatures_incredibly_fast.3F">Isn't checking signatures incredibly fast?</h1>
+
+<p>We have a pretty good implementation for hashing in Bitcoin Classic,
+although there is certainly room for improvement, and we can hash at
+hundreds of megabytes every second.</p>
+
+<p>The problem written here is one that makes the amount of data we have to
+actually process grow quadratically based on the size of the transaction
+and the number of inputs.
+Some <a href="https://bitcointalk.org/?topic=140078">attacks</a> are making it so that
+a 1MB block, containing 2 transactions, can end up hashing that one MB
+19,100 times.</p>
+
+<p>This is probably the worst case scenario in a 1MB limit, but it is a very
+good demonstration of the problem.</p>
+
+<h1 id="How_does_Flexible_Transactions_solve_this.3F">How does Flexible Transactions solve this?</h1>
+
+<p>The solution is rather simple and elegant, we replaced repeated hashing of
+the entire transaction with using the transaction-ID (and some other parts)
+as the input of a signature.
+This means that the size of the transaction no longer is relevant and it
+only needs to be calculated once, regardless of the amount of inputs.</p>
+
+<p>This is the same solution that solves the <a href="./Malleability.html">malleability</a>
+issue.</p>
+
+        </section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/>
+        </div>
+        <div class="col-2-3"><span id="copyright">© 2016 Bitcoin Classic</span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+# Transaction Malleability
+
+Malleability is a problem that has been in Bitcoin for many years, it is
+well known and it is not too hard to make sure a business can't loose money
+over this. The problem really should get fixed, though, as it is a rather
+embarrassing issue.
+
+The high level problem is this;  
+A user can create a transaction, which she signs and sends off to the
+network in order to get mined. Transactions get automatically assigned a
+transaction-ID. To uniquely identify that transaction. This assignment is
+done in a smart way such that the ID is assigned based on the content. This
+way we avoid having to ask a central server to give unique IDs.
+
+There is a way to change the transaction slightly so it still is a valid
+transaction that correctly moves money as the original author intended and
+doesn't break the signatures either.  This is called the malleability
+issue. The small change will have as an effect that the transaction-ID
+changes, as its based on slightly different content now.
+
+The result is that a company sending a transaction can not be certain that
+his transaction will have the same ID from the moment is was created to
+when it finally gets mined in a block.
+
+MtGox claimed that this was a reason they lost funds where users would
+complain a transfer from the company to them never arrived and the exchange
+would only check the transaction ID having been mined.
+
+A simple fix is to avoid address reuse and check balances on addresses
+instead.
+
+# Lightning Network
+
+There is ongoing research into a framework that uses Bitcoin transactions
+in a rather interesting way. It allows 2 users or even a group to use
+low-trust hubs and exchange promises of Bitcoin transactions with each
+other. This allows a person to make many payments which get compressed
+into one transaction (settled) on the real Bitcoin chain.
+
+This system would, however, be very vulnerable to the malleability issue
+and cheating would become much easier for some parties.
+
+# How can you malleate a transaction?
+
+Quite technical, Feel free to skip to the solution below.
+
+A Bitcoin transaction of version 1 defines that the transaction-ID is
+calculated by taking the entire content of the transaction and hashing it.
+
+On the other hand, the thing that protects a transaction from being
+modified after the fact are signatures that are created for each input.
+These signatures ignore parts of the transaction. And exactly the
+difference in what is used for the Transaction ID and what is used for
+signing an input is where the malleability comes from.
+
+During signing of an input the signatures of all inputs are removed because
+of the cryptographic truism that signatures can't be part of the thing
+that is signed.
+
+In adding a signature in Bitcoin 2 things are added. First the amount of
+bytes that the signature takes, then the actual signature.  Both of these
+pieces of information are removed for signing but used for creating the
+transaction ID.
+
+The trick here is that we can add some dummy data, or we can encode the
+length in different ways that mean the same thing. 120 bytes is the same
+thing as 0120 bytes. But the latter is encoded differently. And thus
+creates a different transaction ID.
+
+# How does Flexible Transactions fix this?
+
+The solution is rather simple and elegant, we removed the imbalance
+between what is used to sign a transaction and what is used to create a
+transaction ID.
+
+The way to do this is that FlexTrans simply removes from the body of the
+transaction the entire set of data that is the input-script (aka signature
+data).
+
+This is done by physically moving the signatures to the end of the
+transaction data-structure and defining that the 'body' of the transaction
+is the one to be signed and that the 'body' is to be used to create the
+transaction-id.
+
+This same solution also solves the [[Quadratic Hashing]] issue.
+
+For more technical information, see the
+[[specification|https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md]].

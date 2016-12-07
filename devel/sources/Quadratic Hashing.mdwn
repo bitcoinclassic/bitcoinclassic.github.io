@@ -1,0 +1,53 @@
+# Quadratic scaling of hashing time
+
+In Bitcoin a transaction moves money from one address to another and in
+order to only allow the actual owner of money the ability to move this, we
+use cryptographic signatures.
+
+An owner of a Bitcoin address has to add a cryptographic signature inside
+of that transaction that spends his money.
+
+There is a design flaw in Transactions v1, as Satoshi created it, which can
+lead to the validation of signatures taking much longer than expected.
+
+The issue is that a transaction with more than one input defines that the
+thing that is signed is not the same for each of those inputs.
+
+The cryptographic concept of signing is a two step process, one is to read
+and process the entire transaction with the output of first step being
+signed as a second step.
+This means that a transaction with 10 inputs will have a minimum of 10
+check-signature commands. Each of those will hash the entire transaction,
+with minor differences.
+
+A natural consequence of this is that adding another input will not only
+add one processing of the entire transaction, it will also make each already
+existing check-signature command process a larger transaction. Making the
+amount of work grow quadratically.
+
+# Isn't checking signatures incredibly fast?
+
+We have a pretty good implementation for hashing in Bitcoin Classic,
+although there is certainly room for improvement, and we can hash at
+hundreds of megabytes every second.
+
+The problem written here is one that makes the amount of data we have to
+actually process grow quadratically based on the size of the transaction
+and the number of inputs.
+Some [attacks](https://bitcointalk.org/?topic=140078) are making it so that
+a 1MB block, containing 2 transactions, can end up hashing that one MB
+19,100 times.
+
+This is probably the worst case scenario in a 1MB limit, but it is a very
+good demonstration of the problem.
+
+# How does Flexible Transactions solve this?
+
+The solution is rather simple and elegant, we replaced repeated hashing of
+the entire transaction with using the transaction-ID (and some other parts)
+as the input of a signature.
+This means that the size of the transaction no longer is relevant and it
+only needs to be calculated once, regardless of the amount of inputs.
+
+This is the same solution that solves the [[malleability|Malleability]]
+issue.
