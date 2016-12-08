@@ -94,6 +94,25 @@ that it allows future upgrades to be done in a much clearer and controlled
 fashion making this a gateway for faster development and better safety for
 everyone's money that Bitcoin holds.</p>
 
+<p>If you want to use Flextrans you need a client that supports it. Bitcoin
+Classic is the main client where support is included (but not enabled)
+in version 1.2 and later.</p>
+
+<p>There are two flags you can pass on the command-line to try this;
+<code>--testnet-ft</code> switches the client to a testnet mode, specifically one that
+is for testing flexible transactions. If nobody is mining at the time, feel
+free to try mining yourself. If you need some coin, send an email to Tom
+with a bitcoin address.</p>
+
+<p>Additionally there is the <code>-flextrans</code> option that explicitly enables
+v4 transactions parsing, relaying etc. You don't want to use this option on
+the main chain, but using it on the regtest testing chain is perfectly
+fine.</p>
+
+<p>When you enabled this option, you will notice that the RPC command
+<code>createrawtransaction</code> will allow you to pass the a transaction version and
+it will return a flextrans encoded transaction if you pass version 4.</p>
+
 <h2 id="Bitcoin_issues_fixed_by_Flexible_Transactions"><a name="index1h2"></a>Bitcoin issues fixed by Flexible Transactions</h2>
 
 <ul>
