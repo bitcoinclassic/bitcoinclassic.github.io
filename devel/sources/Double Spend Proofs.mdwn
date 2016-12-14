@@ -1,0 +1,81 @@
+# Double Spend Proofs
+
+In a normal merchant / customer setting, the customer creates a transaction
+that he then gives to the merchant. Either directly, or via the Bitcoin
+network.
+Upon receiving that transaction the merchant will be able to acknowledge
+and store it allowing the customer to leave.
+
+This means the merchant trust in a zero-confirmation setting where the
+merchant keeps a copy of the transaction and will keep feeding it to the
+network until it confirms. This works out just fine in the vast majority of
+cases.
+
+The customer, however, may have set up some custom software and immediately
+after sending the proper transaction to the network, he sends another
+transaction to a friendly miner.
+This transaction double-spends the money he initially sent to the merchant.
+
+The way that Bitcoin nodes work is that they will reject transactions that
+double spend, and keep the original transaction in the memory pool. With
+5000 nodes this means that if the transactions are send close enough to
+each other, a segment will think the first and another segment will think
+the second transaction is the "proper" transaction.
+
+The merchant then has a non-zero chance of losing his payment if the
+customer's second transaction is the one that gets confirmed.
+
+## Isn't zero-confirmation too risky to use?
+
+As we see above, zero-confirmation is not a guarantee. It has more risk
+than having the payment in the blockchain.
+
+In fact, the amount of risk drops based on the amount of confirmations
+there are. Which is counted in the amount of blocks mined since your
+transaction was included.
+
+So what we can see is that the amount of risk that the payment does not go
+through is reduced over time. In an ideal world everyone would wait 6
+confirmations for any transaction before they call it 'done'.
+
+Merchants and people don't think that black/white and especially businesses
+know that there is always a risk involved, no matter what you do. In actual
+fact the amount of risk of a transaction not reaching him is significantly
+lower in any Bitcoin scenario than it is if, for instance, Visa or
+Mastercard was used.
+
+## How can we solve this?
+
+We solve the problem by reducing the risk. A merchant that accepts
+zero-confirmation transactions will always have some risk. A purchase of
+very high worth should not consider zero-conf. The goal is to make the $20
+payments safe enough.
+
+What [[Flexible Transactions]] adds is a fraud-proof for double-spending.
+Any node, and specifically merchant software, can use this as a way to
+alert the network of an attempt at double spending.
+
+The important part here is that not anyone can just generate a
+double-spending alert. If we allowed that there would be a big possibility
+of abuse and a large amount of false-positives that could overwhelm us.
+
+The double-spending-**proof** is created by taking the two transactions
+that are both spending the same money and taking only relevant sub-sections
+which we then forward to our peers. Specifically the one we just received
+the second transaction from.
+
+This proof includes the relevant signatures from the two transactions and
+so any node can independently validate that the proof is valid.
+If it has one of the two transactions in its mempool it will then forward
+it to its peers.
+
+The customer in our example above, who tried to get away without paying
+from our merchant, will send his two transactions in a very small
+time-frame. As the transactions go through all 5000 nodes of the Bitcoin
+network, they will meet somewhere in the middle and the double-spend-proof
+will go in opposite direction notifying all nodes of this attempt.
+
+The ultimate goal is that the merchant will receive this double-spend proof
+as well and he will likely do in one or two seconds after the transaction
+itself arrived.  This allows the merchant to take action in any way that he
+sees fit.

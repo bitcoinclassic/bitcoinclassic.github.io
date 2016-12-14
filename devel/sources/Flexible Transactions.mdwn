@@ -52,7 +52,7 @@ transactions.
 * Linear scaling of signature checking ([[more|Quadratic hashing]])
 * Hardware wallet support (proofs) ([[more|Hardware Wallet Support]])
 * Very flexible future extensibility
-* Double spend proofs
+* [[Double Spend Proofs]]
 * Makes transactions smaller
 * Supports the Lightning Network
 * Support future Scripting version increase
