@@ -1,0 +1,179 @@
+# How do SegWit and FlexTrans compare?
+
+Flexible Transactions was started as an alternative solution when it became
+apparent that Segregated Witness was not going to be a viable protocol
+upgrade.
+
+This document attempts to describe the reasons why this is the
+case and how the two solutions compare and where they are completely
+different.
+
+The reader should realise that the two solutions were both started with a
+single goal in mind which is to solve the [[Malleability]] issue. Where
+FlexTrans aimed to keep it simple and small, SegWit had as a goal to avoid
+at all costs making changes that would get the new transactions rejected by
+old nodes. The reason for this is cited to be that old wallets and nodes
+have no need to upgrade after SegWit becomes operational.
+
+The reality of the situation is that people will need to upgrade their
+client anyway. Once a user gets a SegWit transaction, she will only be able
+to move that money forward in a SegWit wallet. So if a person
+doesn't upgrade they will eventually not be able to accept money from
+anyone. The natural consequence is that everyone will have to get a SegWit
+compatible client sooner or later. And that begs the question if there
+really is a benefit to the SegWit solution.
+
+Lets start by looking at the end result. What did the implementations
+actually accomplish.
+
+## Features
+
+<table>
+<thead>
+<tr>
+<th> Feature </th>
+<th> SegWit </th>
+<th> FlexTrans </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixes <a href="Malleability.html">Malleability</a></td>
+<td class="checks">✅</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
+<td><a href="Quadratic Hashing.html">Linear scaling</a> of hashing</td>
+<td class="checks">✅</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
+<td><a href="Hardware Wallet Support.html">Hardware wallet Support</a></td>
+<td class="checks">✅</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
+<td>Makes transactions smaller </td>
+<td class="checks">&#10060;</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
+<td>Supports the Lightning Network </td>
+<td class="checks">✅</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
+<td><a href="Double Spend Proofs.html">Double Spend Proofs</a></td>
+<td class="checks">&#10060;</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
+<td>Support future script versions </td>
+<td class="checks">✅</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
+<td>No "two buckets" economics</td>
+<td class="checks">&#10060;</td>
+<td class="checks">✅</td>
+</tr>
+</tbody>
+</table>
+
+In the last row this is about an economics issue where SegWit introduces "Two Buckets" with new pricing and new fee bidding.
+In the design of SegWit the signatures part of a transaction are to be charged 75% less than the rest, making two buckets of data. The designers of SegWit decided that the miners should incur the cost where miners do up till 4 times the work, for the same pay.
+This is an anti-feature where technical design is trying to gain an influence on economic policy and thus very much worth putting a cross in the SegWit column for.
+
+
+## Technical-debt-matrix;
+
+This is about the cost of the design. As the term 'technical debt' implies, this is not a one time cost, this is an actual debt that needs to be paid off over time with more engineering cleanup. The actual cost paid is thus in future productivity and stability of the system.
+
+Like any company or household, if you don't pay off your debt, you will eventually work for nothing other than keeping afloat and not make any progress.
+
+<table>
+<thead>
+<tr>
+<th> Change</th>
+<th> Segregated Witness </th>
+<th> Flexible Transactions </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="odd">Changes how transaction-signatures are found. They can't be assumed to be in the transaction anymore.</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+<tr>
+<td>Changes how transactions are transferred over the network. Old clients won't receive the signatures.</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+<tr>
+<td class="odd">Changes how block security is done, the merkletree is no longer enough, there is a second now.</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+<tr>
+<td>Changes how block size calculations are done (two buckets). Blocks can't use all space.</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+<tr>
+<td class="odd">Changes how sigop limits are calculated.</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+<tr>
+<td>Changes how transactions are stored, there are now two parts</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+<tr>
+<td class="odd">Changes how transactions can be created securely to avoid new malleability issues that SegWit introduced. Affects all bitcoin implementations.</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+<tr>
+<td>Changes fundamentally how signatures are validated.</td>
+<td class="checks"><img src="/assets/img/sad.png"/></td>
+<td class="checks"><img src="/assets/img/happy.png"/></td>
+</tr>
+</tbody>
+</table>
+
+
+## Future growth
+
+Bitcoin is meant to be around for many years, even decades. People want a
+stable money.
+
+SegWit has as its **only** feature for the future that it allows the
+Lightning Network to be deployed. The capacity increase is a joke compared
+to the needs of the network right now. It certainly is not a capacity that
+can be used in the future.  Even with Lightning on top, the capacity
+allowed in a SegWit world will not allow Bitcoin to grow as peer to peer
+cash.
+
+Flexible Transactions is not a capacity increase, it is a separate solution
+that can be combined very well with any capacity increase.  
+Additionally, it is a format that is made to be extended. Adding fields to
+the format is expected and can be done safely. FlexTrans even dictates in
+the specification the allocation of various forwards compatible fields
+which can be used for soft upgrades.
+
+# Conclusion
+
+The Flexible Transactions solution solves all problems that SegWit solves.
+On top of the features that SegWit has it lists some more which are
+essential to a healthy on-chain future growth for Bitcoin.
+
+Flexible Transactions cost a fraction of SegWit, both in code written and
+future work to keep the network running.
+
+The goal of SegWit that it would be easier to deploy, allowing people to
+not upgrade should they not want it, turns out to not be reached and it
+ends up dictating economic policy which is a sure sign of bad design.
+
+There is no reason to choose SegWit over Flexible Transactions.

@@ -6,6 +6,16 @@ fieldset, html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img, ul, 
     vertical-align: baseline;
 }
 
+.checks {
+    text-align: center;
+}
+.checks img {
+    max-width: 40px;
+}
+.odd {
+    background-color: #ddd;
+}
+
 footer, header, nav, section, span {
     display: block;
 }
@@ -499,9 +509,11 @@ nav > ul {
 {    background: #f69217 none repeat scroll 0 0;
     height: 50px;
      width: 164px;
-    }
-    #email
-{    background: #f6bf96 none repeat scroll 0 0;
+}
+
+#email
+{
+    background: #f6bf96 none repeat scroll 0 0;
     height: 50px;
     width: 300px;
-    }
+}

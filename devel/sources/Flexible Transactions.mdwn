@@ -65,6 +65,8 @@ Tom explains the technology in a simple way for all audiences.
 <iframe src="https://player.vimeo.com/video/193595931" width="445"
 height="250" frameborder="0"></iframe>
 
+Additionally useful may be the [[FlexTrans-vs-SegWit]] page.
+
 ## Test application
 
 For users and developers that want to parse the relatively abstract binary
