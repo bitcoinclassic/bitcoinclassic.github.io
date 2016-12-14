@@ -1,0 +1,72 @@
+# Hardware Wallet Support
+
+In Flexible Transactions we included an idea that has been first proposed
+many years ago, but unfortunately it never made it into Bitcoin before.
+
+This feature allows hardware wallets, like [bitlox](https://www.bitlox.com)
+in the future to create transactions in the FlexTrans format and they will
+be even safer from any mistakes or tampering with the mobile app or the
+website.
+
+## What is the problem ?
+
+Hardware wallets use a 2-phase way of creating valid transactions.
+First is that they use a computer connected to the internet to create the
+base transaction. This computer decides how much money has to go where and
+it connects to the Bitcoin network to find out.
+
+The second phase is that this transaction is send to the hardware device
+which actually holds the private keys and so is used to actually authorise
+the transfer.  After user authorisation it signs the transaction and you
+can send it to the network for mining.
+
+This all sounds very safe and secure, except for one design issue in
+Bitcoin. The amount of coins that a certain address holds is not part of
+the transaction that spends it.  An attacker could mislead the computer
+that creates the transaction so it would be under the impression that there
+was only 1 BTC on an address that in reality holds 2BTC. The effect is that
+the hardware wallet would ask the user permission with wrong information
+and the user would lose the difference to mining fees.
+
+## How do we solve that?
+
+The 2-phase creation of transactions, as explained above, that is used by
+all hardware wallets today would remain largely unchanged. The only
+difference is that the computer that creates the initial transaction would
+additionally send the amount it thinks the transaction is worth to the
+hardware wallet for signing.
+
+If the transaction is created as a [[Flexible Transaction]] the hardware
+wallet will use the input-amount in the creation of the signatures.
+This makes the signatures to only be valid if the input amount the hardware
+wallet has received was correct.  If anyone was compromised, the user will
+not lose funds because a full node validating the transaction will simply
+reject the transaction.
+
+## I want to know more.
+
+This gets technical very quickly after this point, so thank you for
+sticking around!
+
+Any Bitcoin transaction has its inputs signed because that is the way we
+prove that the money we are spending was actually ours to spend. The
+concept of signing involves a private key that only you know and it
+involves the actual content we sign. Your legal document, essentially.
+
+In Flexible Transactions we define the concept to sign for a specific
+input to be the entire body of the transaction. We additionally add some
+data (see the full list in the [spec, section Scripting
+Changes](https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md#scripting-changes))
+that when hashed together creates one number we then sign.
+
+Any full node that we send the transaction to, and certainly mining nodes,
+will validate the signature to be correct.
+Those full nodes will know exactly how much money is stored in a specific
+address / index pair. Since one input spends all of that money from that
+address/index pair validating the signature is a simple matter of adding
+the amount it had stored in the unspent transaction database and validating
+that the transaction is correct.
+
+Should the 'amount' that was used by the hardware wallet while signing not
+correspond with the 'amount' that any full node knows, this will mean it
+signs something different and thus the signature will fail to validate.
