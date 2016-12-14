@@ -78,49 +78,52 @@ Bitcoin will essentially use or depend on Bitcoin transactions.</p>
 <p>In the original Bitcoin 0.1 release Satoshi Nakamoto included a design that
 is a very good indication of his intentions for the future. He included a
 version field for transactions. This means that we can cleanly upgrade the
-transaction format by creating a new version.</p>
+transaction format by creating a new version. People can then choose on
+creation if they want to use the new or the old format.</p>
 
-<p>The first version has served us well for 8 years, in Bitcoin time that is a
-very long time indeed, but has seen many not very clean hacks to make it
-continue working and we have no way left to extend it into the future. New
+<p>The old format has run out of place to add new features, it has accumulated
+lots of not very clean hacks to make it continue working. New
 features can not be added in any safe way. It is time to look for a new
 format that we can use for decades to come.</p>
 
 <p>Flexible Transactions is that format, it has the version number '4' and it
 has been designed and programmed in Bitcoin Classic by Tom Zander. It
 solves a long list of problems that have eluded solution for years and it
-has been designed with future growth in mind. One of the main features is
-that it allows future upgrades to be done in a much clearer and controlled
-fashion making this a gateway for faster development and better safety for
-everyone's money that Bitcoin holds.</p>
+has been designed with future growth in mind. Flexible Transactions
+allows future upgrades to be done in a much clearer and controlled
+fashion making this stepping stone for cleaner and faster development
+which will hold your coins value safe.</p>
 
-<p>If you want to use Flextrans you need a client that supports it. Bitcoin
-Classic is the main client where support is included (but not enabled)
-in version 1.2 and later.</p>
+<p>Flexible Transactions is still under developement, although it feature
+complete and just being tested and made more stable. Bitcoin
+Classic is the main client where support is included in version 1.2 or
+later.</p>
 
-<p>There are two flags you can pass on the command-line to try this;
+<p>There are two flags you can pass on the command-line to enable support;
 <code>--testnet-ft</code> switches the client to a testnet mode, specifically one that
 is for testing flexible transactions. If nobody is mining at the time, feel
 free to try mining yourself. If you need some coin, send an email to Tom
-with a bitcoin address.</p>
+with a testnet-ft bitcoin address.</p>
 
 <p>Additionally there is the <code>-flextrans</code> option that explicitly enables
 v4 transactions parsing, relaying etc. You don't want to use this option on
 the main chain, but using it on the regtest testing chain is perfectly
 fine.</p>
 
-<p>When you enabled this option, you will notice that the RPC command
-<code>createrawtransaction</code> will allow you to pass the a transaction version and
-it will return a flextrans encoded transaction if you pass version 4.</p>
+<p>When you enabled FlexTrans, you will notice that the RPC command
+<code>createrawtransaction</code> will allow you to pass the transaction version and
+it will return a flextrans encoded transaction if you pass version 4.
+Similarly, the <code>signrawtransaction</code> will support signing of those
+transactions.</p>
 
 <h2 id="Bitcoin_issues_fixed_by_Flexible_Transactions"><a name="index1h2"></a>Bitcoin issues fixed by Flexible Transactions</h2>
 
 <ul>
 <li>Malleability (<a href="./Malleability.html">more</a>)</li>
 <li>Linear scaling of signature checking (<a href="./Quadratic Hashing.html">more</a>)</li>
-<li>Hardware wallet support (proofs)</li>
+<li>Hardware wallet support (proofs) (<a href="./Hardware Wallet Support.html">more</a>)</li>
 <li>Very flexible future extensibility</li>
-<li>Double spend proofs</li>
+<li><a href="./Double Spend Proofs.html">Double Spend Proofs</a></li>
 <li>Makes transactions smaller</li>
 <li>Supports the Lightning Network</li>
 <li>Support future Scripting version increase</li>

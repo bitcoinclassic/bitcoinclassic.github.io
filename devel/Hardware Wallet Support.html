@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Hardware Wallet Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+       <div class="grid">
+         <div class="col-1-3">
+           <a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+         </div>
+         <div class="col-2-3">
+             <button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button>
+         </div>
+       </div>
+      <nav>
+      <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="/devel/index.html" title="Devel">Developers</a></li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+      <div class="content">
+        <section>
+<h1 id="Hardware_Wallet_Support">Hardware Wallet Support</h1>
+
+<p>In Flexible Transactions we included an idea that has been first proposed
+many years ago, but unfortunately it never made it into Bitcoin before.</p>
+
+<p>This feature allows hardware wallets, like <a href="https://www.bitlox.com">bitlox</a>
+in the future to create transactions in the FlexTrans format and they will
+be even safer from any mistakes or tampering with the mobile app or the
+website.</p>
+
+<h2 id="What_is_the_problem_.3F">What is the problem ?</h2>
+
+<p>Hardware wallets use a 2-phase way of creating valid transactions.
+First is that they use a computer connected to the internet to create the
+base transaction. This computer decides how much money has to go where and
+it connects to the Bitcoin network to find out.</p>
+
+<p>The second phase is that this transaction is send to the hardware device
+which actually holds the private keys and so is used to actually authorise
+the transfer.  After user authorisation it signs the transaction and you
+can send it to the network for mining.</p>
+
+<p>This all sounds very safe and secure, except for one design issue in
+Bitcoin. The amount of coins that a certain address holds is not part of
+the transaction that spends it.  An attacker could mislead the computer
+that creates the transaction so it would be under the impression that there
+was only 1 BTC on an address that in reality holds 2BTC. The effect is that
+the hardware wallet would ask the user permission with wrong information
+and the user would lose the difference to mining fees.</p>
+
+<h2 id="How_do_we_solve_that.3F">How do we solve that?</h2>
+
+<p>The 2-phase creation of transactions, as explained above, that is used by
+all hardware wallets today would remain largely unchanged. The only
+difference is that the computer that creates the initial transaction would
+additionally send the amount it thinks the transaction is worth to the
+hardware wallet for signing.</p>
+
+<p>If the transaction is created as a <span class="createlink">Flexible Transaction</span> the hardware
+wallet will use the input-amount in the creation of the signatures.
+This makes the signatures to only be valid if the input amount the hardware
+wallet has received was correct.  If anyone was compromised, the user will
+not lose funds because a full node validating the transaction will simply
+reject the transaction.</p>
+
+<h2 id="I_want_to_know_more.">I want to know more.</h2>
+
+<p>This gets technical very quickly after this point, so thank you for
+sticking around!</p>
+
+<p>Any Bitcoin transaction has its inputs signed because that is the way we
+prove that the money we are spending was actually ours to spend. The
+concept of signing involves a private key that only you know and it
+involves the actual content we sign. Your legal document, essentially.</p>
+
+<p>In Flexible Transactions we define the concept to sign for a specific
+input to be the entire body of the transaction. We additionally add some
+data (see the full list in the <a href="https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md#scripting-changes">spec, section Scripting
+Changes</a>)
+that when hashed together creates one number we then sign.</p>
+
+<p>Any full node that we send the transaction to, and certainly mining nodes,
+will validate the signature to be correct.
+Those full nodes will know exactly how much money is stored in a specific
+address / index pair. Since one input spends all of that money from that
+address/index pair validating the signature is a simple matter of adding
+the amount it had stored in the unspent transaction database and validating
+that the transaction is correct.</p>
+
+<p>Should the 'amount' that was used by the hardware wallet while signing not
+correspond with the 'amount' that any full node knows, this will mean it
+signs something different and thus the signature will fail to validate.</p>
+
+        </section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/>
+        </div>
+        <div class="col-2-3"><span id="copyright">© 2016 Bitcoin Classic</span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

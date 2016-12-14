@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Double Spend Proofs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+       <div class="grid">
+         <div class="col-1-3">
+           <a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+         </div>
+         <div class="col-2-3">
+             <button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button>
+         </div>
+       </div>
+      <nav>
+      <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="/devel/index.html" title="Devel">Developers</a></li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+      <div class="content">
+        <section>
+<h1 id="Double_Spend_Proofs">Double Spend Proofs</h1>
+
+<p>In a normal merchant / customer setting, the customer creates a transaction
+that he then gives to the merchant. Either directly, or via the Bitcoin
+network.
+Upon receiving that transaction the merchant will be able to acknowledge
+and store it allowing the customer to leave.</p>
+
+<p>This means the merchant trust in a zero-confirmation setting where the
+merchant keeps a copy of the transaction and will keep feeding it to the
+network until it confirms. This works out just fine in the vast majority of
+cases.</p>
+
+<p>The customer, however, may have set up some custom software and immediately
+after sending the proper transaction to the network, he sends another
+transaction to a friendly miner.
+This transaction double-spends the money he initially sent to the merchant.</p>
+
+<p>The way that Bitcoin nodes work is that they will reject transactions that
+double spend, and keep the original transaction in the memory pool. With
+5000 nodes this means that if the transactions are send close enough to
+each other, a segment will think the first and another segment will think
+the second transaction is the "proper" transaction.</p>
+
+<p>The merchant then has a non-zero chance of losing his payment if the
+customer's second transaction is the one that gets confirmed.</p>
+
+<h2 id="Isn.27t_zero-confirmation_too_risky_to_use.3F">Isn't zero-confirmation too risky to use?</h2>
+
+<p>As we see above, zero-confirmation is not a guarantee. It has more risk
+than having the payment in the blockchain.</p>
+
+<p>In fact, the amount of risk drops based on the amount of confirmations
+there are. Which is counted in the amount of blocks mined since your
+transaction was included.</p>
+
+<p>So what we can see is that the amount of risk that the payment does not go
+through is reduced over time. In an ideal world everyone would wait 6
+confirmations for any transaction before they call it 'done'.</p>
+
+<p>Merchants and people don't think that black/white and especially businesses
+know that there is always a risk involved, no matter what you do. In actual
+fact the amount of risk of a transaction not reaching him is significantly
+lower in any Bitcoin scenario than it is if, for instance, Visa or
+Mastercard was used.</p>
+
+<h2 id="How_can_we_solve_this.3F">How can we solve this?</h2>
+
+<p>We solve the problem by reducing the risk. A merchant that accepts
+zero-confirmation transactions will always have some risk. A purchase of
+very high worth should not consider zero-conf. The goal is to make the $20
+payments safe enough.</p>
+
+<p>What <a href="./Flexible Transactions.html">Flexible Transactions</a> adds is a fraud-proof for double-spending.
+Any node, and specifically merchant software, can use this as a way to
+alert the network of an attempt at double spending.</p>
+
+<p>The important part here is that not anyone can just generate a
+double-spending alert. If we allowed that there would be a big possibility
+of abuse and a large amount of false-positives that could overwhelm us.</p>
+
+<p>The double-spending-<strong>proof</strong> is created by taking the two transactions
+that are both spending the same money and taking only relevant sub-sections
+which we then forward to our peers. Specifically the one we just received
+the second transaction from.</p>
+
+<p>This proof includes the relevant signatures from the two transactions and
+so any node can independently validate that the proof is valid.
+If it has one of the two transactions in its mempool it will then forward
+it to its peers.</p>
+
+<p>The customer in our example above, who tried to get away without paying
+from our merchant, will send his two transactions in a very small
+time-frame. As the transactions go through all 5000 nodes of the Bitcoin
+network, they will meet somewhere in the middle and the double-spend-proof
+will go in opposite direction notifying all nodes of this attempt.</p>
+
+<p>The ultimate goal is that the merchant will receive this double-spend proof
+as well and he will likely do in one or two seconds after the transaction
+itself arrived.  This allows the merchant to take action in any way that he
+sees fit.</p>
+
+        </section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/>
+        </div>
+        <div class="col-2-3"><span id="copyright">© 2016 Bitcoin Classic</span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>
