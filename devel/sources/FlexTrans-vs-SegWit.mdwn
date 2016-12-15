@@ -16,13 +16,14 @@ old nodes. The reason for this is cited to be that old wallets and nodes
 have no need to upgrade after SegWit becomes operational.
 
 The reality of the situation is that people will need to upgrade their
-client anyway. Users need a SegWit wallet in order to receive a SegWit
-transaction and will want to make all payments of that received SegWit
-transaction as SegWit payments as well. So if a person
-doesn't upgrade they will eventually not be able to accept money from
-anyone. The natural consequence is that everyone will have to get a SegWit
-compatible client sooner or later. And that begs the question if there
-really is a benefit to the SegWit solution.
+wallet anyway. As Bitcoin gets its value from networking we can see that
+networking will cause a ripple effect of upgrades. People that receive a
+payment from a SegWit user will not have any progress reports of that
+payment unless they have a SegWit wallet. Users pay more to users that
+don't have a SegWit wallet. The networked basis of money makes it a
+certainty that practically all people need to upgrade.
+And that begs the question if there really is a benefit to the SegWit
+solution.
 
 Lets start by looking at the end result. What did the implementations
 actually accomplish.
