@@ -120,6 +120,11 @@ actually accomplish.</p>
 <td class="checks">✅</td>
 </tr>
 <tr>
+<td>Signatures can be pruned (in future)</td>
+<td class="checks">✅</td>
+<td class="checks">✅</td>
+</tr>
+<tr>
 <td><a href="Double Spend Proofs.html">Double Spend Proofs</a></td>
 <td class="checks">&#10060;</td>
 <td class="checks">✅</td>
@@ -217,6 +222,30 @@ Additionally, it is a format that is made to be extended. Adding fields to
 the format is expected and can be done safely. FlexTrans even dictates in
 the specification the allocation of various forwards compatible fields
 which can be used for soft upgrades.</p>
+
+<h2 id="Deployment">Deployment</h2>
+
+<p>The main drive for SegWit was to avoid forcing people to SegWit. What we
+see today is that the same authors are pushing people really hard to get
+the latest. They even used the alert system to get people to upgrade their
+client.</p>
+
+<p>As mentioned in the introduction, the move from old transaction to SegWit
+is one direction and receiving a SegWit transaction requires a SegWit
+wallet which then will generate SegWit transactions forcing everyone around
+you to get one too.</p>
+
+<p>All this means that in actual fact the 'safe' upgrade strategy of SegWit is
+not happening. There is no benefit in their architecture over FlexTrans.</p>
+
+<p>The Flexible Transactions deployment is a protocol upgrade that has as of
+today not been planned. The likely method is to decide that at a specific
+time (counted in blocks) in the far future this upgrade will become
+active. Allowing everyone many months to upgrade. <br />
+If a user did not upgrade before the date hits his client will give a
+warning and he will be told to upgrade. Until he does there will be no
+service. This will guarantee no loss in funds and no loss in security or
+privacy.</p>
 
 <h1 id="Conclusion">Conclusion</h1>
 
