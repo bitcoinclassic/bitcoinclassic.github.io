@@ -1,6 +1,6 @@
 # How do SegWit and FlexTrans compare?
 
-Flexible Transactions was started as an alternative solution when it became
+[[Flexible Transactions]] was started as an alternative solution when it became
 apparent that Segregated Witness was not going to be a viable protocol
 upgrade.
 
@@ -16,8 +16,9 @@ old nodes. The reason for this is cited to be that old wallets and nodes
 have no need to upgrade after SegWit becomes operational.
 
 The reality of the situation is that people will need to upgrade their
-client anyway. Once a user gets a SegWit transaction, she will only be able
-to move that money forward in a SegWit wallet. So if a person
+client anyway. Users need a SegWit wallet in order to receive a SegWit
+transaction and will want to make all payments of that received SegWit
+transaction as SegWit payments as well. So if a person
 doesn't upgrade they will eventually not be able to accept money from
 anyone. The natural consequence is that everyone will have to get a SegWit
 compatible client sooner or later. And that begs the question if there
@@ -101,7 +102,7 @@ Like any company or household, if you don't pay off your debt, you will eventual
 <tr>
 <th> Change</th>
 <th> Segregated Witness </th>
-<th> Flexible Transactions </th>
+<th> [[Flexible Transactions]] </th>
 </tr>
 </thead>
 <tbody>
