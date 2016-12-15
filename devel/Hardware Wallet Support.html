@@ -60,7 +60,8 @@
 <p>In Flexible Transactions we included an idea that has been first proposed
 many years ago, but unfortunately it never made it into Bitcoin before.</p>
 
-<p>This feature allows hardware wallets, like <a href="https://www.bitlox.com">bitlox</a>
+<p>This feature allows hardware wallets, like <a href="https://www.bitlox.com"
+target="_extern">bitlox</a>
 in the future to create transactions in the FlexTrans format and they will
 be even safer from any mistakes or tampering with the mobile app or the
 website.</p>
@@ -93,7 +94,7 @@ difference is that the computer that creates the initial transaction would
 additionally send the amount it thinks the transaction is worth to the
 hardware wallet for signing.</p>
 
-<p>If the transaction is created as a <span class="createlink">Flexible Transaction</span> the hardware
+<p>If the transaction is created as a <a href="./Flexible Transactions.html">Flexible Transaction</a> the hardware
 wallet will use the input-amount in the creation of the signatures.
 This makes the signatures to only be valid if the input amount the hardware
 wallet has received was correct.  If anyone was compromised, the user will
@@ -116,17 +117,26 @@ data (see the full list in the <a href="https://github.com/bitcoinclassic/docume
 Changes</a>)
 that when hashed together creates one number we then sign.</p>
 
-<p>Any full node that we send the transaction to, and certainly mining nodes,
+<p>Any full node, including mining nodes, that we send the transaction to
 will validate the signature to be correct.
 Those full nodes will know exactly how much money is stored in a specific
-address / index pair. Since one input spends all of that money from that
-address/index pair validating the signature is a simple matter of adding
+address / index pair. The way Bitcoin works, you always transfer 100% of
+the money stored in a specific address/index pair when you refer to that in
+the transaction input. To validate that transaction input signature it
+is a simple matter for the full node of adding
 the amount it had stored in the unspent transaction database and validating
 that the transaction is correct.</p>
 
 <p>Should the 'amount' that was used by the hardware wallet while signing not
 correspond with the 'amount' that any full node knows, this will mean it
 signs something different and thus the signature will fail to validate.</p>
+
+<p>As a result, this means that a hardware wallet can ask the user for
+permission to sign something and the user can be sure that the transaction
+will only be accepted with the amount she just saw on the hardware wallet.</p>
+
+<p>This simple solution costs no extra bytes in the transaction and secures
+the users trust in the payment technology.</p>
 
         </section>
       </div>
