@@ -94,16 +94,15 @@ allows future upgrades to be done in a much clearer and controlled
 fashion making this stepping stone for cleaner and faster development
 which will hold your coins value safe.</p>
 
-<p>Flexible Transactions is still under developement, although it feature
-complete and just being tested and made more stable. Bitcoin
-Classic is the main client where support is included in version 1.2 or
-later.</p>
+<p>Flexible Transactions is still under developement and can not be used on
+main-net yet. However, it is feature complete and being tested.
+Bitcoin Classic is the main client with support included in version 1.2
+and later.</p>
 
-<p>There are two flags you can pass on the command-line to enable support;
+<p>There are two flags you can pass on the command-line to enable it;
 <code>--testnet-ft</code> switches the client to a testnet mode, specifically one that
-is for testing flexible transactions. If nobody is mining at the time, feel
-free to try mining yourself. If you need some coin, send an email to Tom
-with a testnet-ft bitcoin address.</p>
+is for testing flexible transactions. If you need some coin, send an email
+to Tom with a testnet-ft bitcoin address.</p>
 
 <p>Additionally there is the <code>-flextrans</code> option that explicitly enables
 v4 transactions parsing, relaying etc. You don't want to use this option on
@@ -112,7 +111,7 @@ fine.</p>
 
 <p>When you enabled FlexTrans, you will notice that the RPC command
 <code>createrawtransaction</code> will allow you to pass the transaction version and
-it will return a flextrans encoded transaction if you pass version 4.
+it will return a FlexTrans encoded transaction if you pass version 4.
 Similarly, the <code>signrawtransaction</code> will support signing of those
 transactions.</p>
 
@@ -150,8 +149,8 @@ application that Bitcoin Classic made available for free to
 
 <ul>
 <li>read any transaction and print its contents.</li>
-<li>convert any transaction into the flextrans markup so you can test parsers.</li>
-<li>read flextrans transactions and print warnings encountered during parsing.</li>
+<li>convert any transaction into the FlexTrans markup so you can test parsers.</li>
+<li>read FlexTrans transactions and print warnings encountered during parsing.</li>
 </ul>
 
 <p>The application depends on QtCore being available on the system it is
