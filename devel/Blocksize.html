@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Blocksize</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+       <div class="grid">
+         <div class="col-1-3">
+           <a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+         </div>
+         <div class="col-2-3">
+             <button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button>
+         </div>
+       </div>
+      <nav>
+      <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="/devel/index.html" title="Devel">Developers</a></li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+      <div class="content">
+        <section>
+<h1 id="Blocksize">Blocksize</h1>
+
+<p>In Bitcoin transactions are gathered in blocks which are structured in a
+chain. The reason we use a chain is because of the main innovation
+of Bitcoin which combines it with Proof of Work to have a global consensus
+about the transactions that are accepted.</p>
+
+<p>What is completely irrelevant to this process of gaining consensus is the
+size of each block.  And we can see that over the lifetime of Bitcoin the
+size of blocks has grown based solely on the requirements of the network.</p>
+
+<p>Miners have always been the ones to decide on the block size, and they have
+always done this in a coordinated fashion. This is a natural consequence of
+the rather elegant (economic) design of Bitcoin.</p>
+
+<ul>
+<li>Miners earn more (fee) income when they produce bigger blocks.</li>
+<li>Miners take more risk of their blocks being orphaned with bigger blocks.</li>
+<li>Miners want to avoid emptying the memory pool every block as that removes
+a total need for users to pay fees.</li>
+<li>Miners want to make sure the mempool does not become backlogged because
+users that do not see their transactions confirmed will get disappointed
+and find other means to do payments. Which hurts the price and in effect
+hurts the miners income.</li>
+</ul>
+
+<p>These contradictory values cause the miners to be the ideal custodians
+of the block size. The most correct block size is dependent on
+the amount of paying users and the state of technology. To get the most
+profit out of the system the miners will have to find a market-equilibrium
+for the block size. That market equilibrium happens to be the best for
+all players in Bitcoin.</p>
+
+<h2 id="The_solution">The solution</h2>
+
+<p>For some time now this process has been a problem because the Bitcoin
+protocol has a rule since 2010 which sets the block size to a maximum of
+1MB. The reasons for this limit have long been fixed and there is no longer
+any reason to have this limit.</p>
+
+<p>Bitcoin Classic has removed the 1MB centrally planned limit from its
+software and gives tools to users and miners to protect themselves from
+malicious actors at the same time. We call that the <strong>accept limit</strong>.</p>
+
+<p>The main change is that a Bitcoin Classic node can now be configured
+manually to have any block size limit.</p>
+
+<p>First there is the new <code>blocksizeacceptlimit</code> config setting that
+allows a user to limit blocks by size they will accept from the
+network. For instance if the user would set <code>blocksizeacceptlimit=4.2</code> this
+states that any block over 4.2MB is rejected as too large.</p>
+
+<p>The old config option <code>blockmaxsize</code> is unchanged and this is the option
+that miners set to determine the maximum block size they would create.</p>
+
+<p>The additional change is that Bitcoin Classic creates block templates for
+miners which put the blocksizeacceptlimit value in the coinbase comment.
+This has the effect that a miner's limits are stored in the blockchain and
+for everyone available to see.  Any miner can check the blockchain and find
+out what a safe blockmaxsize setting will get his blocks accepted by other
+miners. But ultimately we expect miners to have a global conversation, in
+any forum that works for them, about the block size they will all use.</p>
+
+<h2 id="Additional_safety_measures">Additional safety measures</h2>
+
+<p>With the introduction of a more soft size limit, one that is no longer
+centrally planned by software developers but instead based on local
+configuration, we see an opportunity to introduce add an extra fail-safe in
+unique situations where a user's configured limits are not representative
+of the real world any longer.</p>
+
+<p>Should a user have configured his limits lower than what miners agreed would
+be the current block size, we want to avoid the users node to essentially
+reject what the rest of the world sees as the main chain.
+This is especially important if there is only one block that is slightly
+larger than expected.  With the user configured limit as a hard limit
+a node rejects any block too large and this would break the chain and the
+client can't accept any blocks after that point either.</p>
+
+<p>Bitcoin Classic introduces a design that takes this configurable size limit
+and makes it possible for a node to recover and get back on the main
+chain.</p>
+
+<p>It is important to stress that this feature is made possible due to the
+user configurable size limits, but there is no reason to believe that it
+will actually cause problems like orphans or chains forks that require this
+feature.</p>
+
+<p>This safety measure is currently still under development and is introduced
+on Toms blog <a href="https://zander.github.io/Blocksize%20Consensus.html">here</a></p>
+
+        </section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/>
+        </div>
+        <div class="col-2-3"><span id="copyright">© 2016 Bitcoin Classic</span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>
