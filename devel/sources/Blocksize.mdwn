@@ -85,5 +85,5 @@ will actually cause problems like orphans or chains forks that require this
 feature.
 
 This safety measure is currently still under development and is introduced
-on Toms blog [here](https://zander.github.io/Blocksize%20Consensus.html)
+on Toms blog [here](https://zander.github.io/posts/Blocksize%20Consensus/)
 
