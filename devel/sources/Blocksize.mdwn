@@ -1,3 +1,8 @@
+**In Bitcoin Classic the block size is no longer limited by rules set by
+software developers. It is set by you, the person running the software.**
+
+This article explains how this works.
+
 # Blocksize
 
 In Bitcoin transactions are gathered in blocks which are structured in a
@@ -5,15 +10,15 @@ chain. The reason we use a chain is because of the main innovation
 of Bitcoin which combines it with Proof of Work to have a global consensus
 about the transactions that are accepted.
 
-What is completely irrelevant to this process of gaining consensus is the
-size of each block.  And we can see that over the lifetime of Bitcoin the
-size of blocks has grown based solely on the requirements of the network.
+The size of this block has never been relevant to this process and we can
+see that over the lifetime of Bitcoin the size of blocks has grown based
+solely on the requirements of the network.
 
 Miners have always been the ones to decide on the block size, and they have
 always done this in a coordinated fashion. This is a natural consequence of
 the rather elegant (economic) design of Bitcoin.
 
-* Miners earn more (fee) income when they produce bigger blocks.
+* Miners earn more fee-based income when they produce bigger blocks.
 * Miners take more risk of their blocks being orphaned with bigger blocks.
 * Miners want to avoid emptying the memory pool every block as that removes
   a total need for users to pay fees.
@@ -22,8 +27,10 @@ the rather elegant (economic) design of Bitcoin.
   and find other means to do payments. Which hurts the price and in effect
   hurts the miners income.
 
-These contradictory values cause the miners to be the ideal custodians
-of the block size. The most correct block size is dependent on
+This behaviour in block size means blocks will not get huge and they will
+not stay small either, because there are reasons for both. And so the size
+will be something in the middle.  The most correct block size is completely
+dependent on
 the amount of paying users and the state of technology. To get the most
 profit out of the system the miners will have to find a market-equilibrium
 for the block size. That market equilibrium happens to be the best for
@@ -31,14 +38,10 @@ all players in Bitcoin.
 
 ## The solution
 
-For some time now this process has been a problem because the Bitcoin
-protocol has a rule since 2010 which sets the block size to a maximum of
-1MB. The reasons for this limit have long been fixed and there is no longer
-any reason to have this limit.
-
-Bitcoin Classic has removed the 1MB centrally planned limit from its
-software and gives tools to users and miners to protect themselves from
-malicious actors at the same time. We call that the **accept limit**.
+Bitcoin Classic has removed the 1MB centrally planned maximum block size
+limits from its software and gives tools to the miners and users to protect
+themselves from malicious actors at the same time. We call that the
+**accept limit**.
 
 The main change is that a Bitcoin Classic node can now be configured
 manually to have any block size limit.
@@ -63,26 +66,21 @@ any forum that works for them, about the block size they will all use.
 
 With the introduction of a more soft size limit, one that is no longer
 centrally planned by software developers but instead based on local
-configuration, we see an opportunity to introduce add an extra fail-safe in
-unique situations where a user's configured limits are not representative
-of the real world any longer.
+configuration, we see an opportunity to introduce an extra fail-safe in
+rare situations where a node has settings slightly different than the rest
+of the world.
 
-Should a user have configured his limits lower than what miners agreed would
-be the current block size, we want to avoid the users node to essentially
-reject what the rest of the world sees as the main chain.
-This is especially important if there is only one block that is slightly
-larger than expected.  With the user configured limit as a hard limit
-a node rejects any block too large and this would break the chain and the
-client can't accept any blocks after that point either.
+This safety measure is still in research and the initial results have been
+that block size limits are a bit more flexible interpreted if there are
+more miners that vote for this block size with their hashpower. This makes
+the network more robust and makes users and miners that run Bitcoin Classic
+be able to recover and get back onto the main chain in rare situations
+where a block is found that is larger than expected.
 
-Bitcoin Classic introduces a design that takes this configurable size limit
-and makes it possible for a node to recover and get back on the main
-chain.
-
-It is important to stress that this feature is made possible due to the
-user configurable size limits, but there is no reason to believe that it
-will actually cause problems like orphans or chains forks that require this
-feature.
+It is important to stress that this feature is *made possible* due to the
+flexible size limit, but just because it is now possible to protect against
+scenarios that could always happen does not mean we believe that the user
+configurable size limit will cause problems that need fixing.
 
 This safety measure is currently still under development and is introduced
 on Toms blog [here](https://zander.github.io/posts/Blocksize%20Consensus/)
