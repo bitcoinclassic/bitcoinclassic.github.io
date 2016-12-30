@@ -56,106 +56,80 @@
     </header>
       <div class="content">
                   <section>
-<h1>Installing on Ubuntu</h1>
 
-<p>The Classic project maintains a package repository at <a href="https://launchpad.net/%7Ebitcoinclassic/+archive/ubuntu/bitcoinclassic/" target="_ext">launchpad.net/~bitcoinclassic/+archive/ubuntu/bitcoinclassic/</a></p>
+<h1>Running Bitcoin Classic on Linux</h1>
 
-<h2>Removing other clients / repos</h2>
+<p>This page describes the ways to install and manage Classic on your Linux machine.</p>
 
-<p>if you have other Bitcoin repositories or clients installed, you should remove these using the package management features. If you are certain you do not have any other bitcoin installed, you may skip directly ahead to the installation.</p>
+<div class="toc">
+	<ol>
+		<li><a href="#distro">Pick an install method</>.</li>
+		<li><a href="#config">Configure your node</a>.</li>
+		<li><a href="#security">Plan and secure your setup</a>.</li>
+		<li><a href="#unstable">Running nightly builds</a>.</li>
+	</ol>
+</div>
 
-<p>You can check if there is any bitcoin packages installed by running;</p>
+<p>Bitcoin Classic ships both a background application (called daemon in Linux) <code>bitcoind</code> and a graphical application <code>bitcoin-qt</code>.
+The daemon version of Bitcoin Classic can run without graphics systems installed on the system and the only way to interact with it is to use the command line.</p>
 
-<pre><code>dpkg -l bitcoin*
-</code></pre>
+<p>Bitcoin Classic packages are created such that the bitcoin-qt application has to be run in a desktop session by the local user and it will download the blockchain into that user's homedir. Warning, this is currently an almost 100GB download!</p>
 
-<p>If the output lists a <code>bitcoin-qt</code> or <code>bitcoind</code> package, you have some other Bitcoin software installed. If either of these are not returned in your listing, you can skip directly ahead to the installation.</p>
+<p>The bitcoind background application is shipped to allow you to run it as its own user and the blockchain is downloaded to the <code>/var/lib/bitcoin</code> directory.
 
-<p>We will now remove the software, this will only remove the conflicting parts. The personal data, like a wallet or the blockchain-data will not be removed.  Before we start, please ensure that your bitcoind or bitcoin-qt application is not running (shut it down cleanly as necessary).<br>
-Then remove its package by running:</p>
+<h2 id="distro">Pick an install method</h2>
 
-<pre><code>sudo apt-get remove bitcoin-qt bitcoind
-</code></pre>
+<p>To integrate best with Linux the Bitcoin Classic team has prepared several options based on which distribution of Linux you are running.</p>
 
-<p>Continue only if the removal of the package(s) was successful!</p>
+<p>The <strong>Ubuntu</strong> family of distros are supported using ubuntu's <a href="https://launchpad.net/%7Ebitcoinclassic/+archive/ubuntu/bitcoinclassic/" target="_ext">launchpad.net</a>.</br>
+Please see our HOWTO for more info:
+<a href="howtos/ubuntu-install.html">howtos/ubuntu-install</a></p>
 
-<p>As a next step, remove other Bitcoin software repositories, as their packages may conflict with those of Classic. For example, if you have the Bitcoin Core PPA installed previously, you can remove it as follows:</p>
+<p>The <strong>ArchLinux</strong> family of distros we support using their <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository" target="_ext">AUR packaging</a> system. You can find the packages maintained by Classic on the Arch infrastructure. Use <a href="https://aur.archlinux.org/packages/bitcoin-classic/" target="_ext">bitcoin-classic</a> for stable releases.</p>
 
-<pre><code>sudo apt-add-repository --remove ppa:bitcoin/bitcoin
-</code></pre>
 
-<p>Running the <code>apt-cache policy | grep bitcoin</code> command should now produce an empty output.</p>
 
-<p>You are now ready to install the Classic PPA and software packages.</p>
+<h2 id="config">Configure your node</h2>
 
-<h2>Installing the Classic repository information (PPA)</h2>
+<p>Bitcoin reads a config file called <code>bitcoin.conf</code>. For GUI usage that file is read from the <code>~/.bitcoin/</code> directory, if you run the daemon using <code>systemd</code> your configfile can be found in <code>/etc/bitcoin/</code></p>
+<p>It is worth noting that editing your config file requires a restart of the software to activate your changes. Be aware that the software at this time doesn't output warnings if you provide invalid or unknown tokens. So be careful with typos!</p>
 
-<p>The following command will install the repository information for Bitcoin Classic:</p>
+<p>You can read the <code>/usr/share/doc/bitcoin/examples/bitcoin.conf</code> for configuration details, or simply run <code>bitcoind --help</code> on the command-line.</p>
 
-<pre><code>sudo apt-add-repository ppa:bitcoinclassic/bitcoinclassic
-</code></pre>
+<h2 id="security">Plan and secure your setup</h2>
 
-<p>If that is successful, you should update the available package information using</p>
+<p>Installing the package will auto create a 'bitcoin' user and group. Please make sure you don't already have those before installing, or your install will fail.</p>
 
-<pre><code>sudo apt-get update
-</code></pre>
+<p>The default setup for your daemon is that it has some config files in <code>/etc/bitcoin/</code> and the blockchain is stored in <code>/var/lib/bitcoind/</code>.</p>
 
-<h2>Installing the Classic client software</h2>
+<p>Running the daemon with systemd will disable the wallet functionality, run it manually, as your own user, if you need a wallet.</p>
 
-<p>There are two software packages which you can install:</p>
+<p>In case your machine is multi-user you should consider that read permissions to the <code>/etc/bitcoin</code> dir will allow a user to communicate (including shutting it down) your bitcoin daemon process. Additionally there is a log file in your <code>/var/lib/bitcoind</code> directory that may contain sensitive information.</p>
+<p>For those multi-user machines we recommend removing the word-readable bit and putting selected users in the bitcoin group.</p>
 
-<ul>
-<li>bitcoin-qt, the graphical client</li>
-<li>bitcoind, the headless client (usually run as a daemon, or service)</li>
-</ul>
+<p>In order to communicate with your <code>bitcoind</code> instance there is a command called <code>bitcoin-cli</code>. Simply run <code>bitcoin-cli help</code> to get a full overview of commands.</p>
 
-<p>You can install either or both of these with:</p>
+<h2 id="unsable">Running nightly builds</h2>
 
-<pre><code>sudo apt-get install bitcoin-qt
-sudo apt-get install bitcoind
-</code></pre>
+<p>Bitcoin Classic has nightly builds from the development branch. You should not run this on production servers unless you know what you are doing!</p>
 
-<p>They can also be installed together (although only one of them can be run at a time).
-After installation, you should have the respective binary package installed in <code>/usr/bin/</code></p>
+<p>For Ubuntu family of systems there is a <a href="https://launchpad.net/~bitcoinclassic/+archive/ubuntu/nightly">launchpad PPA</a>.</p>
 
-<h1>Installing on generic Linux</h1>
+<p>For ArchLinux family of systems there are two AUR packages.</br>
+<a href="https://aur.archlinux.org/packages/bitcoin-classic-git/">bitcoin-classic-git</a> for all of Classic,</br>
+<a href="https://aur.archlinux.org/packages/bitcoind-classic-git/">bitcoind-classic-git</a> for a headless build.</p>
 
-<p>Prebuilt binaries are also provided in compressed tar archives (.tgz) for 32- and 64-bit Linux systems.</p>
+<h2 id="fail">Something didn't work</h2>
 
-<p>Attempting to run the 64-bit binaries on a 32-bit machine will fail. If in doubt, you can check your Linux using</p>
+<p><strong>Installation failed of the package.</strong></p>
+<p>The most likely reason for this is that since version 1.2 Bitcoin Classic creates its own <code>bitcoin</code> user. If you have manually created a user on the machine with the same name, installation will fail.</br>
+You should remove the user from your <code>/etc/passwd</code>, <code>/etc/group</code> and <code>/etc/shadow</code> files. Then you can install the package.  After installation is complete you may want to <code>chown</code> old files to the new user.</p>
 
-<pre><code>uname -m
-</code></pre>
+<p><strong>bitcoin-cli doesn't want to connect</strong></p>
+<p>First please check that the daemon is running. You can use <code>systemctl status bitcoind</code> to check.</br>
+If it is running and you still can't communicate with it, check if your <code>/etc/bincoind/.cookie</code> (hidden) file exists and is readable by the user running <code>bitcoin-cli</code>.</br>
+Last, you should try passing this parameter <code>-conf=/etc/bitcoin/bitcoin.conf</code> to <code>bitcoin-cli</code>.</p>
 
-<p>If the output is <code>x86_64</code> you should obtain the 64-bit version, otherwise the 32-bit version.</p>
-
-<p>Without going into full details, the installation steps are as follows:</p>
-
-<ol>
-<li><p>Download the appropriate tar archive. 
-The "Download" link at <a href="downloads">downloads</a> will take you to the latest release, where you should find .tar.gz files for 32- and 64 bit Linux systems.</p></li>
-<li><p>Unpack it in a place of your choice.
-The software can be run from any ordinary user's folder. For example:</p>
-
-<pre><code>cd /path/where/you/want/to/unpack
-tar xf bitcoin-1.x.y-linux64.tar.gz
-</code></pre>
-
-<p>In the example above, <code>x</code> and <code>y</code> indicate software versions.
-This will create a versioned subfolder, e.g. <code>bitcoin-1.x</code>, containing the Classic software.</p></li>
-<li><p>Run the executable from its installation location (if necessary adapting your PATH setting)</p>
-
-<pre><code>/path/where/you/unpacked/bitcoin-1.x.y/bin/bitcoin-qt
-</code></pre></li>
-</ol>
-
-<p>The archives contain both the graphical and headless clients. The executables are contained in the <code>bin</code> subfolder:</p>
-
-<pre><code>bitcoin-1.x.y/bin/bitcoind
-bitcoin-1.x.y/bin/bitcoin-qt
-</code></pre>
-
-<p>There are also other binaries such as the command line RPC client, <code>bitcoin-cli</code>.</p>
 </section>
       </div>
     <footer>

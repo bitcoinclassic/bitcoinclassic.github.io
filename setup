@@ -1,9 +1,9 @@
 # IkiWiki::Setup::Yaml - YAML formatted setup file
 
-wikiname: devel
+wikiname: bitcoinclassic
 srcdir: sources
-destdir: .
-url: http://bitcoinclassic.com/develop
+destdir: html-temp
+url: http://bitcoinclassic.com
 
 add_plugins:
 - goodstuff
