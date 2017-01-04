@@ -6,6 +6,12 @@ Bitcoin Classic is an open source project that is hosted on
 In Bitcoin Classic we have been working on several projects which
 are either shipped or in progress of being developed.
 
+## [[Blocksize]]
+
+The number one problem to solve is the block size issue. We can't get
+any growth if we have no way to store new customers' transactions.
+Bitcoin Classic ships a solution which is explained here.
+
 ## [[Flexible Transactions]]
 
 Flexible Transactions is a solution for a series of problems that were
@@ -15,9 +21,4 @@ FlexTrans is a protocol upgrade that is in the finishing state of research,
 but the actual roll-out plan to integrate this into Bitcoin is still being
 decided.
 
-## [[Blocksize]]
-
-The number one problem to solve is the block size issue. We can't get
-any growth if we have no way to store new customers' transactions.
-Bitcoin Classic has a solution which is explained here.
 
