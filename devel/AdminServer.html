@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-    <title>index</title>
+    <title>AdminServer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Bitcoin Classic">
     <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
@@ -55,39 +55,60 @@
     </header>
       <div class="content">
         <section>
-<h1 id="Bitcoin_Classic_for_developers.">Bitcoin Classic for developers.</h1>
+<h1 id="Admin_Server">Admin Server</h1>
 
-<p>Bitcoin Classic is an open source project that is hosted on
-<a href="https://github.com/bitcoinclassic/bitcoinclassic">github</a>.</p>
+<p>Following the understanding that a Bitcoin Classic full node is a portal to
+the Bitcoin network, the Admin server is the component that allows entry
+into that network.</p>
 
-<p>In Bitcoin Classic we have been working on several projects which
-are either shipped or in progress of being developed.</p>
+<p>The full node contains the full state of the network and APIs for external
+applications to access that information and to send its own bitcoin data to
+the network. These APIs have been present for some time in the form of the
+RPC http server. Unfortunately, this RPC server has a communications method
+that has a rather unfortunate design and ends up being rather limited. The
+Admin server attempts to improve that.</p>
 
-<h2><a href="./Blocksize.html">Blocksize</a></h2>
+<p>The Admin Server builds on top of the <a href="./NetworkManager.html">NetworkManager</a>, and therefore
+gets all of the features from that component for free.</p>
 
-<p>The number one problem to solve is the block size issue. We can't get
-any growth if we have no way to store new customers' transactions.
-Bitcoin Classic ships a solution which is explained here.</p>
+<p>Additionally the Admin Server uses the <a href="https://github.com/bitcoinclassic/documentation/blob/master/spec/compactmessageformat.md">Compact Message
+Format</a>
+for fast message sending.</p>
 
-<h2><a href="./Flexible Transactions.html">Flexible Transactions</a></h2>
+<p>To compare, the RPC HTTP server that Bitcoin Classic has been shipping for
+some time uses JSON messages, which means they tend to be twice as large
+and about 10 times as slow to parse. Additionally, for every single
+message exchanged between peers, the connection has to be re-established
+because the server uses the REST protocol.</p>
 
-<p>Flexible Transactions is a solution for a series of problems that were
-present in the initial version of Bitcoin. The most well known of which is
-the transaction-malleability issue. <br />
-FlexTrans is a protocol upgrade that is in the finishing state of research,
-but the actual roll-out plan to integrate this into Bitcoin is still being
-decided.</p>
+<p>The speedup of sending/receiving a large number of messages is quite impressive
+opening up whole new set of opportunities formerly impractical.</p>
 
-<h2><a href="./AdminServer.html">Admin Server</a></h2>
+<p>Features;</p>
 
-<p>An usable but unfinished technology that allows the Classic full node to be
-used much more fully by providing various APIs for external projects to
-query and submit date from and to the Bitcoin Network.</p>
+<ul>
+<li>No longer any limit on message size, no need to worry about a cut off
+reply to getting a block.</li>
+<li>Fully multithreading, mostly lock-free operation (locking depends on the
+operation requested).</li>
+<li>A large set of RPC calls have been wrapped allowing them to be called
+from the Admin Server. This work is incomplete and ongoing.</li>
+<li>Cookie (shared-secret) based authentication</li>
+</ul>
 
-<h2><a href="./NetworkManager.html">Network Manger</a></h2>
+<p>Future features;</p>
 
-<p>This is a low-level component supporting a new way to connect to a node and
-in future between nodes.</p>
+<ul>
+<li>Event notifications. Events like new blocks coming in can be pushed out
+to connections that subscribe to it.</li>
+<li>Logging subscriptions. With a little bit of work towards the logging
+system we can make messages be pushed to connections that subscribe to
+it.</li>
+<li>Statistics gathering. The node can 'log' events for statistics gathering,
+but instead of wasting CPU on actually processing the events, it can send
+the data over the wire for a remote data-gathering node which can combine
+it with various other nodes it may monitor.</li>
+</ul>
 
         </section>
       </div>

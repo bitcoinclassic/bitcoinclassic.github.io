@@ -1,0 +1,34 @@
+# Network Manager
+
+The network communication layer in Bitcoin was showing its age and Bitcoin
+Classic has included a new component called the Network Manager.
+The Network Manager is an advanced network layer that will speed up network
+communications for any network protocol that would use it. In the long term
+we may end up with the Bitcoin peer-to-peer (p2p) layer using it, for now
+the usage is limited to the [[AdminServer]].
+
+The is designed to send messages to connected peers. Messages are addressed
+to services and messages have a message ID. This basic design allows
+various components of the same application to reuse the same connection
+without interference making the network manager do the routing and
+delivering the message to the right service.
+
+The first version of the NM has the following features:
+
+* Direct socket communication.
+* Follows the principle of making the common easy (and fast) and the
+  complex possible. For instance message-headers are auto generated
+  if not supplied, but a user can generate the whole thing if they so
+  wish.
+* zero-copy sending/receiving of messages.
+* lock-free operation for sending/receiving of messages.
+* asynchronous operation. By default uses multithreading.
+* uses zero singletons and zero global variables.
+* priority-queues. (all messages are not equal).
+* The network layer is messages-based, allowing the user to send
+  messages to certain services on a peer, much like zmq allows.
+* Optimised binary protocol
+  [CMF](https://github.com/bitcoinclassic/documentation/blob/master/spec/compactmessageformat.md),
+  saving a lot of bandwidth.
+* build in temporary banning (punishment) of misbehaving connections.
+

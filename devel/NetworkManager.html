@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-    <title>index</title>
+    <title>NetworkManager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Bitcoin Classic">
     <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
@@ -55,39 +55,41 @@
     </header>
       <div class="content">
         <section>
-<h1 id="Bitcoin_Classic_for_developers.">Bitcoin Classic for developers.</h1>
+<h1 id="Network_Manager">Network Manager</h1>
 
-<p>Bitcoin Classic is an open source project that is hosted on
-<a href="https://github.com/bitcoinclassic/bitcoinclassic">github</a>.</p>
+<p>The network communication layer in Bitcoin was showing its age and Bitcoin
+Classic has included a new component called the Network Manager.
+The Network Manager is an advanced network layer that will speed up network
+communications for any network protocol that would use it. In the long term
+we may end up with the Bitcoin peer-to-peer (p2p) layer using it, for now
+the usage is limited to the <a href="./AdminServer.html">AdminServer</a>.</p>
 
-<p>In Bitcoin Classic we have been working on several projects which
-are either shipped or in progress of being developed.</p>
+<p>The is designed to send messages to connected peers. Messages are addressed
+to services and messages have a message ID. This basic design allows
+various components of the same application to reuse the same connection
+without interference making the network manager do the routing and
+delivering the message to the right service.</p>
 
-<h2><a href="./Blocksize.html">Blocksize</a></h2>
+<p>The first version of the NM has the following features:</p>
 
-<p>The number one problem to solve is the block size issue. We can't get
-any growth if we have no way to store new customers' transactions.
-Bitcoin Classic ships a solution which is explained here.</p>
-
-<h2><a href="./Flexible Transactions.html">Flexible Transactions</a></h2>
-
-<p>Flexible Transactions is a solution for a series of problems that were
-present in the initial version of Bitcoin. The most well known of which is
-the transaction-malleability issue. <br />
-FlexTrans is a protocol upgrade that is in the finishing state of research,
-but the actual roll-out plan to integrate this into Bitcoin is still being
-decided.</p>
-
-<h2><a href="./AdminServer.html">Admin Server</a></h2>
-
-<p>An usable but unfinished technology that allows the Classic full node to be
-used much more fully by providing various APIs for external projects to
-query and submit date from and to the Bitcoin Network.</p>
-
-<h2><a href="./NetworkManager.html">Network Manger</a></h2>
-
-<p>This is a low-level component supporting a new way to connect to a node and
-in future between nodes.</p>
+<ul>
+<li>Direct socket communication.</li>
+<li>Follows the principle of making the common easy (and fast) and the
+complex possible. For instance message-headers are auto generated
+if not supplied, but a user can generate the whole thing if they so
+wish.</li>
+<li>zero-copy sending/receiving of messages.</li>
+<li>lock-free operation for sending/receiving of messages.</li>
+<li>asynchronous operation. By default uses multithreading.</li>
+<li>uses zero singletons and zero global variables.</li>
+<li>priority-queues. (all messages are not equal).</li>
+<li>The network layer is messages-based, allowing the user to send
+messages to certain services on a peer, much like zmq allows.</li>
+<li>Optimised binary protocol
+<a href="https://github.com/bitcoinclassic/documentation/blob/master/spec/compactmessageformat.md">CMF</a>,
+saving a lot of bandwidth.</li>
+<li>build in temporary banning (punishment) of misbehaving connections.</li>
+</ul>
 
         </section>
       </div>

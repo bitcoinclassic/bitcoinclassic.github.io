@@ -21,4 +21,14 @@ FlexTrans is a protocol upgrade that is in the finishing state of research,
 but the actual roll-out plan to integrate this into Bitcoin is still being
 decided.
 
+## [[Admin Server|AdminServer]]
+
+An usable but unfinished technology that allows the Classic full node to be
+used much more fully by providing various APIs for external projects to
+query and submit date from and to the Bitcoin Network.
+
+## [[Network Manger|NetworkManager]]
+
+This is a low-level component supporting a new way to connect to a node and
+in future between nodes.
 

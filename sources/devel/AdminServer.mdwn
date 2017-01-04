@@ -1,0 +1,52 @@
+# Admin Server
+
+Following the understanding that a Bitcoin Classic full node is a portal to
+the Bitcoin network, the Admin server is the component that allows entry
+into that network.
+
+The full node contains the full state of the network and APIs for external
+applications to access that information and to send its own bitcoin data to
+the network. These APIs have been present for some time in the form of the
+RPC http server. Unfortunately, this RPC server has a communications method
+that has a rather unfortunate design and ends up being rather limited. The
+Admin server attempts to improve that.
+
+The Admin Server builds on top of the [[NetworkManager]], and therefore
+gets all of the features from that component for free.
+
+Additionally the Admin Server uses the [Compact Message
+Format](https://github.com/bitcoinclassic/documentation/blob/master/spec/compactmessageformat.md)
+for fast message sending.
+
+To compare, the RPC HTTP server that Bitcoin Classic has been shipping for
+some time uses JSON messages, which means they tend to be twice as large
+and about 10 times as slow to parse. Additionally, for every single
+message exchanged between peers, the connection has to be re-established
+because the server uses the REST protocol.
+
+The speedup of sending/receiving a large number of messages is quite impressive
+opening up whole new set of opportunities formerly impractical.
+
+
+Features;
+
+* No longer any limit on message size, no need to worry about a cut off
+  reply to getting a block.
+* Fully multithreading, mostly lock-free operation (locking depends on the
+  operation requested).
+* A large set of RPC calls have been wrapped allowing them to be called
+  from the Admin Server. This work is incomplete and ongoing.
+* Cookie (shared-secret) based authentication
+
+Future features;
+
+* Event notifications. Events like new blocks coming in can be pushed out
+  to connections that subscribe to it.
+* Logging subscriptions. With a little bit of work towards the logging
+  system we can make messages be pushed to connections that subscribe to
+  it.
+* Statistics gathering. The node can 'log' events for statistics gathering,
+  but instead of wasting CPU on actually processing the events, it can send
+  the data over the wire for a remote data-gathering node which can combine
+  it with various other nodes it may monitor.
+
