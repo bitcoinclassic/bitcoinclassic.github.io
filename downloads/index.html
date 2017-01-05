@@ -29,7 +29,7 @@
     function updateIsoUrl(version) {
         var architecture = document.getElementById(version + "select");
         architecture = architecture.options[architecture.selectedIndex].value;
-        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v$1/bitcoin-$1-$2";
+        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v$1/bitcoin-$1$2";
         url = url.replace("$1", version);
         url = url.replace("$1", version);
         url = url.replace("$2", architecture);
@@ -87,14 +87,15 @@ jQuery('#16.10select').trigger('change');
     <form id="1.2.0download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0/bitcoin-1.2.0-linux64.tar.gz" method="get">
     <fieldset><label>Choose your flavour</label><br />
     <select class="download" id="1.2.0select" onchange="updateIsoUrl(&quot;1.2.0&quot;)">
-        <option selected="selected" value="linux64.tar.gz">Linux 64-bit</option>
-        <option value="linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
-        <option value="osx.dmg">Mac OSX</option>
-        <option value="win64-setup.exe">Windows setup 64-bit</option>
-        <option value="win32-setup.exe">Windows setup 32-bit</option>
-        <option value="armhf-cli.tar.gz">ARM-hf (raspberry-pi)</option>
-        <option value="win64.zip">Win-64 zip</option>
-        <option value="win32.zip">Win-32 zip</option>
+        <option selected="selected" value="-linux64.tar.gz">Linux 64-bit</option>
+        <option selected="selected" value=".deb">Linux debian (deb) 64-bit</option>
+        <option value="-linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
+        <option value="-osx.dmg">Mac OSX</option>
+        <option value="-win64-setup.exe">Windows setup 64-bit</option>
+        <option value="-win32-setup.exe">Windows setup 32-bit</option>
+        <option value="-armhf-cli.tar.gz">ARM-hf (raspberry-pi)</option>
+        <option value="-win64.zip">Win-64 zip</option>
+        <option value="-win32.zip">Win-32 zip</option>
     </select></fieldset>
     <div><button class="download" type="submit">Download</button></div>
     </form>
