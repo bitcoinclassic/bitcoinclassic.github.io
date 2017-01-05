@@ -36,16 +36,6 @@
         var formID = version + "download";
         document.getElementById(formID).action = url;
     }
-    function updateIsoUrl12(version) {
-        var architecture = document.getElementById(version + "select");
-        architecture = architecture.options[architecture.selectedIndex].value;
-        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0.b1/bitcoin-$1-$2";
-        url = url.replace("$1", version);
-        url = url.replace("$1", version);
-        url = url.replace("$2", architecture);
-        var formID = version + "download";
-        document.getElementById(formID).action = url;
-    }
 jQuery('#16.10select').trigger('change');
 </script>
   </head>
@@ -86,19 +76,17 @@ jQuery('#16.10select').trigger('change');
      <section>
     <div class="release_box">
     <div class="box eight-col">
-    <h2>Bitcoin Classic 1.1.1</h2>
+    <h2>Bitcoin Classic 1.2.0</h2>
 
-    <p>Bitcoin Classic 1.1.1 is based on Bitcoin Core version 0.12.1, and is compatible with its blockchain files and wallet.
-    Additionally, this release includes the increase of the block size limit from one megabyte to two megabytes.</p>
+    <p>Jan 5 2017. This release marks a change in strategy of Classic, moving from the very conservative and compromising block size change to one where Classic truly innovates and provides a long term solution for the market to choose and leave behind the restrictions of old.</p>
 
-    <p>This bugfix release fixes various issues and we believe this is the best stable version of Classic and we recommend everyone upgrade as soon as possible.</p>
+    <p>Bitcoin Classic 1.2.0 is fully compatible with Bitcoin Core downloaded block chain and wallet.</p>
 
-    <p>One notable change is that starting at this release Bitcoin Classic will no longer respond to network-alerts.</p>
     </div>
     <div class="box four-col">
-    <form id="1.1.1download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.1.1/bitcoin-1.1.1-linux64.tar.gz" method="get">
+    <form id="1.2.0download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0/bitcoin-1.2.0-linux64.tar.gz" method="get">
     <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.1.1select" onchange="updateIsoUrl(&quot;1.1.1&quot;)">
+    <select class="download" id="1.2.0select" onchange="updateIsoUrl(&quot;1.2.0&quot;)">
         <option selected="selected" value="linux64.tar.gz">Linux 64-bit</option>
         <option value="linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
         <option value="osx.dmg">Mac OSX</option>
@@ -110,45 +98,9 @@ jQuery('#16.10select').trigger('change');
     </select></fieldset>
     <div><button class="download" type="submit">Download</button></div>
     </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.1.1">Github link</a></div>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.0">Github link</a></div>
     </div></div>
 
-    <div class="release_box">
-    <div class="box eight-col">
-    <h2>Bitcoin Classic 1.2 BETA</h2>
-
-    <p>I’m happy to let you know that we have now reached our first milestone towards the release of Bitcoin Classic 1.2. The beta version is now ready, and can be downloaded below. As a new minor release, 1.2 comes with a lot of new features as well as many bug fixes and improvements. We’ll go through all the new features in more detail as we get closer to the release. For now, let me just mention two of the biggest changes.</p>
-    <h3>Flexible Transactions</h3>
-
-    <p>FlexTrans is a new transaction format that solves all cases of malleability and thus makes Bitcoin ready for future technologies like the Lightning Network. (blog) It also cleans up a lot of technical debt and provides a clean road forward for a long list of protocol improvements which will be possible equally clean and technical-debt free.</p>
-
-    <p>For instance FlexTrans allows us to remove signatures from a block after it has been validated, which in practice means about 75% size reduction. Additionally this technology completely replaces any need for segregated witness.</p>
-
-    <p>Flexible Transactions is a new technology and would benefit from more usage and testing. This release does not allow FT on main-net.</p>
-    <h3>xthin-blocks</h3>
-
-    <p>This release includes support for the extra-thin blocks technology which solves the problem of block propagation causing delays because it only sends a small fraction of the data when a block is found and cleverly rebuilds it from the mempool of its own node.</p>
-
-    <p>I hope you'll enjoy Bitcoin Classic 1.2beta. Please download it below and don't forget to give us feedback by writing to us on slack or reporting bugs.</p>
-
-    </div>
-    <div class="box four-col">
-    <form id="1.2bdownload" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.0.b1/bitcoin-1.2b-linux64.tar.gz" method="get">
-    <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.2bselect" onchange="updateIsoUrl12(&quot;1.2b&quot;)">
-        <option selected="selected" value="linux64.tar.gz">Linux 64-bit</option>
-        <option value="linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
-        <option value="osx.dmg">Mac OSX</option>
-        <option value="win64-setup.exe">Windows setup 64-bit</option>
-        <option value="win32-setup.exe">Windows setup 32-bit</option>
-        <option value="armhf-cli.tar.gz">ARM-hf (raspberry-pi)</option>
-        <option value="win64.zip">Win-64 zip</option>
-        <option value="win32.zip">Win-32 zip</option>
-    </select></fieldset>
-    <div><button class="download" type="submit">Download</button></div>
-    </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.0.b1">Github link</a></div>
-    </div></div>
      </section>
       </div>
 
