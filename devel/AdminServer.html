@@ -61,6 +61,11 @@
 the Bitcoin network, the Admin server is the component that allows entry
 into that network.</p>
 
+<p>The admin server is by default not enabled, making it take no resources. By
+adding the <code>-adminserver=1</code> argument you can enable it and using the
+<code>-admincookiefile=&lt;loc&gt;</code> argument you can point it to a random data file
+that allows login for all that know the contents of that file.</p>
+
 <p>The full node contains the full state of the network and APIs for external
 applications to access that information and to send its own bitcoin data to
 the network. These APIs have been present for some time in the form of the

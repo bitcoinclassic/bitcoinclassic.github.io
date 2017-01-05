@@ -36,6 +36,12 @@ profit out of the system the miners will have to find a market-equilibrium
 for the block size. That market equilibrium happens to be the best for
 all players in Bitcoin.
 
+Classic will accept blocks produced by all other current implementations of
+node software, including Core, Unlimited, etc. Blocks produced by Classic
+will be accepted by all other softwares, including Core, if less than 1MB
+and by Unlimited and others but not by Core if blocks created are 1MB or
+larger.
+
 Classic will put the user-selected (or default) block size limit in the
 coinbase message in the form "EB2" where the number is the amount of
 megabytes this node accepts.  
