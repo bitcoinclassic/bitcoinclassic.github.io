@@ -1,0 +1,49 @@
+# Upgrade Guide
+
+*[[Flexible Transactions]] is a new technology that is still in testing and
+not available on the network. For information purposes this page explains
+what exactly needs to happen in order to start using FlexTrans in Bitcoin.*
+
+At its basis, Flexible Transactions is a new format that can be deployed
+alongside anything we currently have.  
+This means that Flexible Transactions on the Bitcoin network will not cause
+any problems with value stored in old transactions. All old coins will
+continue to have value. Even things like n-lock-time based transactions
+people may have stored on their harddrive will continue to be valid.
+
+FlexTrans uses the same addressing method that current transactions use.
+You can spend an old tx with a flextrans one and vice versa.
+
+## Thin Wallet users (SPV).
+
+If you use a desktop application or one on your phone this is you. Also if
+you use a specific hardware wallet.
+
+Flexible Transactions is fully backwards compatible as long as you
+personally don't actually receive a transaction of the new format.
+People only need to get a wallet that supports FlexTrans if they receive a
+Flexible Transaction or if they want to create one themselves. Users may
+want to create the new format because Flexible Transactions are smaller and
+have more features that make payments more secure.
+
+When a user sends a old style transaction that spends a flextrans one to a
+user that does not have a flextrans wallet, that user will only get notified
+of the payment when the transaction gets mined. She will not get a
+notification before that.
+
+## Full nodes.
+
+The bitcoin full node has as the definition that it will validate all
+transactions and all blocks. As such this node software will have to be
+able to understand the FlexTrans format in order to validate it.
+
+## Mining pool operators.
+
+This group is essentially the same as the full-node group.
+
+## Miners
+
+Miners use special software to communicate with their mining pool operator.
+That software does not need to have any changes made for FlexTrans to work.
+
+

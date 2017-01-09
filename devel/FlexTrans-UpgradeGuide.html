@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>FlexTrans-UpgradeGuide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+    <script src="/assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <header>
+       <div class="grid">
+         <div class="col-1-3">
+           <a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+         </div>
+         <div class="col-2-3">
+             <button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button>
+         </div>
+       </div>
+      <nav>
+      <ul class="menu">
+        <li>
+            <a class="" href="#" title="Getting started">Getting Started</a>
+            <ul>
+                <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+                <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+                <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+            </ul>
+        </li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="/devel/index.html" title="Devel">Developers</a></li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+      <div class="content">
+        <section>
+<h1 id="Upgrade_Guide">Upgrade Guide</h1>
+
+<p><em><a href="./Flexible Transactions.html">Flexible Transactions</a> is a new technology that is still in testing and
+not available on the network. For information purposes this page explains
+what exactly needs to happen in order to start using FlexTrans in Bitcoin.</em></p>
+
+<p>At its basis, Flexible Transactions is a new format that can be deployed
+alongside anything we currently have. <br />
+This means that Flexible Transactions on the Bitcoin network will not cause
+any problems with value stored in old transactions. All old coins will
+continue to have value. Even things like n-lock-time based transactions
+people may have stored on their harddrive will continue to be valid.</p>
+
+<p>FlexTrans uses the same addressing method that current transactions use.
+You can spend an old tx with a flextrans one and vice versa.</p>
+
+<h2 id="Thin_Wallet_users_.28SPV.29.">Thin Wallet users (SPV).</h2>
+
+<p>If you use a desktop application or one on your phone this is you. Also if
+you use a specific hardware wallet.</p>
+
+<p>Flexible Transactions is fully backwards compatible as long as you
+personally don't actually receive a transaction of the new format.
+People only need to get a wallet that supports FlexTrans if they receive a
+Flexible Transaction or if they want to create one themselves. Users may
+want to create the new format because Flexible Transactions are smaller and
+have more features that make payments more secure.</p>
+
+<p>When a user sends a old style transaction that spends a flextrans one to a
+user that does not have a flextrans wallet, that user will only get notified
+of the payment when the transaction gets mined. She will not get a
+notification before that.</p>
+
+<h2 id="Full_nodes.">Full nodes.</h2>
+
+<p>The bitcoin full node has as the definition that it will validate all
+transactions and all blocks. As such this node software will have to be
+able to understand the FlexTrans format in order to validate it.</p>
+
+<h2 id="Mining_pool_operators.">Mining pool operators.</h2>
+
+<p>This group is essentially the same as the full-node group.</p>
+
+<h2 id="Miners">Miners</h2>
+
+<p>Miners use special software to communicate with their mining pool operator.
+That software does not need to have any changes made for FlexTrans to work.</p>
+
+        </section>
+      </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/>
+        </div>
+        <div class="col-2-3"><span id="copyright">© 2017 Bitcoin Classic</span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>
