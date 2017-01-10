@@ -88,7 +88,7 @@ actually accomplish.
 </table>
 
 In the last row this is about an economics issue where SegWit introduces "Two Buckets" with new pricing and new fee bidding.
-In the design of SegWit the signatures part of a transaction are to be charged 75% less than the rest, making two buckets of data. The designers of SegWit decided that the miners should incur the cost where miners do up till 4 times the work, for the same pay.
+In the design of SegWit the signatures part of a transaction are to be charged 75% less than the rest, making two buckets of data. The designers of SegWit decided that the miners should incur the cost where miners do up to 4 times the work, for the same pay.
 This is an anti-feature where technical design is trying to gain an influence on economic policy and thus very much worth putting a cross in the SegWit column for.
 
 
