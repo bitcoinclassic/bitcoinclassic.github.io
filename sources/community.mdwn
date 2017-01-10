@@ -1,0 +1,20 @@
+## About Bitcoin Classic
+
+Bitcoin Classic is an international team co-operating on development and distribution of Free, Open source Software tools that build and support the Bitcoin network.
+
+## Is it difficult to get involved?
+
+Not at all! Bitcoin Classic uses a range of tools and infrastructure to enable smooth communicaion services. We can provide feedback on your code and other contributions with the goal of helping you learn. Of course, a pro-active attitude and a friendly personality helps.
+
+## What does Bitcoin Classic produce?
+
+The main product is the Bitcoin full node software of the same name which is a true on-ramp onto the Bitcoin network. Further software provides solutions and ideas on how to use the Bitcoin network more fully.
+Content produced by us is aimed at raising awareness and knowledge about the various technical aspects of Bitcoin that our members find important. Examples of this are this website and articles, videos and blogs published around the web.
+
+## Where can I find you?
+
+We have our own Reddit sub; /r/[bitcoin\_classic](https://reddit.com/r/bitcoin_classic). Any questions, project discussions, related news or introductions are more than welcome there.
+
+On Github all our code and documentation is hosted, even this website is open for editing there! You can start contributing code, fixes and documentation directly via [Github](https://github.com/bitcoinclassic/).
+
+If you want to talk to us directly, please join our [https://bitcoinclassic.slack.com](slack), please send a quick email to TomZ@freedommail.ch to get you started.
