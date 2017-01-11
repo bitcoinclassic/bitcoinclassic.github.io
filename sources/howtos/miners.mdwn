@@ -1,0 +1,24 @@
+# How to use Bitcoin Classic for mining.
+
+Bitcoin Classic is a full node implemenation that has minimal changes compared to most other full node implementations. There is in fact only one new option and one default change that are relevant for mining operators.
+
+## Block size
+
+Miners changing from Core or BU to Classic should be aware of the following two options and choose appropriate values.
+
+<table border=1>
+<tr><td><b>blocksizeacceptlimit</b> (new)</td>
+<tr><td>This node will not accept blocks larger than this limit. Unit is in MB.</br>
+Blocks that are offered to this node are checked for total byte count and rejected if they exceed the limit given in this config option.  While the unit is in megabytes, the precision is 100KB. This means that passing 1.2 is legal. Passing 1.25 is legal, but it is equivalent to passing 1.2.</br>
+Miners should be aware that the setting of this option will be added to the coinbase message of mined blocks with the prefix 'EB'.
+</td></tr>
+<tr><td>Default: 3.7</td></tr>
+<tr><td>Note: for compatibility with Bitcoin Unlimited we read the option called excessiveblocksize should the blocksizeacceptlimit not be present. It is important to realize that the excessiveblocksize option is in bytes, not in megabytes.</td></tr>
+</table>
+
+<table border=1>
+<tr><td><b>blockmaxsize</b></td>
+<tr><td>Set maximum block size in bytes.</br>Miners should always set this to the value that the network accepts. While we still have many Core nodes this should not be higher than 1000000.</td></tr>
+<tr><td>Default: 2000000</td></tr>
+</table>
+

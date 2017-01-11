@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>miners</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+      <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+      <div class="grid">
+        <div class="col-1-3"><a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a></div>
+        <div class="col-2-3"><button id="openMenu" class="openMenu" name="Menu toggle"><img src="assets/img/menu_open.png" alt="Open menu"></button></div>
+      </div>
+      <nav>
+      <ul class="menu">
+        <li>
+          <a class="" href="#" title="Getting started">Getting Started</a>
+          <ul>
+            <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+            <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+            <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="#" title="Developers">Developers</a>
+          <ul>
+            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
+            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
+            <li><a class="" href="/devel/Flexiblex%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
+            <li><a class="" href="/devel/NetworkManger.html" title="NetworkManger">Network Manger</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <section>
+<h1 id="How_to_use_Bitcoin_Classic_for_mining.">How to use Bitcoin Classic for mining.</h1>
+
+<p>Bitcoin Classic is a full node implemenation that has minimal changes compared to most other full node implementations. There is in fact only one new option and one default change that are relevant for mining operators.</p>
+
+<h2 id="Block_size">Block size</h2>
+
+<p>Miners changing from Core or BU to Classic should be aware of the following two options and choose appropriate values.</p>
+
+<p><strong>blocksizeacceptlimit</strong> (new)</p>
+
+<blockquote>
+  <p>This node will not accept blocks larger than this limit. Unit is in MB. <br />
+  Blocks that are offered to this node are checked for total byte count and rejected if they exceed the limit given in this config option.  While the unit is in megabytes, the precision is 100KB. This means that passing 1.2 is legal. Passing 1.25 is legal, but it is equivalent to passing 1.2. <br />
+  Miners should be aware that the setting of this option will be added to the coinbase message of mined blocks with the prefix 'EB'.</p>
+  
+  <p>Default: 3.7</p>
+  
+  <p>Note: for compatibility with Bitcoin Unlimited we read the option called excessiveblocksize should the blocksizeacceptlimit not be present. It is important to realize that the excessiveblocksize option is in bytes, not in megabytes.</p>
+</blockquote>
+
+<p><strong>blockmaxsize</strong></p>
+
+<blockquote>
+  <p>Set maximum block size in bytes...
+  Miners should always set this to the value that the network accepts. While we still have many Core nodes this should not be higher than 1000000.</p>
+  
+  <p>Default: 2000000</p>
+</blockquote>
+
+      </section>
+    </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/></div>
+        <div class="col-2-3"><span id="copyright">© 2016-2017 Bitcoin Classic</br>
+            Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC by-sa</a></span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>
