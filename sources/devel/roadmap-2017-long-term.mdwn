@@ -35,6 +35,9 @@ ability to cleanly make backwards compatible changes. Adding a new field in
 an existing p2p message is much cleaner than having to create an entire new
 message-type with all the same info, plus one item.
 
+Note; *The basic concepts of Bitcoin are sane and sound*, we should not change
+those!
+
 ### 3 Access to blockchain as a database
 
 Bitcoin as an industry depends on the blockchain as the universal database
