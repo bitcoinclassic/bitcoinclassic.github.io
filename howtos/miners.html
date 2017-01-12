@@ -49,9 +49,9 @@
           <ul>
             <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
             <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
-            <li><a class="" href="/devel/Flexiblex%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
             <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
-            <li><a class="" href="/devel/NetworkManger.html" title="NetworkManger">Network Manger</a></li>
+            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
           </ul>
         </li>
         <li><a class="" href="/news.html" title="News">News</a></li>
@@ -62,7 +62,7 @@
       <section>
 <h1 id="How_to_use_Bitcoin_Classic_for_mining.">How to use Bitcoin Classic for mining.</h1>
 
-<p>Bitcoin Classic is a full node implemenation that has minimal changes compared to most other full node implementations. There is in fact only one new option and one default change that are relevant for mining operators.</p>
+<p>Bitcoin Classic is a full node implementation that has minimal changes compared to most other full node implementations. There is in fact only one new option and one default change that are relevant for mining operators.</p>
 
 <h2 id="Block_size">Block size</h2>
 
@@ -72,12 +72,12 @@
 
 <blockquote>
   <p>This node will not accept blocks larger than this limit. Unit is in MB. <br />
-  Blocks that are offered to this node are checked for total byte count and rejected if they exceed the limit given in this config option.  While the unit is in megabytes, the precision is 100KB. This means that passing 1.2 is legal. Passing 1.25 is legal, but it is equivalent to passing 1.2. <br />
+  Blocks that are offered to this node are checked for total byte count and rejected if they exceed the limit given in this configuration option.  While the unit is in megabytes, the precision is 100KB. This means that passing 1.2 is legal. Passing 1.25 is legal, but it is equivalent to passing 1.2. <br />
   Miners should be aware that the setting of this option will be added to the coinbase message of mined blocks with the prefix 'EB'.</p>
   
   <p>Default: 3.7</p>
   
-  <p>Note: for compatibility with Bitcoin Unlimited we read the option called excessiveblocksize should the blocksizeacceptlimit not be present. It is important to realize that the excessiveblocksize option is in bytes, not in megabytes.</p>
+  <p>Note: for compatibility with Bitcoin Unlimited we read the option called excessiveblocksize should the blocksizeacceptlimit not be present. It is important to realise that the excessiveblocksize option is in bytes, not in megabytes.</p>
 </blockquote>
 
 <p><strong>blockmaxsize</strong></p>
