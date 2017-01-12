@@ -75,7 +75,7 @@ After installation, you should have the respective binary package installed in <
 
 <ol>
 <li><p>Download the appropriate tar archive. 
-The "Download" link at <a href="downloads">downloads</a> will take you to the latest release, where you should find .tar.gz files for 32- and 64 bit Linux systems.</p></li>
+The "Download" link at <a href="/downloads">downloads</a> will take you to the latest release, where you should find .tar.gz files for 32- and 64 bit Linux systems.</p></li>
 <li><p>Unpack it in a place of your choice.
 The software can be run from any ordinary user's folder. For example:</p>
 
