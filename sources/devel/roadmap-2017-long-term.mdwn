@@ -1,0 +1,169 @@
+# Roadmap. Long term.
+
+[[!toc levels=2]]
+
+## Goals
+
+### 1 Protocol documentation
+
+Bitcoin as a whole is something we often call a protocol. But unlike most
+protocols, there is preciously little documentation out there that
+describes in detail what actually goes over the wire and what actually is
+the reason a transaction stores numeric values in 3 different ways.
+
+**The first goal is to move towards a Bitcoin that is fully documented.**
+The point here is that the documentation of the protocol is to be
+'leading'. So if there are two implementations that disagree, the
+protocol-documentation is the one that is right. This avoids fluffy
+arguments like who has the biggest market share or who has been around
+longest as those somehow being more right.
+
+### 2 Backwards compatibility of protocol
+
+Parts of the current Bitcoin protocol were designed without keeping in mind
+industry best practices. For many parts this is not a big deal, but some
+those best practices were there for a very good reason. A good example is
+that practically all of the data structures in the Bitcoin protocol are not
+changeable. It is impossible to add a value to a p2p message, you can't
+remove an unused variable that is stored in each and every transaction.
+
+**The second goal is to move towards tagged protocol data-structures**.
+The idea of tagged data goes back decades, well before Bitcoin was created.
+The point here is that we know mistakes have been made and will continue to
+be made by humans extending and fixing Bitcoin. For this reason we need the
+ability to cleanly make backwards compatible changes. Adding a new field in
+an existing p2p message is much cleaner than having to create an entire new
+message-type with all the same info, plus one item.
+
+### 3 Access to blockchain as a database
+
+Bitcoin as an industry depends on the blockchain as the universal database
+that everyone shares and uses. The main property of a database is that it
+can provide fast access to the information you seek. A normal database
+would be able to return all transactions since a certain date, as a quick
+example.
+
+Unfortunately the blockchain in any full node has data-access methods that
+are quite primitive and very very slow, making the blockchain essentially
+private data. This means that block explorers end up having to re-create
+a full database. Research of usage patterns and many properties are limited
+to a few that have plenty of patience.
+
+**The third goal is to move towards a full node that provides full access
+to Bitcoin, including its database**.
+The simple access of the raw data is something that can be made
+substantially faster and it opens the node to being much more useful for a
+large range of features.
+
+
+## Implementation
+
+### 1 Creating a spec, or creating a spec.
+
+The current state of affairs in Bitcoin is that the C++ codebase is the
+reference implementation. Which is a fancy way of saying that all bugs in
+that codebase are part of the protocol. This is not an acceptable way of
+running things and this stops alternative implementations from appearing.
+Having alternative implementations would be wonderful for the stability of
+the coin and the ecosystem as a whole.
+
+The idea to document the current codebase has been raised before and
+dismissed as impractical. A good example of why it is indeed impractical is
+the OOXML spec that documents the Microsoft Office format. It is some 7000
+pages and many parts are still incomplete and can not be re-implemented from
+it.
+Tom Zander was a co-author of the Open Document Specification that is a
+direct competitor of OOXML and the spec was 600 pages (less than 10%) and
+multiple implementations were created based on it.
+
+In Bitcoin the best chance of success for creating a spec is to do this in
+a way that we replace various questionably pieces by new technology that is
+designed to have a specification written to accompany it. Ideally we even
+have multiple compatible implementations before we finalise the spec and
+make it part of Bitcoin.
+
+This high level goal then turns into various more low level goals which are
+explained in the next parts.
+
+### 2. Introducing Compact Message Format (CMF)
+
+The CMF is a format that can be easily explained as a binary version of
+XML because it shares all the ideas we were looking for because they are
+lacking in Bitcoin right now.
+
+* People can add new tokens to a data-structure that are just ignored by
+  old implementations. It won't break them.
+* Removing old data or omitting data that is not relevant is supported.
+* name-spacing is supported which allows a universal format that can be
+  build on creating many individual data-formats, they even can be mixed in
+  the same blob.
+* One parser can be used for all data-types and that means we can create a
+  default parser that people can choose to use for their purpose. People
+  don't need to understand the format to use it.
+
+After looking at various known formats we choose to base the format on
+protocol-buffers, but instead of using this external application it turned
+out to be very simple and to avoid risk of depending on an upstream project
+the Compact Message Format was born as an independent implementation.
+
+
+To reach our goal the format is just a vehicle. A base layer that we can
+build on top of.
+**The basic concepts of Bitcoin are sane and sound**, we should not change
+those. The way they are expressed in practice is something that should be
+questioned. A good example is the transaction format which is not
+extensible, it actually has various fields that are repeated in every
+transaction without change, because its impossible to remove unused fields.
+For this reason [[Flexible Transactions]] was introduced, it is build on
+top of the CMF.
+
+There are various other parts of Bitcoin that would benefit from the same
+redesign to use tagged formats. The main and most obvious one is the p2p
+messages. The point here is to keep in mind that goal of documentation as
+well as remaining practical. If a structure doesn't need extending, then
+don't replace it. The quality of the result is top priority.
+
+
+### 3. Creating an Admin Server
+
+The C++ full nodes currently have 2 ways to access the data from it. One is
+a HTTP based RPC interface which communicates with JSON messages.
+
+The second is the zeromq interface that is used to send out notifications
+for things like a new block coming in.
+
+This choice of technologies is quite unfortunate because sending a 1MB
+block over HTTP + JSON is a painful process. Especially if you consider
+that the system closes the connection after every request (REST).
+
+The first step towards solving this has been started already and the
+high-level documentation is written down on the [[AdminServer]] page. What
+this new code accomplishes is that applications can connect and get data
+out of the full node various magnitudes faster than before. It also allows
+both the API as well as the events being pushed over the same connection,
+using the same protocol (which is based on CMF).
+
+Currently the only real data structure we can share over the RPC is the
+full block. It is impossible to ask for any specific transaction because
+the node doesn't keep an index of all past transactions. It has the option
+to create that index, though.
+
+A simple way to solve this is that the RPC method to retrieve a transaction
+would gain an argument that indicates which block it is in. This avoids the
+full node having to keep an index and can speed up the fetching of single
+transactions where now we just return the transaction instead of the entire
+raw block that contains the transaction.
+
+The usage of CMF here is again the reuse of technologies. Requesting a
+transaction using a CMF based message gives you a CMF reply which embeds a
+binary blob that, when parsed, is also CMF formatted. This idea is again
+borrowed from XML where nesting of subtrees is also possible.
+
+
+## Join the Bitcoin Classic community
+
+Do these goals align with what you are looking for in Bitcoin? Please
+consider joining us. Running the client, sending an email when you find a
+typo or simply sharing your story on reddit are great ways to start.
+Read the [[community]] page for many more ways to join this exciting
+movement.

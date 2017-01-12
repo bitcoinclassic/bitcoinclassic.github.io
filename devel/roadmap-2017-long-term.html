@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>roadmap-2017-long-term</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/bitcoin-icon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script>
+          (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                  (i[r].q = i[r].q || []).push(arguments);
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m);
+          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+          ga('create', 'UA-72522661-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+      <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+      <div class="grid">
+        <div class="col-1-3"><a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a></div>
+        <div class="col-2-3"><button id="openMenu" class="openMenu" name="Menu toggle"><img src="assets/img/menu_open.png" alt="Open menu"></button></div>
+      </div>
+      <nav>
+      <ul class="menu">
+        <li>
+          <a class="" href="#" title="Getting started">Getting Started</a>
+          <ul>
+            <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+            <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+            <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="#" title="Developers">Developers</a>
+          <ul>
+            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
+            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
+            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
+            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <section>
+<h1 id="Roadmap._Long_term."><a name="index1h1"></a>Roadmap. Long term.</h1>
+
+<div class="toc">
+<ol>
+	<li class="L1"><a href="#index1h1">Roadmap. Long term.</a>
+	<ol>
+		<li class="L2"><a href="#index1h2">Goals</a>
+		</li>
+		<li class="L2"><a href="#index2h2">Implementation</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Join the Bitcoin Classic community</a>
+		</li>
+	</ol>
+	</li>
+</ol>
+</div>
+
+<h2 id="Goals"><a name="index1h2"></a>Goals</h2>
+
+<h3 id="z-_Protocol_documentation"><a name="index1h3"></a>1 Protocol documentation</h3>
+
+<p>Bitcoin as a whole is something we often call a protocol. But unlike most
+protocols, there is preciously little documentation out there that
+describes in detail what actually goes over the wire and what actually is
+the reason a transaction stores numeric values in 3 different ways.</p>
+
+<p><strong>The first goal is to move towards a Bitcoin that is fully documented.</strong>
+The point here is that the documentation of the protocol is to be
+'leading'. So if there are two implementations that disagree, the
+protocol-documentation is the one that is right. This avoids fluffy
+arguments like who has the biggest market share or who has been around
+longest as those somehow being more right.</p>
+
+<h3 id="z-_Backwards_compatibility_of_protocol"><a name="index2h3"></a>2 Backwards compatibility of protocol</h3>
+
+<p>Parts of the current Bitcoin protocol were designed without keeping in mind
+industry best practices. For many parts this is not a big deal, but some
+those best practices were there for a very good reason. A good example is
+that practically all of the data structures in the Bitcoin protocol are not
+changeable. It is impossible to add a value to a p2p message, you can't
+remove an unused variable that is stored in each and every transaction.</p>
+
+<p><strong>The second goal is to move towards tagged protocol data-structures</strong>.
+The idea of tagged data goes back decades, well before Bitcoin was created.
+The point here is that we know mistakes have been made and will continue to
+be made by humans extending and fixing Bitcoin. For this reason we need the
+ability to cleanly make backwards compatible changes. Adding a new field in
+an existing p2p message is much cleaner than having to create an entire new
+message-type with all the same info, plus one item.</p>
+
+<h3 id="z-_Access_to_blockchain_as_a_database"><a name="index3h3"></a>3 Access to blockchain as a database</h3>
+
+<p>Bitcoin as an industry depends on the blockchain as the universal database
+that everyone shares and uses. The main property of a database is that it
+can provide fast access to the information you seek. A normal database
+would be able to return all transactions since a certain date, as a quick
+example.</p>
+
+<p>Unfortunately the blockchain in any full node has data-access methods that
+are quite primitive and very very slow, making the blockchain essentially
+private data. This means that block explorers end up having to re-create
+a full database. Research of usage patterns and many properties are limited
+to a few that have plenty of patience.</p>
+
+<p><strong>The third goal is to move towards a full node that provides full access
+to Bitcoin, including its database</strong>.
+The simple access of the raw data is something that can be made
+substantially faster and it opens the node to being much more useful for a
+large range of features.</p>
+
+<h2 id="Implementation"><a name="index2h2"></a>Implementation</h2>
+
+<h3 id="z-_Creating_a_spec.2C_or_creating_a_spec."><a name="index4h3"></a>1 Creating a spec, or creating a spec.</h3>
+
+<p>The current state of affairs in Bitcoin is that the C++ codebase is the
+reference implementation. Which is a fancy way of saying that all bugs in
+that codebase are part of the protocol. This is not an acceptable way of
+running things and this stops alternative implementations from appearing.
+Having alternative implementations would be wonderful for the stability of
+the coin and the ecosystem as a whole.</p>
+
+<p>The idea to document the current codebase has been raised before and
+dismissed as impractical. A good example of why it is indeed impractical is
+the OOXML spec that documents the Microsoft Office format. It is some 7000
+pages and many parts are still incomplete and can not be re-implemented from
+it.
+Tom Zander was a co-author of the Open Document Specification that is a
+direct competitor of OOXML and the spec was 600 pages (less than 10%) and
+multiple implementations were created based on it.</p>
+
+<p>In Bitcoin the best chance of success for creating a spec is to do this in
+a way that we replace various questionably pieces by new technology that is
+designed to have a specification written to accompany it. Ideally we even
+have multiple compatible implementations before we finalise the spec and
+make it part of Bitcoin.</p>
+
+<p>This high level goal then turns into various more low level goals which are
+explained in the next parts.</p>
+
+<h3 id="z-._Introducing_Compact_Message_Format_.28CMF.29"><a name="index5h3"></a>2. Introducing Compact Message Format (CMF)</h3>
+
+<p>The CMF is a format that can be easily explained as a binary version of
+XML because it shares all the ideas we were looking for because they are
+lacking in Bitcoin right now.</p>
+
+<ul>
+<li>People can add new tokens to a data-structure that are just ignored by
+old implementations. It won't break them.</li>
+<li>Removing old data or omitting data that is not relevant is supported.</li>
+<li>name-spacing is supported which allows a universal format that can be
+build on creating many individual data-formats, they even can be mixed in
+the same blob.</li>
+<li>One parser can be used for all data-types and that means we can create a
+default parser that people can choose to use for their purpose. People
+don't need to understand the format to use it.</li>
+</ul>
+
+<p>After looking at various known formats we choose to base the format on
+protocol-buffers, but instead of using this external application it turned
+out to be very simple and to avoid risk of depending on an upstream project
+the Compact Message Format was born as an independent implementation.</p>
+
+<p>To reach our goal the format is just a vehicle. A base layer that we can
+build on top of.
+<strong>The basic concepts of Bitcoin are sane and sound</strong>, we should not change
+those. The way they are expressed in practice is something that should be
+questioned. A good example is the transaction format which is not
+extensible, it actually has various fields that are repeated in every
+transaction without change, because its impossible to remove unused fields.
+For this reason <a href="./Flexible Transactions.html">Flexible Transactions</a> was introduced, it is build on
+top of the CMF.</p>
+
+<p>There are various other parts of Bitcoin that would benefit from the same
+redesign to use tagged formats. The main and most obvious one is the p2p
+messages. The point here is to keep in mind that goal of documentation as
+well as remaining practical. If a structure doesn't need extending, then
+don't replace it. The quality of the result is top priority.</p>
+
+<h3 id="z-._Creating_an_Admin_Server"><a name="index6h3"></a>3. Creating an Admin Server</h3>
+
+<p>The C++ full nodes currently have 2 ways to access the data from it. One is
+a HTTP based RPC interface which communicates with JSON messages.</p>
+
+<p>The second is the zeromq interface that is used to send out notifications
+for things like a new block coming in.</p>
+
+<p>This choice of technologies is quite unfortunate because sending a 1MB
+block over HTTP + JSON is a painful process. Especially if you consider
+that the system closes the connection after every request (REST).</p>
+
+<p>The first step towards solving this has been started already and the
+high-level documentation is written down on the <a href="./AdminServer.html">AdminServer</a> page. What
+this new code accomplishes is that applications can connect and get data
+out of the full node various magnitudes faster than before. It also allows
+both the API as well as the events being pushed over the same connection,
+using the same protocol (which is based on CMF).</p>
+
+<p>Currently the only real data structure we can share over the RPC is the
+full block. It is impossible to ask for any specific transaction because
+the node doesn't keep an index of all past transactions. It has the option
+to create that index, though.</p>
+
+<p>A simple way to solve this is that the RPC method to retrieve a transaction
+would gain an argument that indicates which block it is in. This avoids the
+full node having to keep an index and can speed up the fetching of single
+transactions where now we just return the transaction instead of the entire
+raw block that contains the transaction.</p>
+
+<p>The usage of CMF here is again the reuse of technologies. Requesting a
+transaction using a CMF based message gives you a CMF reply which embeds a
+binary blob that, when parsed, is also CMF formatted. This idea is again
+borrowed from XML where nesting of subtrees is also possible.</p>
+
+<h2 id="Join_the_Bitcoin_Classic_community"><a name="index3h2"></a>Join the Bitcoin Classic community</h2>
+
+<p>Do these goals align with what you are looking for in Bitcoin? Please
+consider joining us. Running the client, sending an email when you find a
+typo or simply sharing your story on reddit are great ways to start.
+Read the <a href="../community.html">community</a> page for many more ways to join this exciting
+movement.</p>
+
+      </section>
+    </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/></div>
+        <div class="col-2-3"><span id="copyright">© 2016-2017 Bitcoin Classic</br>
+            Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC by-sa</a></span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>
