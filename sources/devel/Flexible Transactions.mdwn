@@ -90,8 +90,8 @@ being compiled on.
 ## Language Bindings
 
 The parsing of the transaction is really not that hard, and made really
-easy with the language bindings that are stored in the
-[[transactions|https://github.com/bitcoinclassic/transactions]] git
+easy with the language bindings which are available in the
+[[cmf-bindings|https://github.com/bitcoinclassic/cmf-bindings]] git
 repository. The general approach is that there is a `MessageParser`
 and a `MessageBuilder` class. If you want to create a transaction you
 use the MessageBuilder and you add all the individual components using
@@ -99,9 +99,12 @@ a very simple API.
 
 There currently are language bindings for
 
-* [[C#|https://github.com/bitcoinclassic/transactions/tree/master/support/C%23]]
-* [[C++Qt|https://github.com/bitcoinclassic/transactions/tree/master/support/cppQt]]
-* [[Java|https://github.com/bitcoinclassic/transactions/tree/master/support/java]]
+* C
+* C#
+* C++
+* C++ without boost, but uses Qt
+* Java
+* Python (both version 2 and 3 work)
 
 ## Specification
 

@@ -171,8 +171,8 @@ being compiled on.</p>
 <h2 id="Language_Bindings"><a name="index4h2"></a>Language Bindings</h2>
 
 <p>The parsing of the transaction is really not that hard, and made really
-easy with the language bindings that are stored in the
-<a href="https://github.com/bitcoinclassic/transactions">transactions</a> git
+easy with the language bindings which are available in the
+<a href="https://github.com/bitcoinclassic/cmf-bindings">cmf-bindings</a> git
 repository. The general approach is that there is a <code>MessageParser</code>
 and a <code>MessageBuilder</code> class. If you want to create a transaction you
 use the MessageBuilder and you add all the individual components using
@@ -181,9 +181,12 @@ a very simple API.</p>
 <p>There currently are language bindings for</p>
 
 <ul>
-<li><a href="https://github.com/bitcoinclassic/transactions/tree/master/support/C%23">C#</a></li>
-<li><a href="https://github.com/bitcoinclassic/transactions/tree/master/support/cppQt">C++Qt</a></li>
-<li><a href="https://github.com/bitcoinclassic/transactions/tree/master/support/java">Java</a></li>
+<li>C</li>
+<li>C#</li>
+<li>C++</li>
+<li>C++ without boost, but uses Qt</li>
+<li>Java</li>
+<li>Python (both version 2 and 3 work)</li>
 </ul>
 
 <h2 id="Specification"><a name="index5h2"></a>Specification</h2>
