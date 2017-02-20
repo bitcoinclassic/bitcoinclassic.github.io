@@ -1,0 +1,46 @@
+[[!meta title="Bitcoin Classic 1.2.0 Release Announcement"]]
+
+## January 5, 2017. Today Bitcoin Classic announces the release of version 1.2 of the stable full node client.
+
+This release marks a change in strategy for Bitcoin Classic, moving from the very conservative block size proposal based on compromise to one where Classic truly innovates and provides a long term solution for the market to choose and leave behind the restrictions of the old.
+
+The most visible change in this version is the decentralised block size solution where node operators decide on the maximum size. This idea is already getting major acceptance in the market.
+
+Bitcoin Classic is focused on providing users a way to get onto the Bitcoin network using a high quality validating node for a large set of use cases. Classic presents top notch quality processes in this release, to help anyone running Bitcoin.
+
+We include in this release various projects with the beta label. People who want to use the Classic node as an on-ramp to Bitcoin will find them interesting. These projects will need to be enabled in the config by those that want to test them.
+
+More background information on this release and Classic can be seen in this video: [https://vimeo.com/192789752](https://vimeo.com/192789752)
+
+Bitcoin Classic ships several exciting technologies in this release:
+
+* Decentralise [block maximum size](https://bitcoinclassic.com/devel/Blocksize.html)
+  This is the answer to the block size debate, operators can decide
+  themselves what size limit to enforce.
+
+* [Flexible Transactions](https://bitcoinclassic.com/devel/Flexible%20Transactions.html)
+  A beta version that solves problems like the malleability issue using an
+  upgrade to the transaction format. This is meant for further testing on
+  testnet-ft.
+
+* [Admin Server](https://bitcoinclassic.com/devel/AdminServer.html)
+  Use your full node as a gateway to Bitcoin for high speed access and
+  remote monitoring purposes. Feature incomplete and thus marked beta.
+
+* [Network Manager](https://bitcoinclassic.com/devel/NetworkManager.html)
+  A new low-level component that is currently used by the Admin Server. It
+  is build for high speed communication with many hosts at the same time.
+
+* Linux [improved packaging standards](https://bitcoinclassic.com/linuxbuilds.html).
+  For Linux we package Classic for the distro families Ubuntu and
+  ArchLinux. These packages now allow the most convenient way of running a
+  node with no configuration needed and pre-configured systemd and
+  cookie-based bitcoin-cli remote management integration.
+
+* xthin block transfer technology
+  This technology was adopted from another client as a way to make sending
+  blocks and immensely faster and more bandwidth friendly.
+
+For more help with installation, please visit [https://bitcoinclassic.com/gettingstarted.html](https://bitcoinclassic.com/gettingstarted.html)
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.0)
