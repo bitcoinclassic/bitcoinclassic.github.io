@@ -1,0 +1,21 @@
+[[!meta title="Bitcoin Classic 0.12.0 Release Candidate 1"]]
+
+# Bitcoin Classic 0.12.0 Release Candidate 1
+
+We are happy to announce the release of 0.12.0 RC1. This release includes binaries, which can be downloaded below.
+This is a release candidate, not intended for mining.
+
+# About this Release
+
+Bitcoin Classic 0.12.0 RC1 is based on Core version 0.12.0, and is compatible with its blockchain files and wallet.
+
+This release includes all changes and additions made in Bitcoin Classic 0.11.2, most notably the increase of the block size limit from one megabyte to two megabytes.
+- Opt-in RBF is set to disabled by default. In the next release, opt-in RBF will be completely removed.
+- The RPC command "getblockchaininfo" now displays BIP109's (2MB) status.
+- The chainstate obfuscation feature from Bitcoin Core is supported, but not enabled.
+
+Please report any issues and bugs you may encounter.
+
+
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v0.12.0clrc1)

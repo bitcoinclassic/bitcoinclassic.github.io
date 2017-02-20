@@ -1,0 +1,21 @@
+[[!meta title="Bitcoin Classic 1.2-beta Announcement"]]
+
+# Bitcoin Classic 1.2beta announcement.
+
+I’m happy to let you know that we have now reached our first milestone towards the release of Bitcoin Classic 1.2. The beta version is now ready, and can be downloaded below. As a new minor release, 1.2 comes with a lot of new features as well as many bug fixes and improvements. We’ll go through all the new features in more detail as we get closer to the release. For now, let me just mention two of the biggest changes.
+
+## Flexible Transactions
+
+FlexTrans is a new [transaction format](https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md) that solves all cases of malleability and thus makes Bitcoin ready for future technologies like the Lightning Network. ([blog](http://zander.github.io/posts/Flexible_Transactions/)) It also cleans up a lot of technical debt and provides a clean road forward for a long list of protocol improvements which will be possible equally clean and technical-debt free.
+
+For instance FlexTrans allows us to remove signatures from a block after it has been validated, which in practice means about 75% size reduction. Additionally this technology completely replaces any need for segregated witness.
+
+Flexible Transactions is a new technology and would benefit from more usage and testing. This release does not allow FT on main-net.
+
+## xthin-blocks
+
+This release includes support for the extra-thin blocks technology which solves the problem of block propagation causing delays because it only sends a small fraction of the data when a block is found and cleverly rebuilds it from the mempool of its own node.
+
+I hope you'll enjoy Bitcoin Classic 1.2beta. Please download it below and don't forget to give us feedback by writing to us on slack or reporting bugs.
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.0.b1)

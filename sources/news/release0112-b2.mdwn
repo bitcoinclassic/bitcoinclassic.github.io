@@ -1,0 +1,20 @@
+[[!meta title="Bitcoin Classic public beta release"]]
+
+# Bitcoin Classic public beta release
+
+We are happy to announce the release of our second beta version. This release includes binaries, which can be downloaded here on github or at https://bitcoinclassic.com
+
+This is a test release, not intended for mining.
+
+## Nodes
+
+As you can see on this website, most node upgrades happen during the first 30 days of a release https://bitnodes.21.co/dashboard/?days=365
+
+There are about 5000 nodes right now, but we want to encourage users and companies to help run some extra nodes (ideally taking us up to 8000 nodes), so we have plenty of buffer. SPV nodes don’t need to upgrade.
+
+## Cooperation
+
+Bitcoin Classic seeks to to cooperate with other Bitcoin clients, to make sure the 2 MB upgrade goes smoothly. Bitcoin devs will submit the BIP and the necessary software changes, and will assist where needed. We welcome an open market of innovation and continuous improvement. Our goal is not to replace, but to make it possible for many competing clients to thrive. This will enable Bitcoin to maintain the market dominance it has today.
+
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v0.11.2.cl1.b2)

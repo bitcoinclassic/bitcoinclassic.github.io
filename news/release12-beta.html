@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin Classic 1.2-beta Announcement</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+      <div class="grid">
+        <div class="col-1-3"><a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a></div>
+        <div class="col-2-3"><button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button></div>
+      </div>
+      <nav>
+      <ul class="menu">
+        <li>
+          <a class="" href="#" title="Getting started">Getting Started</a>
+          <ul>
+            <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+            <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+            <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="#" title="Developers">Developers</a>
+          <ul>
+            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
+            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
+            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
+            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <section>
+<h1 id="Bitcoin_Classic_1.2beta_announcement.">Bitcoin Classic 1.2beta announcement.</h1>
+
+<p>I’m happy to let you know that we have now reached our first milestone towards the release of Bitcoin Classic 1.2. The beta version is now ready, and can be downloaded below. As a new minor release, 1.2 comes with a lot of new features as well as many bug fixes and improvements. We’ll go through all the new features in more detail as we get closer to the release. For now, let me just mention two of the biggest changes.</p>
+
+<h2 id="Flexible_Transactions">Flexible Transactions</h2>
+
+<p>FlexTrans is a new <a href="https://github.com/bitcoinclassic/documentation/blob/master/spec/transactionv4.md">transaction format</a> that solves all cases of malleability and thus makes Bitcoin ready for future technologies like the Lightning Network. (<a href="http://zander.github.io/posts/Flexible_Transactions/">blog</a>) It also cleans up a lot of technical debt and provides a clean road forward for a long list of protocol improvements which will be possible equally clean and technical-debt free.</p>
+
+<p>For instance FlexTrans allows us to remove signatures from a block after it has been validated, which in practice means about 75% size reduction. Additionally this technology completely replaces any need for segregated witness.</p>
+
+<p>Flexible Transactions is a new technology and would benefit from more usage and testing. This release does not allow FT on main-net.</p>
+
+<h2 id="xthin-blocks">xthin-blocks</h2>
+
+<p>This release includes support for the extra-thin blocks technology which solves the problem of block propagation causing delays because it only sends a small fraction of the data when a block is found and cleverly rebuilds it from the mempool of its own node.</p>
+
+<p>I hope you'll enjoy Bitcoin Classic 1.2beta. Please download it below and don't forget to give us feedback by writing to us on slack or reporting bugs.</p>
+
+<p><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.0.b1">github download page</a></p>
+
+      </section>
+    </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/></div>
+        <div class="col-2-3"><span id="copyright">© 2016-2017 Bitcoin Classic</br>
+            Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC by-sa</a></span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

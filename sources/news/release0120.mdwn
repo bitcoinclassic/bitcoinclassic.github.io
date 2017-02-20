@@ -1,0 +1,39 @@
+[[!meta title="Bitcoin Classic 0.12.0 Release Announcement"]]
+
+# Bitcoin Classic 0.12.0 Release Announcement
+
+We are happy to announce the release of 0.12.0. This release includes binaries, which can be downloaded below.
+
+# About this Release
+
+Bitcoin Classic 0.12.0 is based on Bitcoin Core version 0.12.0, and is compatible with its blockchain files and wallet.
+For a full list of changes in 0.12.0, visit Core’s website [here](https://bitcoin.org/en/release/v0.12.0).
+Additionally, this release includes all changes and additions made in Bitcoin Classic 0.11.2, most notably the increase of the block size limit from one megabyte to two megabytes.
+- Opt-in RBF is set to disabled by default. In the next release, opt-in RBF will be completely removed.
+- The RPC command "getblockchaininfo" now displays BIP109's (2MB) status.
+- The chainstate obfuscation feature from Bitcoin Core is supported, but not enabled.
+
+# Roadmap
+
+From this point forward, we will focus on realizing our roadmap, which is available [here](https://github.com/bitcoinclassic/documentation/blob/master/roadmap/roadmap2016.md).
+
+---
+
+We would like to thank everyone who helped realize this
+
+**Official Classic Team**
+- Development
+  - Gavin Andresen
+  - Jeff Garzik
+  - Pedro Pinheiro
+  - Tom Zander
+  - Jon Rumion
+- Mining
+  - Marshall Long
+- Facilitator
+  - Olivier Janssens
+- External advisors
+  - Jonathan Toomim
+  - Peter Rizun
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/edit/v0.12.0cl1)

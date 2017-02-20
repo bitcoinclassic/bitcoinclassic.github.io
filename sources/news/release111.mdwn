@@ -1,0 +1,17 @@
+[[!meta title="Bitcoin Classic 1.1.1 Release Announcement"]]
+
+# Bitcoin Classic 1.1.1 Release Announcement
+
+The Classic team is happy to announce a bugfix release 1.1.1
+This release includes binaries, which can be downloaded below.
+
+# About this Release
+
+Bitcoin Classic 1.1.1 is based on Bitcoin Core version 0.12.1, and is compatible with its blockchain files and wallet.
+Additionally, this release includes the increase of the block size limit from one megabyte to two megabytes.
+
+This bugfix release fixes various issues and we believe this is the best stable version of Classic and we recommend everyone upgrade as soon as possible.
+
+One notable change is that starting at this release Bitcoin Classic will no longer respond to network-alerts. This change means we no longer have to trust certain people that never really had any association with Bitcoin Classic.
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.1.1)

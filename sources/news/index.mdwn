@@ -1,0 +1,3 @@
+[[!meta title="Bitcoin Classic News Archive"]]
+
+[[!inline pages="page(./*)" actions="no" archive="yes" feedshow=10]]

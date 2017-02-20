@@ -1,0 +1,37 @@
+[[!meta title="Bitcoin Classic 0.12.1 Release Announcement"]]
+
+# Bitcoin Classic 0.12.1 Release Announcement
+
+We are happy to announce the release of 0.12.1. This is a bugfix release. This release includes binaries, which can be downloaded below.
+
+# About this Release
+
+Bitcoin Classic 0.12.1 is based on Bitcoin Core version 0.12.0, and is compatible with its blockchain files and wallet.
+Additionally, this release includes all changes and additions made in Bitcoin Classic 0.11.2, most notably the increase of the block size limit from one megabyte to two megabytes.
+
+In this minor release only bugfixes have been included and we consider this a stable release.
+- Fix RPC command getblockchaininfo showing incorrect counts.
+- Fix the client asking for a new version.
+- Update block download code for better timeout management.
+- some small text fixes have been made to the user interface.
+
+---
+
+We would like to thank everyone who helped realize this
+
+**Official Classic Team**
+- Development
+  - Gavin Andresen
+  - Jeff Garzik
+  - Pedro Pinheiro
+  - Tom Zander
+  - Jon Rumion
+- Mining
+  - Marshall Long
+- Facilitator
+  - Olivier Janssens
+- External advisors
+  - Jonathan Toomim
+  - Peter Rizun
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v0.12.1cl1)

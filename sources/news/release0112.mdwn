@@ -1,0 +1,48 @@
+[[!meta title="Bitcoin Classic release announcement"]]
+
+# Bitcoin Classic Release Announcement
+
+We are happy to announce Bitcoin Classic version 0.11.2, the first release of Bitcoin Classic.
+
+If you installed beta 2, there are no changes except for the version number.
+
+# About this Release
+
+This is the first Bitcoin Classic release, focused on doubling the transaction capacity of Bitcoin.
+It includes a consensus rule change that increases the block size limit from one megabyte to two megabytes.
+
+Bitcoin Classic 0.11.2 is based on Core version 0.11.2, and is compatible with its blockchain files and wallet.
+
+# Roadmap
+
+Our next release will be based on Bitcoin Core version 0.12, and is expected to be ready in the next weeks.
+
+In parallel, we will focus development on features that have been requested by miners and companies for a long time now, and that will help Bitcoin scale on-chain:
+- Faster block validation
+- Faster block propagation
+
+These features will help alleviate bandwidth issues tremendously, and will make sure nodes & miners can continue to operate properly, without requiring super fast connections.
+
+More importantly, this will enable Bitcoin to scale to a much higher transaction volume.
+
+---
+
+We would like to thank everyone who helped realize this
+
+**Official Classic Team**
+- Development
+  - Gavin Andresen
+  - Jeff Garzik
+  - Pedro Pinheiro
+  - Tom Zander
+  - Jon Rumion
+- Mining
+  - Marshall Long
+- Facilitator
+  - Olivier Janssens
+- External advisors
+  - Jonathan Toomim
+  - Peter Rizun
+
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v0.11.2.cl1)

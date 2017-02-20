@@ -1,0 +1,16 @@
+[[!meta title="Bitcoin Classic 1.1.0 Release Announcement"]]
+
+# Bitcoin Classic 1.1.0 Release Announcement
+
+The Classic team is happy to announce a new feature release 1.1.0.
+This release includes binaries, which can be downloaded below.
+
+# About this Release
+
+Bitcoin Classic 1.1.0 is based on Bitcoin Core version 0.12.1, and is compatible with its blockchain files and wallet.
+Additionally, this release includes the increase of the block size limit from one megabyte to two megabytes.
+
+The most notable change in this release is the inclusion of the code to support the CSV featureset. Classic 1.1.0 supports BIP 9, 65, 68, 112 and 113.
+
+
+[github download page](https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.1.0)
