@@ -1,0 +1,32 @@
+[[!meta title="Bitcoin Classic Announces the 1.2.1 Bufix Release"]]
+
+## Release Announcement Bitcoin Classic 1.2.1
+
+Thursday, 23 February 2017. Today we release a Bugfix update to Bitcoin&nbsp;Classic, version 1.2.1. Classic 1.2.0 was [[released|release120]] 8 weeks ago with the decentralized block size [[solution|devel/Blocksize]] and various new features.
+
+Bitcoin Classic 1.2.1 is fully compatible with Bitcoin Core downloaded block chain and wallet.
+
+This release adds a two months' worth fixes from Classic's contributors. The bugfixes are typically small but important and include:
+
+* Make splashscreen work on hi-DPI displays
+  [commit](https://github.com/bitcoinclassic/bitcoinclassic/commit/90b1a5788a1ffa9ecabc3dff63e8a4ced660bd84)
+* [Qt] Bugfix: ensure tray icon menu is not empty
+  [PR](https://github.com/bitcoinclassic/bitcoinclassic/pull/217)
+* [Qt] Update data size in first run GUI
+  [commit](https://github.com/bitcoinclassic/bitcoinclassic/commit/261334e27cbaaa0b12fbe478e28799b8e0b4cf59)
+* Fix failing maxuploadtarget.py QA test
+  [PR](https://github.com/bitcoinclassic/bitcoinclassic/pull/219)
+* Make compile on FreeBSD.
+  See [issue](https://github.com/bitcoinclassic/bitcoinclassic/issues/200)
+* Make configure detect old Boost.
+  [commit](https://github.com/bitcoinclassic/bitcoinclassic/commit/dd52ec043a33b0569ed87c997065dfd6575a9e4f)
+* Allow parsing of incomplete (no signature) flextrans transactions.
+  [commit](https://github.com/bitcoinclassic/bitcoinclassic/commit/950e25f74a6a8c67c3923772d825f9707b83f7e7)
+* Punish peers relatively for oversize blocks
+  [commit](https://github.com/bitcoinclassic/bitcoinclassic/commit/f31829e1a7c4163d99149d5def431efc4a0851f4)
+
+
+For more help with installation, and instructions how to download please visit [bitcoinclassic.com/gettingstarted.html](https://bitcoinclassic.com/gettingstarted.html)
+
+[Download page](/downloads/index.html)
+
