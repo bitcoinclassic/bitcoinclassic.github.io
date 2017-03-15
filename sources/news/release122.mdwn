@@ -1,0 +1,12 @@
+[[!meta title="Bitcoin Classic Announces the 1.2.2 Hotfix Release"]]
+
+## Release Announcement Bitcoin Classic 1.2.2
+
+March 15, 2017. This is a bug fix release is a response to the second bug found by the unlimited team and the subsequent exploit that took place late March 14th. This bug was included in the xthin code which Classic borrowed from Unlimited.
+
+We will consult with other teams to put procedures in place that minimise the chance of exploiting discovered bugs before bug fix releases are released.
+
+For more help with installation, and instructions how to download please visit [bitcoinclassic.com/gettingstarted.html](https://bitcoinclassic.com/gettingstarted.html)
+
+[Download page](/downloads/index.html)
+
