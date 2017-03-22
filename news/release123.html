@@ -47,9 +47,9 @@
 <h2 id="Release_Announcement_Bitcoin_Classic_1.2.3">Release Announcement Bitcoin Classic 1.2.3</h2>
 
 <p>March 22, 2017.
-Following a string of issues with code that Classic borrowed elsewhere, we finally took responsibility for the adopted code and fixed a lot of issues in that code which direction affect stability and reliability of a node.</p>
+Following a string of issues with code that Classic borrowed elsewhere, we finally took responsibility for the adopted code and fixed a lot of issues in that code which directly affect stability and reliability of a node.</p>
 
-<p>On top of that, this feature makes the existing flag <code>-use-thinblocks</code> a proper flag which actually turns off codepaths to this feature should the operator turn it off.</p>
+<p>Additionally, this feature makes the existing flag -use-thinblocks a proper flag which allows the operator to fully turn it off, making the code of this feature unable to be executed by misbehaving networking nodes.</p>
 
 <p>We recommend Bitcoin Classic version1.2.3 for everyone, especially if you already were running a version with thinblocks (xthin).</p>
 
