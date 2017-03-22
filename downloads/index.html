@@ -69,14 +69,19 @@ jQuery('#16.10select').trigger('change');
      <section>
     <div class="release_box">
     <div class="box eight-col">
-    <h2>Bitcoin Classic 1.2.2</h2>
+    <h2>Bitcoin Classic 1.2.3</h2>
 
-    <p>March 15, 2017. This is a bug fix release is a response to the second bug found by the unlimited team and the subsequent exploit that took place late March 14th. This bug was included in the xthin code which Classic borrowed from Unlimited.</p>
+<p>March 22, 2017.
+Following a string of issues with code that Classic borrowed elsewhere, we finally took responsibility for the adopted code and fixed a lot of issues in that code which direction affect stability and reliability of a node.</p>
+
+<p>On top of that, this feature makes the existing flag <code>-use-thinblocks</code> a proper flag which actually turns off codepaths to this feature should the operator turn it off.</p>
+
+<p>We recommend Bitcoin Classic version1.2.3 for everyone, especially if you already were running a version with thinblocks (xthin).</p>
     </div>
     <div class="box four-col">
-    <form id="1.2.2download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.2/bitcoin-1.2.2-linux64.tar.gz" method="get">
+    <form id="1.2.3download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.3/bitcoin-1.2.3-linux64.tar.gz" method="get">
     <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.2.2select" onchange="updateIsoUrl(&quot;1.2.2&quot;)">
+    <select class="download" id="1.2.3select" onchange="updateIsoUrl(&quot;1.2.3&quot;)">
         <option selected="selected" value="-linux64.tar.gz">Linux 64-bit</option>
         <option selected="selected" value="-linux64.deb">Linux debian (deb) 64-bit</option>
         <option selected="selected" value="-armhf-cli.deb">Raspberry Pi debian (deb)</option>
@@ -90,7 +95,7 @@ jQuery('#16.10select').trigger('change');
     </select></fieldset>
     <div><button class="download" type="submit">Download</button></div>
     </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.2">Github link</a></div>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.2.3">Github link</a></div>
     </div></div>
 
      </section>
