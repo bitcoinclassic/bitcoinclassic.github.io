@@ -38,8 +38,10 @@ Some [attacks](https://bitcointalk.org/?topic=140078) are making it so that
 a 1MB block, containing 2 transactions, can end up hashing that one MB
 19,100 times.
 
-This is probably the worst case scenario in a 1MB limit, but it is a very
-good demonstration of the problem.
+This is probably the worst case scenario in a 1MB transaction limit,
+but it is a very good demonstration of the problem. Notice that bigger
+blocks will not cause there to be bigger transactions which in turn means
+that bigger blocks will not cause quadratic slowdowns.
 
 # How does Flexible Transactions solve this?
 

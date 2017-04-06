@@ -49,7 +49,7 @@ software developers. It is set by you, the person running the software.</strong>
 
 <p>This article explains how this works.</p>
 
-<h1 id="Blocksize">Blocksize</h1>
+<h2 id="Picking_the_perfect_Blocksize">Picking the perfect Blocksize</h2>
 
 <p>In Bitcoin transactions are gathered in blocks which are structured in a
 chain. The reason we use a chain is because of the main innovation
@@ -75,34 +75,31 @@ and find other means to do payments. Which hurts the price and in effect
 hurts the miners income.</li>
 </ul>
 
-<p>This behaviour in block size means blocks will not get huge and they will
-not stay small either, because there are reasons for both. And so the size
-will be something in the middle.  The most correct block size is completely
-dependent on
-the amount of paying users and the state of technology. To get the most
-profit out of the system the miners will have to find a market-equilibrium
-for the block size. That market equilibrium happens to be the best for
-all players in Bitcoin.</p>
+<p>The genius of this balance has the natural consequence that blocks will not
+be made too big or too small, their size will be based on the amount of
+paying users and the state of technology. To get the most profit out of the
+system the miners will have to find a market-equilibrium for the block
+size. This market equilibrium also happens to be the best for owners and
+merchants of Bitcoin.</p>
+
+<h2 id="What_does_Classic_do.3F">What does Classic do?</h2>
+
+<p>Bitcoin Classic has removed the 1&nbsp;MB centrally planned maximum block size
+limits from its software and gives tools to the miners and users to protect
+themselves from malicious actors at the same time. We call that the
+<code>**accept limit**</code>.</p>
 
 <p>Classic will accept blocks produced by all other current implementations of
 node software, including Core, Unlimited, etc. Blocks produced by Classic
-will be accepted by all other softwares, including Core, if less than 1MB
-and by Unlimited and others but not by Core if blocks created are 1MB or
-larger.</p>
+will be accepted by all other softwares, including Core, if less than
+1&nbsp;MB and by Unlimited and others but not by Core if blocks created are
+1&nbsp;MB or larger.</p>
 
 <p>Classic will put the user-selected (or default) block size limit in the
-coinbase message in the form "EB2" where the number is the amount of
-megabytes this node accepts. <br />
-Similarly, the user-agent string send to peers on the handshake will have
-this comment so sites that connect to all peers can get an idea of what is
-supported.</p>
+coinbase message in the form "EB3.7" where the number is the amount of
+megabytes per block this node accepts.</p>
 
-<h2 id="The_solution">The solution</h2>
-
-<p>Bitcoin Classic has removed the 1MB centrally planned maximum block size
-limits from its software and gives tools to the miners and users to protect
-themselves from malicious actors at the same time. We call that the
-<strong>accept limit</strong>.</p>
+<h2 id="How_do_I_configure_this_on_my_Classic_node.3F">How do I configure this on my Classic node?</h2>
 
 <p>The main change is that a Bitcoin Classic node can now be configured
 manually to have any block size limit.</p>
@@ -112,39 +109,27 @@ allows a user to limit blocks by size they will accept from the
 network. For instance if the user would set <code>blocksizeacceptlimit=4.2</code> this
 states that any block over 4.2MB is rejected as too large.</p>
 
-<p>The old config option <code>blockmaxsize</code> is unchanged and this is the option
+<p>The existing config option <code>blockmaxsize</code> is unchanged and this is the option
 that miners set to determine the maximum block size they would create.</p>
 
-<p>The additional change is that Bitcoin Classic creates block templates for
-miners which put the blocksizeacceptlimit value in the coinbase comment.
-This has the effect that a miner's limits are stored in the blockchain and
-for everyone available to see.  Any miner can check the blockchain and find
-out what a safe blockmaxsize setting will get his blocks accepted by other
-miners. But ultimately we expect miners to have a global conversation, in
-any forum that works for them, about the block size they will all use.</p>
+<h2 id="Way_forward">Way forward</h2>
 
-<h2 id="Additional_safety_measures">Additional safety measures</h2>
+<p>Classic has been in conversation with miners and other Bitcoin companies
+for some time and the way forward to breaking the 1&nbsp;MB limit is
+clearly one where we move the control over the blocksize out of the hands
+of the software developers and make it a market-set property. That is the
+most healthy solution going forward.</p>
 
-<p>With the introduction of a more soft size limit, one that is no longer
-centrally planned by software developers but instead based on local
-configuration, we see an opportunity to introduce an extra fail-safe in
-rare situations where a node has settings slightly different than the rest
-of the world.</p>
+<p>How this is going to be done is an on-going conversation. It is very
+optimistic to know that people are in fact talking about how to solve this
+and in general agreement that it needs solving. Classic is there to make
+suggestions only, not to dictate policy or make decisions on which solution
+to pick.</p>
 
-<p>This safety measure is still in research and the initial results have been
-that block size limits are a bit more flexible interpreted if there are
-more miners that vote for this block size with their hashpower. This makes
-the network more robust and makes users and miners that run Bitcoin Classic
-be able to recover and get back onto the main chain in rare situations
-where a block is found that is larger than expected.</p>
+<p>Some things are for certain, a block size increase will happen and the
+planning and details will be made very public when they have been decided.</p>
 
-<p>It is important to stress that this feature is <em>made possible</em> due to the
-flexible size limit, but just because it is now possible to protect against
-scenarios that could always happen does not mean we believe that the user
-configurable size limit will cause problems that need fixing.</p>
-
-<p>This safety measure is currently still under development and is introduced
-on Toms blog <a href="https://zander.github.io/posts/Blocksize%20Consensus/">here</a></p>
+<p>Either way, Classic will be part of the movement.</p>
 
       </section>
     </div>
