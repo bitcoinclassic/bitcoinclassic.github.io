@@ -17,4 +17,5 @@ We have our own Reddit sub; /r/[bitcoin\_classic](https://reddit.com/r/bitcoin_c
 
 All Bitcoin Classic code and documentation is hosted on GitHub. Even this website is open for editing using Github. Start contributing code, fixes and documentation directly via [Github](https://github.com/bitcoinclassic/).
 
-If you want to talk to us directly, please join our [slack.com](https://bitcoinclassic.slack.com) chat area, please send a quick email to TomZ@freedommail.ch to get you started.
+If you want to talk to us directly, please join our [slack.com](https://bitcoinclassic.slack.com) chat area, please send a quick email to TomZ@freedommail.ch to get you started. Or use IRC of you are of that generation; we are on freenode in room #bitcoinclassic
+
