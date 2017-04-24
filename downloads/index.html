@@ -69,21 +69,25 @@ jQuery('#16.10select').trigger('change');
      <section>
     <div class="release_box">
     <div class="box eight-col">
-    <h2>Bitcoin Classic 1.2.3</h2>
+    <h2>Bitcoin Classic 1.2.4</h2>
 
-<p>March 22, 2017.
-Following a string of issues with code that Classic borrowed elsewhere, we finally took responsibility for the adopted code and fixed a lot of issues in that code which directly affect stability and reliability of a node.</p>
+<p>April 24, 2017.
+This release fixes a set of smaller and larger stability issues.</p>
 
-<p>Additionally, this feature makes the existing flag -use-thinblocks a proper flag which allows the operator to fully turn it off, making the code of this feature unable to be executed by misbehaving networking nodes.</p>
+<p>This is a periodic update with smaller bugfixes, the details follow:</p>
 
-<p>On top of that, this feature makes the existing flag <code>-use-thinblocks</code> a proper flag which actually turns off codepaths to this feature should the operator turn it off.</p>
+<p>6e89a53: Tom Zander; Protect against memory exhaustion. <br />
+269367b: Allan Doensen; Fixed compiler warning <br />
+a5d2a99: Allan Doensen; Fix for issues with startup and multiple monitors on windows. <br />
+e228b64: Stephan McCarthy; Implement max-sigop consensus rules for blocks over 1MB. <br />
+651d96b: Tom Zander; Fix spv wallets support in some non-standard configurations.  </p>
 
-<p>We recommend Bitcoin Classic version1.2.3 for everyone, especially if you already were running a version with thinblocks (xthin).</p>
+<p>We recommend Bitcoin Classic version1.2.4 for everyone, especially if you already were running a version with thinblocks (xthin).</p>
     </div>
     <div class="box four-col">
-    <form id="1.2.3download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.3/bitcoin-1.2.3-linux64.tar.gz" method="get">
+    <form id="1.2.4download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.2.4/bitcoin-1.2.4-linux64.tar.gz" method="get">
     <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.2.3select" onchange="updateIsoUrl(&quot;1.2.3&quot;)">
+    <select class="download" id="1.2.4select" onchange="updateIsoUrl(&quot;1.2.4&quot;)">
         <option selected="selected" value="-linux64.tar.gz">Linux 64-bit</option>
         <option selected="selected" value="-linux64.deb">Linux debian (deb) 64-bit</option>
         <option selected="selected" value="-armhf-cli.deb">Raspberry Pi debian (deb)</option>
