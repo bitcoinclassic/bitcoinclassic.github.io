@@ -39,7 +39,7 @@ merchants of Bitcoin.
 Bitcoin Classic has removed the 1&nbsp;MB centrally planned maximum block size
 limits from its software and gives tools to the miners and users to protect
 themselves from malicious actors at the same time. We call that the
-**`accept limit`**.
+`accept limit`.
 
 Classic will accept blocks produced by all other current implementations of
 node software, including Core, Unlimited, etc. Blocks produced by Classic
