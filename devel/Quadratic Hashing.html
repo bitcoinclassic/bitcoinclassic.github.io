@@ -46,56 +46,84 @@
       <section>
 <h1 id="Quadratic_scaling_of_hashing_time">Quadratic scaling of hashing time</h1>
 
+<h2 id="Theory">Theory</h2>
+
 <p>In Bitcoin a transaction moves money from one address to another and in
 order to only allow the actual owner of money the ability to move this, we
 use cryptographic signatures.</p>
 
-<p>An owner of a Bitcoin address has to add a cryptographic signature inside
-of that transaction that spends his money.</p>
+<p>An owner of a Bitcoin address can only spend money by adding a
+cryptographic signature to a transaction that spends it.
+The act of adding a cryptographic signature includes the hashing of the
+entire transaction. As such the size of the transaction matters to the
+speed of this signing, as well as the validation of said signature.</p>
 
 <p>There is a design flaw in Transactions v1, as Satoshi created it, which can
-lead to the validation of signatures taking much longer than expected.</p>
+lead to the validation of signatures taking longer than expected.</p>
 
-<p>The issue is that a transaction with more than one input defines that the
-thing that is signed is not the same for each of those inputs.</p>
+<p>The problem we see is the basic choice Satoshi made about what it means to
+sign a transaction. The problem is that each signature signs a slightly
+different version of the entire transaction. And this means that should you
+have 10 signatures, this means you need to hash the entire transaction 10
+times to sign it. People validating those transactions similarly need to
+hash the entire transaction 10 times, with minor differences between each
+run.</p>
 
-<p>The cryptographic concept of signing is a two step process, one is to read
-and process the entire transaction with the output of first step being
-signed as a second step.
-This means that a transaction with 10 inputs will have a minimum of 10
-check-signature commands. Each of those will hash the entire transaction,
-with minor differences.</p>
+<p>A natural consequence of this is that adding another input and associated
+signatures will cause another read and hashing of the transaction. But at
+the same time it will make the transaction larger and as such make all the
+existing signature checks take longer. <br />
+This makes the amount of work validation takes grow quadratic.</p>
 
-<p>A natural consequence of this is that adding another input will not only
-add one processing of the entire transaction, it will also make each already
-existing check-signature command process a larger transaction. Making the
-amount of work grow quadratically.</p>
+<h2 id="Practice">Practice</h2>
 
-<h1 id="Isn.27t_checking_signatures_incredibly_fast.3F">Isn't checking signatures incredibly fast?</h1>
+<p>The actual checking of signatures is incredibly fast. The largest
+transaction ever mined on mainnet was in block 364292 as
+<a href="https://www.reddit.com/r/Bitcoin/comments/3cgft7/largest_transaction_ever_mined_999657_kb_consumes/">reported</a>
+on reddit.</p>
 
-<p>We have a pretty good implementation for hashing in Bitcoin Classic,
-although there is certainly room for improvement, and we can hash at
-hundreds of megabytes every second.</p>
+<p>This will most likely stay the largest transaction based on the protocol
+limit of 1MB for transactions. Even if we change the block size limits, the
+transaction size limits (at least for old style transactions) stays.</p>
 
-<p>The problem written here is one that makes the amount of data we have to
-actually process grow quadratically based on the size of the transaction
-and the number of inputs.
-Some <a href="https://bitcointalk.org/?topic=140078">attacks</a> are making it so that
-a 1MB block, containing 2 transactions, can end up hashing that one MB
+<p>As such we can conclude this flaw in the design is not really an issue that
+can be exploited to cripple or somehow cause problems with the network.
+This is illustrated by the fact that this huge transaction on today's hardware
+takes 5.5 seconds to validate. On future hardware this will be even faster,
+and software will likely speed up as well.</p>
+
+<h1 id="Worst_case_scenario">Worst case scenario</h1>
+
+<p>Some years ago Bitcoin researcher Sergio Demian Lerner posted about the
+worst case scenario. This setup is 100% meant to exploit the flaw. In
+a normal usage of Bitcoin this construction has no meaning.
+The <a href="https://bitcointalk.org/?topic=140078">post</a> describes that with the
+maximum of a 1MB transaction we can end up hashing that one megabyte
 19,100 times.</p>
 
-<p>This is probably the worst case scenario in a 1MB transaction limit,
-but it is a very good demonstration of the problem. Notice that bigger
-blocks will not cause there to be bigger transactions which in turn means
-that bigger blocks will not cause quadratic slowdowns.</p>
+<p>Larger transactions are not allowed, even with larger blocks. This is about
+the maximum validation time we can reach under attack circumstances.</p>
+
+<p>A simple solution to this worst case scenario is to cache the output of the
+hashing function. With that the amount of times we actually hash the
+transaction goes down to less than 100 times.</p>
 
 <h1 id="How_does_Flexible_Transactions_solve_this.3F">How does Flexible Transactions solve this?</h1>
 
-<p>The solution is rather simple and elegant, we replaced repeated hashing of
-the entire transaction with using the transaction-ID (and some other parts)
-as the input of a signature.
-This means that the size of the transaction no longer is relevant and it
-only needs to be calculated once, regardless of the amount of inputs.</p>
+<p>To be clear, the issue is something we may call solved for all regular
+purposes. Specifically, there is no danger of people abusing the system to
+cause a slow down. And this is what most people care about.</p>
+
+<p>It is however still important to address the underlying cause and fix this.
+We currently have a 1MB transaction limit, and we may want to lift that
+limit in the future without having to worry about the scaling issue again.</p>
+
+<p>The solution in Flexible Transactions is rather simple and elegant, we
+replaced repeated hashing of the entire transaction with using the
+transaction-ID as the basis of signing.
+This means that the size of the transaction no longer is relevant and we
+only need to calculate the transaction-ID (txid) once, regardless of the
+amount of inputs.</p>
 
 <p>This is the same solution that solves the <a href="./Malleability.html">malleability</a>
 issue.</p>
