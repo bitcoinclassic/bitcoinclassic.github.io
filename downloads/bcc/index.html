@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bitcoin Classic Downloads</title>
+    <title>Download Bitcoin Classic UAHF (BCC) edition</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bitcoin Classic">
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/icon">
-    <link rel="icon" href="../assets/img/favicon.ico" type="image/icon">
-    <link rel="stylesheet" href="../assets/css/bitcoin-classic.css">
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico" type="image/icon">
+    <link rel="icon" href="../../assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="../../assets/css/bitcoin-classic.css">
 <script src="../assets/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
     function updateIsoUrl(version) {
         var architecture = document.getElementById(version + "select");
         architecture = architecture.options[architecture.selectedIndex].value;
-        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v$1/bitcoin-$1$2";
+        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v$1uahf/bitcoin-$1$2";
         url = url.replace("$1", version);
         url = url.replace("$1", version);
         url = url.replace("$2", architecture);
@@ -27,10 +27,10 @@
     <header>
         <div class="grid">
                 <div class="col-1-3">
-                    <a href="/"><img src="../assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
+                    <a href="/"><img src="../../assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a>
                 </div>
                 <div class="col-2-3">
-                    <button id="openMenu" class="openMenu" name="Menu toggle"><img src="../assets/img/menu_open.png" alt="Open menu"></button>
+                    <button id="openMenu" class="openMenu" name="Menu toggle"><img src="../../assets/img/menu_open.png" alt="Open menu"></button>
                 </div>
             </div>
 
@@ -68,22 +68,21 @@
      <section>
     <div class="release_box">
     <div class="box eight-col">
-    <h2>Bitcoin Classic 1.3.0</h2>
+    <h2>Bitcoin Classic 1.3.0-UAHF</h2>
+
 <p>July 28, 2017
 
-<p>Bitcoin Classic is proud to release an updated v1.3.0 version of its full validating node software.
-
-For details on what is included in this release, please see the <a href="../news/release130.html">release notes</a>.
+<p>Bitcoin Classic is proud to make its first BCC compatible release. This will allow you to follow the Bitcoin Cash chain as it is created (planned start date is 1st of August 2017), it is currently untested for mining and we kindly ask to wait for next release for that.</p>
     </div>
     <div class="box four-col">
-    <form id="1.3.0download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.0/bitcoin-1.3.0-linux64.tar.gz" method="get">
+    <form id="1.3.0download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.0uahf/bitcoin-1.3.0-linux64.tar.gz" method="get">
     <fieldset><label>Choose your flavour</label><br />
     <select class="download" id="1.3.0select" onchange="updateIsoUrl(&quot;1.3.0&quot;)">
         <option selected="selected" value="-linux64.tar.gz">Linux 64-bit</option>
-        <option selected="selected" value="-linux64.deb">Linux debian (deb) 64-bit</option>
-        <option selected="selected" value="-armhf-cli.deb">Raspberry Pi debian (deb)</option>
+        <!-- option selected="selected" value="-linux64.deb">Linux debian (deb) 64-bit</option -->
+        <!-- option selected="selected" value="-armhf-cli.deb">Raspberry Pi debian (deb)</option -->
         <option value="-linux32.tar.gz">32-bit — for machines with less than 2GB RAM</option>
-        <option value="-osx.dmg">Mac OSX</option>
+        <option value="uahf-osx.dmg">Mac OSX</option>
         <option value="-win64-setup.exe">Windows setup 64-bit</option>
         <option value="-win32-setup.exe">Windows setup 32-bit</option>
         <option value="-armhf-cli.tar.gz">ARM-hf (raspberry-pi)</option>
@@ -92,7 +91,7 @@ For details on what is included in this release, please see the <a href="../news
     </select></fieldset>
     <div><button class="download" type="submit">Download</button></div>
     </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.0">Github link</a></div>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.0uahf">Github link</a></div>
     </div></div>
 
      </section>

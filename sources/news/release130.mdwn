@@ -1,0 +1,35 @@
+[[!meta title="Bitcoin Classic Announces the 1.3.0"]]
+
+## Release Announcement Bitcoin Classic 1.3.0
+
+July 28, 2017.
+
+Bitcoin Classic releases its full node software with some exciting new features.
+
+In the release cycle leading up to this release we focused a lot on making the codebase more maintainable which is an investment in the future productivity of developers. Many components have transformed from just a bunch of loose details all over the codebase to actual components with docs and usable APIs.
+
+This will have less visibility on the end user for now, but here are the actual end-user visible changes.
+
+* Introduction of Bitcoin Cash (UAHF) support.  
+Users can pass in the `-uahfstartime` flag in the config file to turn the node from one that follows the main chain into one that follows the bitcoin cash chain.  There is a special 'uahf' download available that sets this flag automatically for maximum convenience.  
+Please note that mining is not supported yet.
+
+* Introduction of a new logging framework. This component introduces features that allows developers to move their logging needs out of the way of end-user logging needs thereby making it much more useful for the end user.  
+This includes auto-re-loadable log-config and log-levels configuration per section.
+
+* Config file / commandline argument improvements.  
+Incorrect flags are no longer silently ignored, users will be notified and get the opportunity to correct their mistake.
+
+* Support up to GCC7.
+
+* Fixes 'advertiselocal', to avoid spamming peers with your IP address too often.
+
+* Move to OpenSSL 1.1
+
+* Move to the upnp lib that fixes a security issue.
+
+
+For more help with installation, and instructions how to download please visit [bitcoinclassic.com/gettingstarted.html](https://bitcoinclassic.com/gettingstarted.html)
+
+[Download page](/downloads/index.html)
+

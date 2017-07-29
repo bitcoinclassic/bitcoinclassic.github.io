@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin Classic Announces the 1.3.0</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+      <div class="grid">
+        <div class="col-1-3"><a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a></div>
+        <div class="col-2-3"><button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button></div>
+      </div>
+      <nav>
+      <ul class="menu">
+        <li>
+          <a class="" href="#" title="Getting started">Getting Started</a>
+          <ul>
+            <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+            <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+            <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="#" title="Developers">Developers</a>
+          <ul>
+            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
+            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
+            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
+            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <section>
+<h2 id="Release_Announcement_Bitcoin_Classic_1.3.0">Release Announcement Bitcoin Classic 1.3.0</h2>
+
+<p>July 28, 2017.</p>
+
+<p>Bitcoin Classic releases its full node software with some exciting new features.</p>
+
+<p>In the release cycle leading up to this release we focused a lot on making the codebase more maintainable which is an investment in the future productivity of developers. Many components have transformed from just a bunch of loose details all over the codebase to actual components with docs and usable APIs.</p>
+
+<p>This will have less visibility on the end user for now, but here are the actual end-user visible changes.</p>
+
+<ul>
+<li><p>Introduction of Bitcoin Cash (UAHF) support. <br />
+Users can pass in the <code>-uahfstartime</code> flag in the config file to turn the node from one that follows the main chain into one that follows the bitcoin cash chain.  There is a special 'uahf' download available that sets this flag automatically for maximum convenience. <br />
+Please note that mining is not supported yet.</p></li>
+<li><p>Introduction of a new logging framework. This component introduces features that allows developers to move their logging needs out of the way of end-user logging needs thereby making it much more useful for the end user. <br />
+This includes auto-re-loadable log-config and log-levels configuration per section.</p></li>
+<li><p>Config file / commandline argument improvements. <br />
+Incorrect flags are no longer silently ignored, users will be notified and get the opportunity to correct their mistake.</p></li>
+<li><p>Support up to GCC7.</p></li>
+<li><p>Fixes 'advertiselocal', to avoid spamming peers with your IP address too often.</p></li>
+<li><p>Move to OpenSSL 1.1</p></li>
+<li><p>Move to the upnp lib that fixes a security issue.</p></li>
+</ul>
+
+<p>For more help with installation, and instructions how to download please visit <a href="https://bitcoinclassic.com/gettingstarted.html">bitcoinclassic.com/gettingstarted.html</a></p>
+
+<p><a href="/downloads/index.html">Download page</a></p>
+
+      </section>
+    </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/></div>
+        <div class="col-2-3"><span id="copyright">© 2016-2017 Bitcoin Classic</br>
+            Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC by-sa</a></span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

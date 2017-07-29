@@ -1,0 +1,15 @@
+[[!meta title="Bitcoin Classic Announces the 1.3.0"]]
+
+## Release Announcement Bitcoin Classic 1.3.0 UAHF
+
+July 28, 2017.
+
+Bitcoin Classic releases its full node software to be compatible with the Bitcoin Cash chain.
+
+This is a special release with the Bitcoin Cash (uahf) features added in the generic 1.3.0 version turned on by default. See the generic [release notes](release130) for more details.
+
+
+For more help with installation, and instructions how to download please visit [bitcoinclassic.com/gettingstarted.html](https://bitcoinclassic.com/gettingstarted.html)
+
+[Download page](/downloads/index.html)
+
