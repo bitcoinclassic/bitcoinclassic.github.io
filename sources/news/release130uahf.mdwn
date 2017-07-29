@@ -6,10 +6,12 @@ July 28, 2017.
 
 Bitcoin Classic releases its full node software to be compatible with the Bitcoin Cash chain.
 
-This is a special release with the Bitcoin Cash (uahf) features added in the generic 1.3.0 version turned on by default. See the generic [release notes](release130) for more details.
+This is a special release with the Bitcoin Cash (uahf) features added in the generic 1.3.0 version turned on by default. See the generic [release notes](release130) for generic release notes..
 
 
-For more help with installation, and instructions how to download please visit [bitcoinclassic.com/gettingstarted.html](https://bitcoinclassic.com/gettingstarted.html)
+This version is [downloadable](/downloads/bcc) directly, to allow you to will follow the Bitcoin Cash chain out of the box.
 
-[Download page](/downloads/index.html)
+It is important to notice that this version by default uses the same directory to store blocks in as Bitcoin Classic generic. That means you can't just switch back between those versions. If you want to run two chains on one machine, you can by specifying the `datadir` config option. Or, for simplicity sake, just running the GUI under a different user account.
+
+[Download page](/downloads/bcc/index.html)
 
