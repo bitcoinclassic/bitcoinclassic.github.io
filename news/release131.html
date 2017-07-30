@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bitcoin Classic Announces version 1.3.0</title>
+    <title>Bitcoin Classic Announces version 1.3.1</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bitcoin Classic">
@@ -44,29 +44,28 @@
     </header>
     <div class="content">
       <section>
-<h2 id="Release_Announcement_Bitcoin_Classic_1.3.0">Release Announcement Bitcoin Classic 1.3.0</h2>
+<h2 id="Release_Announcement_Bitcoin_Classic_1.3.1">Release Announcement Bitcoin Classic 1.3.1</h2>
 
-<p>July 28, 2017.</p>
+<p>July 30, 2017.</p>
 
-<p>Bitcoin Classic releases its full node software with some exciting new features.</p>
+<p>Bitcoin Classic updates the 1.3 version to work better with UAHF.</p>
 
-<p>In the release cycle leading up to this release we focused a lot on making the codebase more maintainable which is an investment in the future productivity of developers. Many components have transformed from just a bunch of loose details all over the codebase to actual components with docs and usable APIs.</p>
+<p>This client is fully compatible with the <a href="https://bitcoincash.org">Bitcoin Cash</a> spin-off from Bitcoin, but using the default settings we ignore it. You can change the config-file, or we point you to the specialized <a href="release131uahf.html">UAHF</a> version of Classic.</p>
 
-<p>This will have less visibility on the end user for now, but here are the actual end-user visible changes.</p>
+<p>Details;</p>
 
 <ul>
-<li><p>Introduction of Bitcoin Cash (UAHF) support. <br />
-Users can pass in the <code>-uahfstartime</code> flag in the config file to turn the node from one that follows the main chain into one that follows the bitcoin cash chain.  There is a <a href="/downloads/bcc/index.html">special 'uahf' download</a> available that sets this flag automatically for maximum convenience. <br />
-Please note that mining is not supported yet.</p></li>
-<li><p>Introduction of a new logging framework. This component introduces features that allows developers to move their logging needs out of the way of end-user logging needs thereby making it much more useful for the end user. <br />
-This includes auto-re-loadable log-config and log-levels configuration per section.</p></li>
-<li><p>Config file / commandline argument improvements. <br />
-Incorrect flags are no longer silently ignored, users will be notified and get the opportunity to correct their mistake.</p></li>
-<li><p>Support up to GCC7.</p></li>
-<li><p>Fixes 'advertiselocal', to avoid spamming peers with your IP address too often.</p></li>
-<li><p>Move to OpenSSL 1.1</p></li>
-<li><p>Move to the upnp lib that fixes a security issue.</p></li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/aaa6ba45bfeb10d82e0564267c8ac1d18d2eabcf">aaa6ba45</a> Add network-magic user-configuration options.</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/86e84defda401c0f3e18c623547ee2bbf09bf2a8">86e84def</a> Use forcednsseed by default prior to the fork</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/e1beca728ddad38d3e6260f134e975427708ac03">e1beca72</a> Reject from mempool the OP_RETURN anti-replay transactions</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/c5adb3a733ab7c9aae059140b0fea98cfe175962">c5adb3a7</a> Make SCRIPT_VERIFY_STRICTENC mandatory on the UAHF chain</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/9c0cca4e08559a5f8b09eafd04bbea5dfd3024c9">9c0cca4e</a> make anti-wipeout protection work.</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/eabcc02208e3e817780cb3d0c9b83793172552b9">eabcc022</a> 32 bit architecture is really not relevant anymore.</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/c288a576274d32327222715caafd5eef25209b70">c288a576</a> make the UAHF log lines show up in a default setup</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/db2963235e4c083223276e168ecc3c529464add1">db296323</a> Interrupt reindex when user requested shutdown</li>
 </ul>
+
+<p>And various minor bugfixes and updates.</p>
 
 <p>For more help with installation, and instructions how to download please visit <a href="https://bitcoinclassic.com/gettingstarted.html">bitcoinclassic.com/gettingstarted.html</a></p>
 

@@ -1,0 +1,28 @@
+[[!meta title="Bitcoin Classic Announces version 1.3.1"]]
+
+## Release Announcement Bitcoin Classic 1.3.1
+
+July 30, 2017.
+
+Bitcoin Classic updates the 1.3 version to work better with UAHF.
+
+This client is fully compatible with the [Bitcoin Cash](https://bitcoincash.org) spin-off from Bitcoin, but using the default settings we ignore it. You can change the config-file, or we point you to the specialized [UAHF](release131uahf.html) version of Classic.
+
+Details;
+
+* [aaa6ba45](https://github.com/bitcoinclassic/bitcoinclassic/commit/aaa6ba45bfeb10d82e0564267c8ac1d18d2eabcf) Add network-magic user-configuration options.
+* [86e84def](https://github.com/bitcoinclassic/bitcoinclassic/commit/86e84defda401c0f3e18c623547ee2bbf09bf2a8) Use forcednsseed by default prior to the fork
+* [e1beca72](https://github.com/bitcoinclassic/bitcoinclassic/commit/e1beca728ddad38d3e6260f134e975427708ac03) Reject from mempool the OP\_RETURN anti-replay transactions
+* [c5adb3a7](https://github.com/bitcoinclassic/bitcoinclassic/commit/c5adb3a733ab7c9aae059140b0fea98cfe175962) Make SCRIPT\_VERIFY\_STRICTENC mandatory on the UAHF chain
+* [9c0cca4e](https://github.com/bitcoinclassic/bitcoinclassic/commit/9c0cca4e08559a5f8b09eafd04bbea5dfd3024c9) make anti-wipeout protection work.
+* [eabcc022](https://github.com/bitcoinclassic/bitcoinclassic/commit/eabcc02208e3e817780cb3d0c9b83793172552b9) 32 bit architecture is really not relevant anymore.
+* [c288a576](https://github.com/bitcoinclassic/bitcoinclassic/commit/c288a576274d32327222715caafd5eef25209b70) make the UAHF log lines show up in a default setup
+* [db296323](https://github.com/bitcoinclassic/bitcoinclassic/commit/db2963235e4c083223276e168ecc3c529464add1) Interrupt reindex when user requested shutdown
+
+And various minor bugfixes and updates.
+
+
+For more help with installation, and instructions how to download please visit [bitcoinclassic.com/gettingstarted.html](https://bitcoinclassic.com/gettingstarted.html)
+
+[Download page](/downloads/index.html) | [UAHF release Download page](/downloads/bcc/index.html)
+

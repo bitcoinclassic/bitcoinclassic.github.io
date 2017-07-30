@@ -1,4 +1,4 @@
-[[!meta title="Bitcoin Classic Announces the 1.3.0"]]
+[[!meta title="Bitcoin Classic Announces version 1.3.0"]]
 
 ## Release Announcement Bitcoin Classic 1.3.0
 
