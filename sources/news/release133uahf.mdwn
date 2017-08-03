@@ -4,7 +4,7 @@
 
 August 3st, 2017.
 
-Bitcoin Classic updates the 1.3 version to add the ability to switch from BTC to the BCC chain.
+Bitcoin Classic updates the 1.3 version to add the ability to switch a datadir from BTC to the BCC chain.
 
 The UAHF version of Bitcoin Classic automatically follows and uses the [Bitcoin Cash](https://bitcoincash.org) spin-off of Bitcoin.
 
