@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bitcoin Classic Announces version 1.3.2 with Bitcoin Cash</title>
+    <title>Bitcoin Classic Announces version 1.3.3</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bitcoin Classic">
@@ -44,26 +44,35 @@
     </header>
     <div class="content">
       <section>
-<h2 id="Release_Announcement_Bitcoin_Classic_1.3.2_UAHF">Release Announcement Bitcoin Classic 1.3.2 UAHF</h2>
+<h2 id="Release_Announcement_Bitcoin_Classic_1.3.3">Release Announcement Bitcoin Classic 1.3.3</h2>
 
-<p>August 1st, 2017.</p>
+<p>August 3st, 2017.</p>
 
-<p>Bitcoin Classic updates the 1.3 version to work better with UAHF.</p>
+<p>Bitcoin Classic updates the 1.3 version to add the ability to switch from BTC to the BCC chain.</p>
 
 <p>The UAHF version of Bitcoin Classic automatically follows and uses the <a href="https://bitcoincash.org">Bitcoin Cash</a> spin-off of Bitcoin.</p>
 
-<p>This release is the latest update and we urge anyone that is interested in using Bitcoin Cash to upgrade.</p>
-
-<p>Various bugfixes since the 1.3.1 have been made. Details follow;</p>
-
-<p>Details;</p>
+<p>As the latest in the crazy week of Classic releases in relation to the successful Bitcoin Cash creation, here is a brief overview of what the 1.3 version of Bitcoin Classic adds.</p>
 
 <ul>
-<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/233605e0a4d929f9656e55347c3e54255a82d9dc">233605e0</a> Add new feature; blocksdatadir config</li>
-<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/a5bca35e7eb78c41b1e8fb7fcc02dbce4053320b">a5bca35e</a>  Make a data-migration path. (copying databases)</li>
-<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/056532dfd2878bc8ab52d984ea2c6e8113af55ac">056532df</a> Disable headers code for now.</li>
-<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/d7ca53ca8bab32b6366dca898ead47865fcff8db">d7ca53ca</a> Remember the xthin and cash nodes between runs.</li>
-<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/bd29c6051166f4679564bbf537dbca5f4f6d6663">bd29c605</a> Restore sanity; asserts are for debug builds only</li>
+<li>Full Bitcoin Cash support, using the UAHF name. A special download is available.</li>
+<li>Ability to automatically migrate and separate out the Bitcoin Cash data from the traditional chain.
+This allows users to run two nodes, each following a different chain.</li>
+<li>Faster re-connecting to Bitcoin Cash capable nodes by remembering which nodes support it.</li>
+<li>Full zero-fee transaction support. From relay for others as well as creation in the wallet and mining.</li>
+<li>Much improved log-file support. Including runtime reloading of config-file using SIGHUP.</li>
+<li>Won't crash on asserts because we restored sanity, asserts are not part of release builds.</li>
+</ul>
+
+<p>This release is the latest update and we urge anyone that is interested in using Bitcoin Cash to upgrade.</p>
+
+<p>Details added in 1.3.3;</p>
+
+<ul>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/f120d15834b45a1933c0eb6d72be7236888f0263">f120d158</a> Refactor: remove using namespace std</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/23f078957d1bbb1592ca0f338a92f38a33b1e6f0">23f07895</a> Add chain-switch code (BTC->BCC)</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/227e7d84527129e230b990c37a25f87f0c68065d">227e7d84</a> Swap init step 6 &amp; 7</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/e55c3fe9d0d5f43d0bf9ee650464666d369cad64">e55c3fe9</a> fix logic.</li>
 </ul>
 
 <p>And various minor bugfixes and updates.</p>

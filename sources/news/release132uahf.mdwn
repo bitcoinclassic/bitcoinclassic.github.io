@@ -1,0 +1,28 @@
+[[!meta title="Bitcoin Classic Announces version 1.3.2 with Bitcoin Cash"]]
+
+## Release Announcement Bitcoin Classic 1.3.2 UAHF
+
+August 1st, 2017.
+
+Bitcoin Classic updates the 1.3 version to work better with UAHF.
+
+The UAHF version of Bitcoin Classic automatically follows and uses the [Bitcoin Cash](https://bitcoincash.org) spin-off of Bitcoin.
+
+This release is the latest update and we urge anyone that is interested in using Bitcoin Cash to upgrade.
+
+Various bugfixes since the 1.3.1 have been made. Details follow;
+
+Details;
+
+* [233605e0](https://github.com/bitcoinclassic/bitcoinclassic/commit/233605e0a4d929f9656e55347c3e54255a82d9dc) Add new feature; blocksdatadir config
+* [a5bca35e](https://github.com/bitcoinclassic/bitcoinclassic/commit/a5bca35e7eb78c41b1e8fb7fcc02dbce4053320b)  Make a data-migration path. (copying databases)
+* [056532df](https://github.com/bitcoinclassic/bitcoinclassic/commit/056532dfd2878bc8ab52d984ea2c6e8113af55ac) Disable headers code for now.
+* [d7ca53ca](https://github.com/bitcoinclassic/bitcoinclassic/commit/d7ca53ca8bab32b6366dca898ead47865fcff8db) Remember the xthin and cash nodes between runs.
+* [bd29c605](https://github.com/bitcoinclassic/bitcoinclassic/commit/bd29c6051166f4679564bbf537dbca5f4f6d6663) Restore sanity; asserts are for debug builds only
+
+
+And various minor bugfixes and updates.
+
+
+[Download page](/downloads/bcc/index.html)
+
