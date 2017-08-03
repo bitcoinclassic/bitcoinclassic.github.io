@@ -67,29 +67,33 @@
 	</ol>
 </div>
 
-<p>Bitcoin Classic ships both a background application (called daemon in Linux) <code>bitcoind</code> and a graphical application <code>bitcoin-qt</code>.
+<p>Bitcoin Classic ships both a background application (called daemon in Linux) <code>bitcoind</code> and a graphical application <code>bitcoin-qt</code>, you will have to choose one to run.
 The daemon version of Bitcoin Classic can run without graphics systems installed on the system and the only way to interact with it is to use the command line.</p>
 
-<p>Bitcoin Classic packages are created such that the bitcoin-qt application has to be run in a desktop session by the local user and it will download the blockchain into that user's homedir. Warning, this is currently an almost 100GB download!</p>
+<p>Bitcoin Classic packages are created such that the bitcoin-qt application has to be run in a desktop session by the local user and it will download the blockchain into that user's homedir. Be aware, this is currently an almost 120&nbsp;GB download!</p>
 
 <p>The bitcoind background application is shipped to allow you to run it as its own user and the blockchain is downloaded to the <code>/var/lib/bitcoin</code> directory.
 
 <h2 id="distro">Pick an install method</h2>
 
-<p>To integrate best with Linux the Bitcoin Classic team has prepared several options based on which distribution of Linux you are running.</p>
+<p>To integrate best with Linux, the Bitcoin Classic team has prepared several options based on which distribution of Linux you are running.</p>
 
 <p>The <strong>Ubuntu</strong> family of distros are supported using ubuntu's <a href="https://launchpad.net/%7Ebitcoinclassic/+archive/ubuntu/bitcoinclassic/" target="_ext">launchpad.net</a>.</br>
 Please see our HOWTO for more info:
 <a href="howtos/ubuntu-install.html">howtos/ubuntu-install</a></p>
 
-<p>The <strong>ArchLinux</strong> family of distros we support using their <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository" target="_ext">AUR packaging</a> system. You can find the packages maintained by Classic on the Arch infrastructure. Use <a href="https://aur.archlinux.org/packages/bitcoin-classic/" target="_ext">bitcoin-classic</a> for stable releases, or if you install on a server you want to use <a href="https://aur.archlinux.org/packages/bitcoin-classic-daemon/" target="_ext">bitcoin-classic-daemon</a>.</p>
+<p>Debian all-in-one download build, which you can find in <a href="/downloads/index.html">downloads</a>.</p>
 
+<p>ON <strong>ArchLinux</strong> use <a href="https://aur.archlinux.org/packages/bitcoin-classic/" target="_ext">bitcoin-classic</a> for the GUI app. or for your server the <a href="https://aur.archlinux.org/packages/bitcoin-classic-daemon/" target="_ext">bitcoin-classic-daemon</a>.</br>
+Read more about ArchLinux building on the <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository" target="_ext">AUR wiki</a>.</p>
 
 
 <h2 id="config">Configure your node</h2>
 
-<p>Bitcoin reads a config file called <code>bitcoin.conf</code>. For GUI usage that file is read from the <code>~/.bitcoin/</code> directory, if you run the daemon using <code>systemd</code> your configfile can be found in <code>/etc/bitcoin/</code></p>
-<p>It is worth noting that editing your config file requires a restart of the software to activate your changes. Be aware that the software at this time doesn't output warnings if you provide invalid or unknown tokens. So be careful with typos!</p>
+<p>Bitcoin reads a config file called <code>bitcoin.conf</code>. Old nodes stored that in the <code>~/.bitcoin</code> directory, newer store it in the XDG_DATA_HOME spec defined place. Typically <code>~/.local/share/Bitcoin</code>, or in <code>~/.local/share/BitcoinCash</code>.</br>
+The server packages we provide store the config file in <code>/etc/bitcoin</code></p>
+
+<p>It is worth noting that editing your config file requires a restart of the software to activate your changes. Unlike other versions of Bitcoin, typos will cause an error and the node will request you fix it before it starts.</p>
 
 <p>You can read the <code>/usr/share/doc/bitcoin/examples/bitcoin.conf</code> for configuration details, or simply run <code>bitcoind --help</code> on the command-line.</p>
 
