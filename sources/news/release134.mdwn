@@ -22,7 +22,7 @@ This client is fully compatible with the [Bitcoin Cash](https://bitcoincash.org)
 
 Details added in 1.3.4;
 
-Critical fixes and features;
+Important fixes and features;
 
 * [9f90c8fc](https://github.com/bitcoinclassic/bitcoinclassic/commit/9f90c8fcb37dbfa713e3becc386c4f5d41282492) Use the proper seeds
 * [d9cff604](https://github.com/bitcoinclassic/bitcoinclassic/commit/d9cff60492b758efc4d01c63fa223070ff1392c7) pass in amount from bitcoin-tx #284
