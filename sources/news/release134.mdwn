@@ -1,0 +1,43 @@
+[[!meta title="Bitcoin Classic Announces version 1.3.4"]]
+
+## Release Announcement Bitcoin Classic 1.3.4
+
+August 14st, 2017.
+
+Bitcoin Classic updates the 1.3 version with various bugfixes.
+
+After the successful creation of Bitcoin Cash we proudly present the stable, most user friendly Bitcoin full node that allows you to choose the Bitcoin you want.
+
+* Full Bitcoin Cash support, using the UAHF name. A special download is available.
+* Ability to automatically migrate and separate out the Bitcoin Cash data from the traditional chain.
+This allows users to run two nodes, each following a different chain.
+* Faster re-connecting to Bitcoin Cash capable nodes by remembering which nodes support it.
+* Full zero-fee transaction support. From relay for others as well as creation in the wallet and mining.
+Would the whole network run Classic, it would work today. Unfortunately other clients are not supporting this yet.
+* Much improved log-file support. Including runtime reloading of config-file using SIGHUP.
+* Won't crash on asserts because we restored sanity, asserts are not part of release builds.
+
+
+This client is fully compatible with the [Bitcoin Cash](https://bitcoincash.org) spin-off from Bitcoin, but using the default settings we ignore it. You can change the config-file, or we point you to the specialized [UAHF](release134uahf.html) version of Classic.
+
+Details added in 1.3.4;
+
+Critical fixes and features;
+
+* [9f90c8fc](https://github.com/bitcoinclassic/bitcoinclassic/commit/9f90c8fcb37dbfa713e3becc386c4f5d41282492) Use the proper seeds
+* [d9cff604](https://github.com/bitcoinclassic/bitcoinclassic/commit/d9cff60492b758efc4d01c63fa223070ff1392c7) pass in amount from bitcoin-tx #284
+* [17519e2e](https://github.com/bitcoinclassic/bitcoinclassic/commit/17519e2e9aa656039c5f89dc68cd94829ee1033d) Fix issue #281: Mac folder name didn't change for UAHF
+* [d66afe37](https://github.com/bitcoinclassic/bitcoinclassic/commit/d66afe37e762d47ea581315c6d766274d03a7b73) Make the QR code show a fork specific prefix
+* [95d9ae46](https://github.com/bitcoinclassic/bitcoinclassic/commit/95d9ae46411530299378409aa2fb1aff1b850739) If transactions from the BTC branch are in the wallet, ignore them in BCC and vice versa.
+* [b6b27637](https://github.com/bitcoinclassic/bitcoinclassic/commit/b6b27637d32d02f5af1059f7efa2b42b1b8d82a5) Support Segwit2X rollback protection
+
+Misc;
+* [0c3942d6](https://github.com/bitcoinclassic/bitcoinclassic/commit/0c3942d6763e78ae31282e0c93435c7626ad1d39) Stop warning about hardcoded block-counts.
+* [8bf1fb85](https://github.com/bitcoinclassic/bitcoinclassic/commit/8bf1fb856df44d1b790b0b835e4c1969be736e25) Fix this test better
+* [6aac5919](https://github.com/bitcoinclassic/bitcoinclassic/commit/6aac5919c9fe1a9248c34268452847dcf55c3e02) Add test for UAHF transactions/mempool
+* [71b8924f](https://github.com/bitcoinclassic/bitcoinclassic/commit/71b8924fb31599c7f9d6faa270980fc896140fc4) remove obsolete code
+* [104e5d8f](https://github.com/bitcoinclassic/bitcoinclassic/commit/104e5d8f853fe2c90ff434e7323f5dbf276e249d) Refactor: remove using namespace std
+
+And various minor bugfixes and updates.
+
+[Download page](/downloads/index.html) | [UAHF release Download page](/downloads/bcc/index.html)

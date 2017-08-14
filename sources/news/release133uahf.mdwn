@@ -1,6 +1,6 @@
-[[!meta title="Bitcoin Classic Announces version 1.3.3"]]
+[[!meta title="Bitcoin Classic Announces version 1.3.3 with Bitcoin Cash"]]
 
-## Release Announcement Bitcoin Classic 1.3.3
+## Release Announcement Bitcoin Classic 1.3.3 UAHF
 
 August 3st, 2017.
 
