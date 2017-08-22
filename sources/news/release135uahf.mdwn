@@ -1,0 +1,38 @@
+[[!meta title="Bitcoin Classic Announces version 1.3.5 with Bitcoin Cash"]]
+
+## Release Announcement Bitcoin Classic 1.3.5 UAHF
+
+August 22st, 2017.
+
+Bitcoin Classic updates the 1.3 version with various bugfixes. Most important a fix the issue that some people saw their node getting 'stuck' syncing a week or so in the past.
+
+After the successful creation of Bitcoin Cash we proudly present the stable, most user friendly Bitcoin full node that allows you to choose the Bitcoin you want.
+
+* Full Bitcoin Cash support, using the UAHF name. A special download is available.
+* Ability to automatically migrate and separate out the Bitcoin Cash data from the traditional chain.
+This allows users to run two nodes, each following a different chain.
+* Faster re-connecting to Bitcoin Cash capable nodes by remembering which nodes support it.
+* Full zero-fee transaction support. From relay for others as well as creation in the wallet and mining.
+Would the whole network run Classic, it would work today. Unfortunately other clients are not supporting this yet.
+* Much improved log-file support. Including runtime reloading of config-file using SIGHUP.
+
+This client is fully compatible with the [Bitcoin Cash](https://bitcoincash.org) spin-off from Bitcoin, but using the default settings we ignore it. You can change the config-file, or we point you to the specialized [UAHF](release135uahf.html) version of Classic.
+
+Details added in 1.3.5;
+
+Important fixes and features;
+
+* [0fdedc84](https://github.com/bitcoinclassic/bitcoinclassic/commit/0fdedc8404e6e78b327511fbcb1baa96f1f5485d) Fix compile without berkleyDB
+* [71949b00](https://github.com/bitcoinclassic/bitcoinclassic/commit/71949b00cbb772dbf341a81d6e9481090c24e100) Only accept addresses from Cash nodes
+* [1f347457](https://github.com/bitcoinclassic/bitcoinclassic/commit/1f3474577f9f0e08360b9607a64f84a51dc6f4b8) Keep searching for xthin nodes
+* [d8e51648](https://github.com/bitcoinclassic/bitcoinclassic/commit/d8e51648f9cac3551f4d58eb79a14c250168357f) Fix off-by-one and related issues in BCC-migration
+* [b4ee58d3](https://github.com/bitcoinclassic/bitcoinclassic/commit/b4ee58d3864be1eeeacd022b30ee4d6ca0fe9b12) fixed memory leak on Mac OSX
+* [9d72713a](https://github.com/bitcoinclassic/bitcoinclassic/commit/9d72713a05635f9b578906095f8b2e103b5d3d1b) Use blockid for UAHF chain detection
+* [1a97ddcb](https://github.com/bitcoinclassic/bitcoinclassic/commit/1a97ddcb11ecd1ef30c91b472ac3af33944a5354) Deprecate -uahfstarttime and introduce -uahf=true
+* [250932af](https://github.com/bitcoinclassic/bitcoinclassic/commit/250932af192c6cc20e0101ee26475272c43d630e) Make Classic aware of BIP9-bit1
+
+Special thanks goes to developer **gubatron** who single-handedly created 26 commits to clean up sourcecode for better maintainability.
+
+And various minor bugfixes and updates.
+
+[Download page](/downloads/bcc/index.html)
