@@ -75,6 +75,20 @@
 
     <h1>Download Bitcoin Classic</h1>
 
+<p>Classic is capable of following the Bitcoin chain (BTC) or the Bitcoin Cash chain (BCC), you just have to tell it which one you want it to follow.</p>
+
+<p>Users can tell Classic which chain to follow using two options;</p>
+<ul>
+    <li>download plain Classic and configure it using the <code>uahf=[true|false]</code> option to turn on/off UAHF. UAHF is the working name for the Bitcoin Cash chain. So passing in <code>-uahf=true</code> means your client will show BCC in the GUI and follow Bitcoin Cash rules.
+    Specifically, you can run classic like this (may want to replace the dirs with something more sane)
+    <ul>
+        <li><code>bitcoin-qt -datadir=c:\cash -uahf=true</code></li>
+        <li><code>bitcoin-qt -datadir=c:\bitcoin -uahf=false -listen=0</code></li>
+    </ul></li>
+
+    <li>Or you can use the pre-configured downloads below. The main difference between those two binaries is that the <code>-uahf=true</code> is already pre-configured in the Bitcoin Cash download.</li>
+</ul>
+<p>&nbsp;</p>
      <section>
     <div class="release_box">
     <div class="box eight-col">
