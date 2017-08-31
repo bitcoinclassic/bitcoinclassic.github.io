@@ -1,0 +1,55 @@
+[[!meta title="Use Bitcoin Cash with Classic"]]
+
+From August 1st, 2017 a so called split-coin was created with the name **Bitcoin Cash** (BCC).
+
+All Bitcoin people were holding before that date is split. Much like a stock-split. Everyone holding 1 BTC before the split-coin was created will hold 1BTC and 1BCC afterwards. This howto explains how you can run both a Bitcoin legacy as well as a Bitcoin Cash node, allowing you access to coins on both sides of the chain.
+
+Bitcoin stored in a Bitcoin Classic or Core wallet will be auto-converted, Bitcoin stored on paper wallets can be imported twice, once for each side of the split.
+
+**Please ask yourself this first; do I need to follow this tutorial?**
+
+* Do I have BTC in a Core or Classic wallet? Do I have it in a paper-wallet?  
+If you don't, the only benefit will be that you can run two full nodes on one machine that share the chain-data. If you don't know why you would need to do that, this tutorial is likely not for you.
+
+* Do you run Bitcoin Classic as a normal user, or do you run it as a background service?
+If you run it on your machine under a different user, likely with your block data in a system-directory, this tutorial is not for you. A more specified howto should be written soon.
+
+* If you use pruning of your blockchain data, a feature in most full node software, then you may not be able to use this tutorial. You would need to re-download the entire blockchain.
+
+## Goal
+
+Our goal today are the following;
+
+* We end up with a Bitcoin Cash fully synchronised client that allows you to send and receive BCC.
+* We still have full access to the Bitcoin Legacy data, including the wallet.
+* And data that can be shared between the chains will be shared. Avoiding long processing times or large disk space usage.
+
+
+## Ok, lets begin
+
+Bitcoin Classic started supporting Bitcoin Cash in version 1.3 with a special download called the "UAHF" download.
+You can find it as a direct download on [downloads](/downloads/bcc/index.html).
+
+1. Make sure you quit any other full node software you have on your computer.
+2. Please download the latest version of Bitcoin Classic UAHF for your architecture and install it.
+3. Start Bitcoin Classic UAHF.  
+At this point Bitcoin Classic will start to use a new data directory. This directory is called `BitconCash`.
+The first start of Bitcoin Classic UAHF will do a data-migration of any data that was used by a formerly installed Bitcoin full node client on your machine. This migration will not touch the old data. Depending on how fast your machine is, this may take a couple of seconds to a couple of minutes.
+
+4. You should see on the splash-screen or in your logs that Bitcoin Classic will do a "rollback" of blocks back to the fork-point
+which was where the Bitcoin legacy and Bitcoin cash split and went its separate ways.  
+After reaching the fork point the client will continue to start as normal and start to download the new chain.
+
+5. Congratulations, you are now able to see and transact Bitcoin Cash transactions. Make sure to notice the usage of `BCC` in the user interface which is the main distinction to the legacy chain where we use `BTC`.
+
+6. Shut down Bitcoin Classic UAHF.
+
+7. Download the Bitcoin Classic release, the one without Bitcoin Cash. Install it in a different directory as the one we installed in number one. The intention is to have both on the system.
+
+8. Start the new Bitcoin Classic (non-UAHF).
+
+9. It should start and show you a very similar screen as above, but now with BTC.
+
+
+That's all folks, you can start any client and do transactions without having any effect on the other side of the split.
+
