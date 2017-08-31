@@ -23,7 +23,7 @@
     function updateIsoUrlUAHF(version) {
         var architecture = document.getElementById(version + "selectUahf");
         architecture = architecture.options[architecture.selectedIndex].value;
-        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.5uahf/bitcoin-$1$2";
+        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.6uahf/bitcoin-$1$2";
         url = url.replace("$1", version);
         url = url.replace("$1", version);
         url = url.replace("$2", architecture);
@@ -75,33 +75,25 @@
 
     <h1>Download Bitcoin Classic</h1>
 
-<p>Classic is capable of following the Bitcoin chain (BTC) or the Bitcoin Cash chain (BCC), you just have to tell it which one you want it to follow.</p>
+<P>Since the first of August there are two main versions of Bitcoin. All your old coins are available on both. </br>
+The first is the legacy chain, Bitcoin. Using Bitcoin Classic wallet you can fully transact BTCs.</br>
+The second is the Bitcoin Cash chain, which started on August 1st. This chain removes a centralized decision making team from power and immediately followed through with a long expected upgrade to allow bigger blocks.</p>
 
-<p>Users can tell Classic which chain to follow using two options;</p>
-<ul>
-    <li>download plain Classic and configure it using the <code>uahf=[true|false]</code> option to turn on/off UAHF. UAHF is the working name for the Bitcoin Cash chain. So passing in <code>-uahf=true</code> means your client will show BCC in the GUI and follow Bitcoin Cash rules.
-    Specifically, you can run classic like this (may want to replace the dirs with something more sane)
-    <ul>
-        <li><code>bitcoin-qt -datadir=c:\cash -uahf=true</code></li>
-        <li><code>bitcoin-qt -datadir=c:\bitcoin -uahf=false -listen=0</code></li>
-    </ul></li>
-
-    <li>Or you can use the pre-configured downloads below. The main difference between those two binaries is that the <code>-uahf=true</code> is already pre-configured in the Bitcoin Cash download.</li>
-</ul>
+<p>Please see the pre-configured downloads below as a way to select which chain you want to follow.</p>
 <p>&nbsp;</p>
      <section>
     <div class="release_box">
     <div class="box eight-col">
-    <h2>Bitcoin Classic 1.3.5</h2>
+    <h2>Bitcoin Classic 1.3.6</h2>
 <p>Bitcoin Classic updates the 1.3 version with various bugfixes.</p>
-<p>This release updates to the latest SegWit2X chain rules, without segwit, please also consider the Bitcoin Cash chain below.</p>
+<p>This release by default follows the legacy chain. <code>SegWit2x</code>.</p>
 
-<p>For details on what is included in this release, please see the <a href="../news/release135.html">release notes</a>.</p>
+<p>For details on what is included in this release, please see the <a href="../news/release136.html">release notes</a>.</p>
     </div>
     <div class="box four-col">
-    <form id="1.3.5download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.5/bitcoin-1.3.5-win64-setup.exe" method="get">
+    <form id="1.3.6download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.6/bitcoin-1.3.6-win64-setup.exe" method="get">
     <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.3.5select" onchange="updateIsoUrl(&quot;1.3.5&quot;)">
+    <select class="download" id="1.3.6select" onchange="updateIsoUrl(&quot;1.3.6&quot;)">
         <option value="-linux64.tar.gz">Linux tar</option>
         <option value=".deb">Linux debian (deb)</option>
         <option value="-osx.dmg">Mac OSX</option>
@@ -110,22 +102,22 @@
     </select></fieldset>
     <div><button class="download" type="submit">Download</button></div>
     </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.5">Github link</a></br>
-    <a href="../news/release135.html">Release notes</a></div>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.6">Github link</a></br>
+    <a href="../news/release136.html">Release notes</a></div>
     </div></div>
 
     <div class="release_box">
     <div class="box eight-col">
-    <h2>Bitcoin Classic 1.3.5 With Bitcoin Cash</h2>
+    <h2>Bitcoin Classic 1.3.6 With Bitcoin Cash</h2>
 <p>Bitcoin Classic updates the 1.3 version with various bugfixes.</p>
-<p>This is the special <a href="https://bitcoincash.org">Bitcoin Cash</a> supporting release that follows the BCC chain instead of the SegWit2X chain.</p>
+<p>This is the special <a href="https://bitcoincash.org">Bitcoin Cash</a> release.</p>
 
-<p>For details on what is included in this release, please see the <a href="../news/release135.html">release notes</a>.</p>
+<p>For details on what is included in this release, please see the <a href="../news/release136.html">release notes</a>.</p>
     </div>
     <div class="box four-col">
-    <form id="1.3.5downloadUahf" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.5uahf/bitcoin-1.3.5-win64-setup.exe" method="get">
+    <form id="1.3.6downloadUahf" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.6uahf/bitcoin-1.3.6-win64-setup.exe" method="get">
     <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.3.5selectUahf" onchange="updateIsoUrlUAHF(&quot;1.3.5&quot;)">
+    <select class="download" id="1.3.6selectUahf" onchange="updateIsoUrlUAHF(&quot;1.3.6&quot;)">
         <option value="-linux64.tar.gz">Linux tar</option>
         <option value=".deb">Linux debian (deb)</option>
         <option value="uahf-osx.dmg">Mac OSX</option>
@@ -134,8 +126,8 @@
     </select></fieldset>
     <div><button class="download" type="submit">Download</button></div>
     </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.5uahf">Github link</a></br>
-    <a href="../news/release135uahf.html">Release notes</a></div>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.6uahf">Github link</a></br>
+    <a href="../news/release136uahf.html">Release notes</a></div>
     </div></div>
      </section>
       </div>

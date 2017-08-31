@@ -1,0 +1,30 @@
+[[!meta title="Bitcoin Classic Announces version 1.3.6 with Bitcoin Cash"]]
+
+## Release Announcement Bitcoin Classic 1.3.6 UAHF
+
+August 30th, 2017.
+
+Bitcoin Classic updates the 1.3 version with various bugfixes. We added some solutions for Bitcoin Cash based nodes where some users reported them having a database inconsistency which caused them to get stuck.
+
+After the successful creation of Bitcoin Cash we proudly present the stable, most user friendly Bitcoin full node that allows you to choose the Bitcoin you want.
+
+* Full Bitcoin Cash support, using the UAHF name. A special download is available.
+* Ability to automatically migrate and separate out the Bitcoin Cash data from the traditional chain.
+This allows users to run two nodes, each following a different chain.
+* Faster re-connecting to Bitcoin Cash capable nodes by remembering which nodes support it.
+* Full zero-fee transaction support. From relay for others as well as creation in the wallet and mining.
+* Much improved log-file support. Including runtime reloading of config-file using SIGHUP.
+
+Details added in 1.3.6;
+
+* [f8c29ab6](https://github.com/bitcoinclassic/bitcoinclassic/commit/f8c29ab6a1fd7a8d625ab8d44747be8465bd4469) Cleanup UAHF activation, use blockheight instead.
+* [a1e26c65](https://github.com/bitcoinclassic/bitcoinclassic/commit/a1e26c65159d66713e581287c35178b71dd53838) Call reconsiderblock to salvage a corrupted database
+* [f57d9c19](https://github.com/bitcoinclassic/bitcoinclassic/commit/f57d9c1904d40d6e413926f8393a3aa2704f4a5e) Usability: This param being 'amount' was not clear.
+* [0c3c2148](https://github.com/bitcoinclassic/bitcoinclassic/commit/0c3c214807cb18874e71b2a6e242d61685b7a5cf) Fix log-levels for many cases.
+* [b466f09e](https://github.com/bitcoinclassic/bitcoinclassic/commit/b466f09e4f9680b659016624dc84af560fa79d8e) Make libevent/http use the right log levels
+* [ffed8df6](https://github.com/bitcoinclassic/bitcoinclassic/commit/ffed8df6e2eeb54071e51dac6825ce0081a4ba12) Update OSX MIME type for .bitcoinpaymentrequest files, rename identifiers
+* [6a777cc7](https://github.com/bitcoinclassic/bitcoinclassic/commit/6a777cc7095df9e4a6e1b679c86cc37630824600) Remove unused includes
+
+And various minor bugfixes and updates.
+
+[Download page](/downloads/bcc/index.html)
