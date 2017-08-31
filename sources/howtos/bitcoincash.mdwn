@@ -14,7 +14,7 @@ If you don't, the only benefit will be that you can run two full nodes on one ma
 * Do you run Bitcoin Classic as a normal user, or do you run it as a background service?
 If you run it on your machine under a different user, likely with your block data in a system-directory, this tutorial is not for you. A more specified howto should be written soon.
 
-* If you use pruning of your blockchain data, a feature in most full node software, then you may not be able to use this tutorial. You would need to re-download the entire blockchain.
+* If you use pruning of your blockchain data then you may not be able to use this tutorial. You would need to re-download the entire blockchain.
 
 ## Goal
 
