@@ -43,3 +43,10 @@ These two very different visions for Bitcoin are largely incompatible, which led
 Unlike the previous situation in Bitcoin, there is no one single development team for Bitcoin Cash.  There are now multiple independent teams of developers. 
 
 This decentralization of development (and decentralization of software implementations) is a much needed and important step forward.
+
+Further resources;
+
+[Many Bitcoin Cash supporting wallets](https://bitcoin.stackexchange.com/questions/58968/which-wallets-support-bitcoin-cash/58969#58969)  
+[Bitcoin Cash based explorers](https://bitcoin.stackexchange.com/a/57449/38618)
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin Classic Announces version 1.3.7</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+      <div class="grid">
+        <div class="col-1-3"><a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a></div>
+        <div class="col-2-3"><button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button></div>
+      </div>
+      <nav>
+      <ul class="menu">
+        <li>
+          <a class="" href="#" title="Getting started">Getting Started</a>
+          <ul>
+            <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+            <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+            <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="#" title="Developers">Developers</a>
+          <ul>
+            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
+            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
+            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
+            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <section>
+<h2 id="Release_Announcement_Bitcoin_Classic_1.3.7">Release Announcement Bitcoin Classic 1.3.7</h2>
+
+<p>September 21st, 2017</p>
+
+<p>Bitcoin Classic updates the 1.3 version with various bugfixes and the addition of the new Bitcoin Cash address-type as introduced by BitPay last week. It is now possible to pay from Classic to those addresses, we still support the old BTC ones.</p>
+
+<p>After the successful creation of Bitcoin Cash we proudly present the stable, most user friendly Bitcoin full node that allows you to choose the Bitcoin you want.</p>
+
+<ul>
+<li>Full Bitcoin Cash support, using the UAHF name. A special download is available.</li>
+<li>Ability to automatically migrate and separate out the Bitcoin Cash data from the traditional chain.
+This allows users to run two nodes, each following a different chain.</li>
+<li>Faster re-connecting to Bitcoin Cash capable nodes by remembering which nodes support it.</li>
+<li>Full zero-fee transaction support. From relay for others as well as creation in the wallet and mining.</li>
+<li>Much improved log-file support. Including runtime reloading of config-file using SIGHUP.</li>
+</ul>
+
+<p>This client is fully compatible with the <a href="https://bitcoincash.org">Bitcoin Cash</a> spin-off from Bitcoin, but using the default settings we ignore it. You can change the config-file, or we point you to the specialized <a href="release137uahf.html">UAHF</a> version of Classic.</p>
+
+<p>Details added in 1.3.7;</p>
+
+<ul>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/031adb01c668bfdbf4e1283387166ec9b0d4ec34">031adb0</a> Fix nodes not getting any new blocks</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/3f8be7ea1d63b6cfb93965af7334b9a9c6c46aad">3f8be7e</a> Update seeds</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/fba152319337929d723a090d5af48bb3bfb12c41">fba1523</a> Change default value for -initiatecashconnections</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/61219329a87910eb20e989638a47299156861d4b">6121932</a> Add support for BitPays alternative cash addreses</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/6348daa8de95a7e474ba35fe55f7a9bc2a8f2524">6348daa</a> Support new address type when entered by user</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/9cd345f065387d5270ee81bbbf35de2956c51b01">9cd345f</a> Work better with misbehaving node</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/dd115705cc5a99d30114fe4c65c6fb0e65c79392">dd11570</a> Fix logger skipping first char of constructor</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/922f0fb1b45ac07b8dc34a3dd61f48162dde46eb">922f0fb</a> Use proper fallback for uahf</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/ca9de3ebd65ab1667228d10fe967ef75cad7b964">ca9de3e</a> Make initialization of chain-Params lazy</li>
+</ul>
+
+<p>And various minor bugfixes and updates.</p>
+
+<p><a href="/downloads/index.html">Download page</a> | <a href="/downloads/bcc/index.html">UAHF release Download page</a></p>
+
+      </section>
+    </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/></div>
+        <div class="col-2-3"><span id="copyright">© 2016-2017 Bitcoin Classic</br>
+            Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC by-sa</a></span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>
