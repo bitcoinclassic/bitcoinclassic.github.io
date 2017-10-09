@@ -1,7 +1,7 @@
 #!/bin/bash
 cd `dirname $0`
 rm -rf html-temp
-rm -rf devel howtos news
+rm -rf devel howtos news kb
 
 ikiwiki --setup setup
 
