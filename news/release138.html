@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin Classic Announces version 1.3.8</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+      <div class="grid">
+        <div class="col-1-3"><a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a></div>
+        <div class="col-2-3"><button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button></div>
+      </div>
+      <nav>
+      <ul class="menu">
+        <li>
+          <a class="" href="#" title="Getting started">Getting Started</a>
+          <ul>
+            <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+            <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+            <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="#" title="Developers">Developers</a>
+          <ul>
+            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
+            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
+            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
+            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <section>
+<h2 id="Release_Announcement_Bitcoin_Classic_1.3.8">Release Announcement Bitcoin Classic 1.3.8</h2>
+
+<p>Bitcoin Classic updates the 1.3 version with various bugfixes.</p>
+
+<p>This is the latest release in the 1.3 series. The 1.3 series is mostly aimed at people wanting to get away from the Core dominance and their small blocks view of Bitcoin.</p>
+
+<p>This version can be configured to follow the Bitcoin Cash (codename UAHF) chain, or look at the <a href="release138uahf.html">Cash</a> version of Classic to avoid any configuration changes.</p>
+
+<p>In November the Bitcoin chain will get a planned upgrade to 2MB, to make sure no mistakes are made Bitcoin Classic will make sure the 2MB chain is selected in case any miners mistakenly continue to mine on the 1MB chain.
+You can continue using Bitcoin Classic safely on the 2MB chain.</p>
+
+<p>There are a long list of Bitcoin Cash specific features in the 1.3 series, please refer to the <a href="release138uahf.html">Cash</a> release notes for more details on Bitcoin Cash support.</p>
+
+<p>Bugs fixed in 1.3.8;</p>
+
+<ul>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/25aed6b6d04f8320f20976cb0661add2d899925c">25aed6b</a> Fix reindexing not stopping in normal GUI shutdown</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/9f7dfeb4337605b8353d0aa2a19133fc08a9a51e">9f7dfeb</a> Avoid multiple reconnects to useless nodes</li>
+</ul>
+
+<p><a href="/downloads/index.html">Download page</a> | <a href="/downloads/bcc/index.html">UAHF release Download page</a></p>
+
+      </section>
+    </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/></div>
+        <div class="col-2-3"><span id="copyright">© 2016-2017 Bitcoin Classic</br>
+            Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC by-sa</a></span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

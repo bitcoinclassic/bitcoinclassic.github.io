@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin Classic Announces version 1.3.8 for Bitcoin Cash</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Classic">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/icon">
+    <link rel="stylesheet" href="/assets/css/bitcoin-classic.css">
+      <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+  <div id="container">
+    <header>
+      <div class="grid">
+        <div class="col-1-3"><a href="/"><img src="/assets/img/bitcoinclassic-dark-206x29@2x.png" alt="Bitcoin Classic Logo"></a></div>
+        <div class="col-2-3"><button id="openMenu" class="openMenu" name="Menu toggle"><img src="/assets/img/menu_open.png" alt="Open menu"></button></div>
+      </div>
+      <nav>
+      <ul class="menu">
+        <li>
+          <a class="" href="#" title="Getting started">Getting Started</a>
+          <ul>
+            <li><a class="" href="/gettingstarted.html" title="Overview">Overview</a></li>
+            <li><a class="" href="/downloads/index.html" title="Downloads">Downloads</a></li>
+            <li><a class="" href="/linuxbuilds.html" title="Linux builds">Linux builds</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
+        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
+        <li><a class="" href="#" title="Developers">Developers</a>
+          <ul>
+            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
+            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
+            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
+            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
+            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
+          </ul>
+        </li>
+        <li><a class="" href="/news.html" title="News">News</a></li>
+      </ul>
+      </nav>
+    </header>
+    <div class="content">
+      <section>
+<h2 id="Release_Announcement_Bitcoin_Classic_1.3.8_uahf">Release Announcement Bitcoin Classic 1.3.8 uahf</h2>
+
+<p>Bitcoin Classic updates the 1.3 version with various bugfixes.</p>
+
+<p>In the 1.3 series of releases Bitcoin Classic started supporting Bitcoin Cash. Bitcoin Cash is the improved version of Bitcoin, removing the barriers to growth and removing lock-in created by a centralised development team.</p>
+
+<p>Bitcoin Classic is the front runner for Bitcoin Cash, here are some of its features;</p>
+
+<ul>
+<li>Full Bitcoin Cash support, using the UAHF codename. A zero-config download is available.</li>
+<li>Full zero-fee transaction support. From relay for others as well as creation in the wallet and mining.</li>
+<li>Much improved networking and peer selection.
+<ul>
+<li>Introduce DNS seeds that specialise in high-quality nodes.</li>
+<li>Allows users to migrate from a Bitcoin Core (up to 0.14) node to Bitcoin Cash without a blockchain re-download.</li>
+<li>Separates legacy and cash nodes at the network protocol level. This makes sure all outgoing connections will be to Cash nodes.</li>
+<li>Ensure we connect to Xthin capable nodes (default 3) as block propagation is much cheaper that way.</li>
+</ul></li>
+<li>If transactions from the BTC branch are in the wallet, ignore them in the Bitcoin Cash GUI and vice versa.</li>
+<li>Support payment requests using the 'bitcoincash:' URI. Separately, support new address-type for payment requests.</li>
+<li>Much improved log-file support. Including runtime reloading of config-file using SIGHUP.</li>
+</ul>
+
+<p>Bugs fixed in 1.3.8;</p>
+
+<ul>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/25aed6b6d04f8320f20976cb0661add2d899925c">25aed6b</a> Fix reindexing not stopping in normal GUI shutdown</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/9ee6af09c07327f0aaaf760c78bf355a6a52f607">9ee6af0</a> Fix node getting stuck AT the fork block</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/2c4f6a80f9769fc2f5603fd0c079dd0f91605873">2c4f6a8</a> Avoid banning CASH nodes while doing the initial block download</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/9f7dfeb4337605b8353d0aa2a19133fc08a9a51e">9f7dfeb</a> Avoid multiple reconnects to useless nodes</li>
+<li><a href="https://github.com/bitcoinclassic/bitcoinclassic/commit/8c35e21d1bbb944a9f99f66cf3e654cd0e5e3def">8c35e21</a> Remove mempool.clear() when we start UAHF chain</li>
+</ul>
+
+<p>And various minor bugfixes and updates.</p>
+
+<p><a href="/downloads/index.html">Download page</a></p>
+
+      </section>
+    </div>
+    <footer>
+    <div class="grid">
+        <div class="col-1-3"><img src="/assets/img/btcfooter.png"/></div>
+        <div class="col-2-3"><span id="copyright">© 2016-2017 Bitcoin Classic</br>
+            Content licensed under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC by-sa</a></span></div>
+    </div>
+    </footer>
+
+    </div>
+    <script src="/assets/js/bitcoin-classic.js"></script>
+  </body>
+</html>

@@ -13,7 +13,7 @@
     function updateIsoUrl(version) {
         var architecture = document.getElementById(version + "select");
         architecture = architecture.options[architecture.selectedIndex].value;
-        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.7uahf/bitcoin-$1$2";
+        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.8uahf/bitcoin-$1$2";
         url = url.replace("$1", version);
         url = url.replace("$1", version);
         url = url.replace("$2", architecture);
@@ -68,16 +68,16 @@
      <section>
     <div class="release_box">
     <div class="box eight-col">
-    <h2>Bitcoin Classic 1.3.7-UAHF</h2>
+    <h2>Bitcoin Classic 1.3.8-UAHF</h2>
 
 Bitcoin Classic updates the 1.3 version with various bugfixes.
-<p>For details on what is included in this release, please see the <a href="/news/release137uahf.html">release notes</a>.</p>
+<p>For details on what is included in this release, please see the <a href="/news/release138uahf.html">release notes</a>.</p>
 
     </div>
     <div class="box four-col">
-    <form id="1.3.7download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.7uahf/bitcoin-1.3.7-win64-setup.exe" method="get">
+    <form id="1.3.8download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.8uahf/bitcoin-1.3.8-win64-setup.exe" method="get">
     <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.3.7select" onchange="updateIsoUrl(&quot;1.3.7&quot;)">
+    <select class="download" id="1.3.8select" onchange="updateIsoUrl(&quot;1.3.8&quot;)">
         <option value="-linux64.tar.gz">Linux tar</option>
         <option value=".deb">Linux debian/ubuntu (deb)</option>
         <option value="uahf-osx.dmg">Mac OSX</option>
@@ -86,8 +86,8 @@ Bitcoin Classic updates the 1.3 version with various bugfixes.
     </select></fieldset>
     <div><button class="download" type="submit">Download</button></div>
     </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.7uahf">Github link</a></br>
-    <a href="/news/release137uahf.html">Release notes</a></br></div>
+    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.8uahf">Github link</a></br>
+    <a href="/news/release138uahf.html">Release notes</a></br></div>
     </div></div>
 
      </section>

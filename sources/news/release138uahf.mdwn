@@ -1,0 +1,33 @@
+[[!meta title="Bitcoin Classic Announces version 1.3.8 for Bitcoin Cash"]]
+
+## Release Announcement Bitcoin Classic 1.3.8 uahf
+
+Bitcoin Classic updates the 1.3 version with various bugfixes.
+
+In the 1.3 series of releases Bitcoin Classic started supporting Bitcoin Cash. Bitcoin Cash is the improved version of Bitcoin, removing the barriers to growth and removing lock-in created by a centralised development team.
+
+Bitcoin Classic is the front runner for Bitcoin Cash, here are some of its features;
+
+* Full Bitcoin Cash support, using the UAHF codename. A zero-config download is available.
+* Full zero-fee transaction support. From relay for others as well as creation in the wallet and mining.
+* Much improved networking and peer selection.
+ * Introduce DNS seeds that specialise in high-quality nodes.
+ * Allows users to migrate from a Bitcoin Core (up to 0.14) node to Bitcoin Cash without a blockchain re-download.
+ * Separates legacy and cash nodes at the network protocol level. This makes sure all outgoing connections will be to Cash nodes.
+ * Ensure we connect to Xthin capable nodes (default 3) as block propagation is much cheaper that way.
+* If transactions from the BTC branch are in the wallet, ignore them in the Bitcoin Cash GUI and vice versa.
+* Support payment requests using the 'bitcoincash:' URI. Separately, support new address-type for payment requests.
+* Much improved log-file support. Including runtime reloading of config-file using SIGHUP.
+
+Bugs fixed in 1.3.8;
+
+* [25aed6b](https://github.com/bitcoinclassic/bitcoinclassic/commit/25aed6b6d04f8320f20976cb0661add2d899925c) Fix reindexing not stopping in normal GUI shutdown
+* [9ee6af0](https://github.com/bitcoinclassic/bitcoinclassic/commit/9ee6af09c07327f0aaaf760c78bf355a6a52f607) Fix node getting stuck AT the fork block
+* [2c4f6a8](https://github.com/bitcoinclassic/bitcoinclassic/commit/2c4f6a80f9769fc2f5603fd0c079dd0f91605873) Avoid banning CASH nodes while doing the initial block download
+* [9f7dfeb](https://github.com/bitcoinclassic/bitcoinclassic/commit/9f7dfeb4337605b8353d0aa2a19133fc08a9a51e) Avoid multiple reconnects to useless nodes
+* [8c35e21](https://github.com/bitcoinclassic/bitcoinclassic/commit/8c35e21d1bbb944a9f99f66cf3e654cd0e5e3def) Remove mempool.clear() when we start UAHF chain
+
+
+And various minor bugfixes and updates.
+
+[Download page](/downloads/index.html)

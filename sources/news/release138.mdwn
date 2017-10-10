@@ -1,0 +1,21 @@
+[[!meta title="Bitcoin Classic Announces version 1.3.8"]]
+
+## Release Announcement Bitcoin Classic 1.3.8
+
+Bitcoin Classic updates the 1.3 version with various bugfixes.
+
+This is the latest release in the 1.3 series. The 1.3 series is mostly aimed at people wanting to get away from the Core dominance and their small blocks view of Bitcoin.
+
+This version can be configured to follow the Bitcoin Cash (codename UAHF) chain, or look at the [Cash](release138uahf.html) version of Classic to avoid any configuration changes.
+
+In November the Bitcoin chain will get a planned upgrade to 2MB, to make sure no mistakes are made Bitcoin Classic will make sure the 2MB chain is selected in case any miners mistakenly continue to mine on the 1MB chain.
+You can continue using Bitcoin Classic safely on the 2MB chain.
+
+There are a long list of Bitcoin Cash specific features in the 1.3 series, please refer to the [Cash](release138uahf.html) release notes for more details on Bitcoin Cash support.
+
+Bugs fixed in 1.3.8;
+
+* [25aed6b](https://github.com/bitcoinclassic/bitcoinclassic/commit/25aed6b6d04f8320f20976cb0661add2d899925c) Fix reindexing not stopping in normal GUI shutdown
+* [9f7dfeb](https://github.com/bitcoinclassic/bitcoinclassic/commit/9f7dfeb4337605b8353d0aa2a19133fc08a9a51e) Avoid multiple reconnects to useless nodes
+
+[Download page](/downloads/index.html) | [UAHF release Download page](/downloads/bcc/index.html)
