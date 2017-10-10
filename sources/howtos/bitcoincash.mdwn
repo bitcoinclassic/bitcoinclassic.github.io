@@ -1,8 +1,8 @@
 [[!meta title="Use Bitcoin Cash with Classic"]]
 
-From August 1st, 2017 a so called split-coin was created with the name **Bitcoin Cash** (BCC).
+From August 1st, 2017 a so called split-coin was created with the name **Bitcoin Cash** (BCH).
 
-All Bitcoin people were holding before that date is split. Much like a stock-split. Everyone holding 1 BTC before the split-coin was created will hold 1BTC and 1BCC afterwards. This howto explains how you can run both a Bitcoin legacy as well as a Bitcoin Cash node, allowing you access to coins on both sides of the chain.
+All Bitcoin people were holding before that date is split. Much like a stock-split. Everyone holding 1 BTC before the split-coin was created will hold 1BTC and 1BCH afterwards. This howto explains how you can run both a Bitcoin legacy as well as a Bitcoin Cash node, allowing you access to coins on both sides of the chain.
 
 Bitcoin stored in a Bitcoin Classic or Core wallet will be auto-converted, Bitcoin stored on paper wallets can be imported twice, once for each side of the split.
 
@@ -20,7 +20,7 @@ If you run it on your machine under a different user, likely with your block dat
 
 Our goal today are the following;
 
-* We end up with a Bitcoin Cash fully synchronised client that allows you to send and receive BCC.
+* We end up with a Bitcoin Cash fully synchronised client that allows you to send and receive BCH.
 * We still have full access to the Bitcoin Legacy data, including the wallet.
 * And data that can be shared between the chains will be shared. Avoiding long processing times or large disk space usage.
 
@@ -40,7 +40,7 @@ The first start of Bitcoin Classic UAHF will do a data-migration of any data tha
 which was where the Bitcoin legacy and Bitcoin cash split and went its separate ways.  
 After reaching the fork point the client will continue to start as normal and start to download the new chain.
 
-5. Congratulations, you are now able to see and transact Bitcoin Cash transactions. Make sure to notice the usage of `BCC` in the user interface which is the main distinction to the legacy chain where we use `BTC`.
+5. Congratulations, you are now able to see and transact Bitcoin Cash transactions. Make sure to notice the usage of `BCH` in the user interface which is the main distinction to the legacy chain where we use `BTC`.
 
 6. Shut down Bitcoin Classic UAHF.
 

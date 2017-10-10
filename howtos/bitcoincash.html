@@ -44,9 +44,9 @@
     </header>
     <div class="content">
       <section>
-<p>From August 1st, 2017 a so called split-coin was created with the name <strong>Bitcoin Cash</strong> (BCC).</p>
+<p>From August 1st, 2017 a so called split-coin was created with the name <strong>Bitcoin Cash</strong> (BCH).</p>
 
-<p>All Bitcoin people were holding before that date is split. Much like a stock-split. Everyone holding 1 BTC before the split-coin was created will hold 1BTC and 1BCC afterwards. This howto explains how you can run both a Bitcoin legacy as well as a Bitcoin Cash node, allowing you access to coins on both sides of the chain.</p>
+<p>All Bitcoin people were holding before that date is split. Much like a stock-split. Everyone holding 1 BTC before the split-coin was created will hold 1BTC and 1BCH afterwards. This howto explains how you can run both a Bitcoin legacy as well as a Bitcoin Cash node, allowing you access to coins on both sides of the chain.</p>
 
 <p>Bitcoin stored in a Bitcoin Classic or Core wallet will be auto-converted, Bitcoin stored on paper wallets can be imported twice, once for each side of the split.</p>
 
@@ -65,7 +65,7 @@ If you run it on your machine under a different user, likely with your block dat
 <p>Our goal today are the following;</p>
 
 <ul>
-<li>We end up with a Bitcoin Cash fully synchronised client that allows you to send and receive BCC.</li>
+<li>We end up with a Bitcoin Cash fully synchronised client that allows you to send and receive BCH.</li>
 <li>We still have full access to the Bitcoin Legacy data, including the wallet.</li>
 <li>And data that can be shared between the chains will be shared. Avoiding long processing times or large disk space usage.</li>
 </ul>
@@ -84,7 +84,7 @@ The first start of Bitcoin Classic UAHF will do a data-migration of any data tha
 <li><p>You should see on the splash-screen or in your logs that Bitcoin Classic will do a "rollback" of blocks back to the fork-point
 which was where the Bitcoin legacy and Bitcoin cash split and went its separate ways. <br />
 After reaching the fork point the client will continue to start as normal and start to download the new chain.</p></li>
-<li><p>Congratulations, you are now able to see and transact Bitcoin Cash transactions. Make sure to notice the usage of <code>BCC</code> in the user interface which is the main distinction to the legacy chain where we use <code>BTC</code>.</p></li>
+<li><p>Congratulations, you are now able to see and transact Bitcoin Cash transactions. Make sure to notice the usage of <code>BCH</code> in the user interface which is the main distinction to the legacy chain where we use <code>BTC</code>.</p></li>
 <li><p>Shut down Bitcoin Classic UAHF.</p></li>
 <li><p>Download the Bitcoin Classic release, the one without Bitcoin Cash. Install it in a different directory as the one we installed in number one. The intention is to have both on the system.</p></li>
 <li><p>Start the new Bitcoin Classic (non-UAHF).</p></li>
