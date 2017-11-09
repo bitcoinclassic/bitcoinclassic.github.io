@@ -1,36 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bitcoin Classic Downloads</title>
+    <title>Bitcoin Classic</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bitcoin Classic">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/icon">
     <link rel="icon" href="../assets/img/favicon.ico" type="image/icon">
     <link rel="stylesheet" href="../assets/css/bitcoin-classic.css">
-<script src="../assets/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-    function updateIsoUrl(version) {
-        var architecture = document.getElementById(version + "select");
-        architecture = architecture.options[architecture.selectedIndex].value;
-        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v$1/bitcoin-$1$2";
-        url = url.replace("$1", version);
-        url = url.replace("$1", version);
-        url = url.replace("$2", architecture);
-        var formID = version + "download";
-        document.getElementById(formID).action = url;
-    }
-    function updateIsoUrlUAHF(version) {
-        var architecture = document.getElementById(version + "selectUahf");
-        architecture = architecture.options[architecture.selectedIndex].value;
-        var url = "https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.8uahf/bitcoin-$1$2";
-        url = url.replace("$1", version);
-        url = url.replace("$1", version);
-        url = url.replace("$2", architecture);
-        var formID = version + "downloadUahf";
-        document.getElementById(formID).action = url;
-    }
-</script>
   </head>
   <body>
   <div id="container">
@@ -57,16 +34,6 @@
           </ul>
         </li>
         <li><a class="" href="/community.html" title="Get Involved">Get Involved</a></li>
-        <li><a class="" href="/roadmap.html" title="Roadmap">Roadmap</a></li>
-        <li><a class="" href="#" title="Developers">Developers</a>
-          <ul>
-            <li><a class="" href="/devel/index.html" title="Devel">Overview</a></li>
-            <li><a class="" href="/devel/Blocksize.html" title="Blocksize">Blocksize</a></li>
-            <li><a class="" href="/devel/Flexible%20Transactions.html" title="FT">Flexible Transactions</a></li>
-            <li><a class="" href="/devel/AdminServer.html" title="AdminServer">Admin Server</a></li>
-            <li><a class="" href="/devel/NetworkManager.html" title="NetworkManager">Network Manager</a></li>
-          </ul>
-        </li>
         <li><a class="" href="/news.html" title="News">News</a></li>
       </ul>
       </nav>
@@ -75,63 +42,8 @@
 
     <h1>Download Bitcoin Classic</h1>
 
-<P>Since the first of August there are two main versions of Bitcoin. All your old coins are available on both. </br>
-The first is the legacy chain, Bitcoin. Using Bitcoin Classic wallet you can fully transact BTCs.</br>
-The second is the Bitcoin Cash chain, which started on August 1st. This chain removes a centralized decision making team from power and immediately followed through with a long expected upgrade to allow bigger blocks.</p>
+    <p>Bitcoin Classic has been discontinued.</p><p>For more details; <a href="/news/closing.html">closing note</a></p>
 
-<p>Please see the pre-configured downloads below as a way to select which chain you want to follow.</p>
-<p>&nbsp;</p>
-     <section>
-
-    <div class="release_box">
-    <div class="box eight-col">
-    <h2>Bitcoin Classic 1.3.8 for Bitcoin Cash</h2>
-<p>Bitcoin Classic updates the 1.3 version with various bugfixes.</p>
-<p>This release by default follows the Bitcoin Cash chain created in August, this chain supports up to 8MB blocks and support is growing every day.</p>
-
-<p>For details on what is included in this release, please see the <a href="../news/release138uahf.html">release notes</a>.</p>
-    </div>
-    <div class="box four-col">
-    <form id="1.3.8downloadUahf" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.8uahf/bitcoin-1.3.8-win64-setup.exe" method="get">
-    <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.3.8selectUahf" onchange="updateIsoUrlUAHF(&quot;1.3.8&quot;)">
-        <option value="-linux64.tar.gz">Linux tar</option>
-        <option value=".deb">Linux debian (deb)</option>
-        <option value="uahf-osx.dmg">Mac OSX</option>
-        <option selected="selected" value="-win64-setup.exe">Windows setup</option>
-        <option value="-win64.zip">Win zip</option>
-    </select></fieldset>
-    <div><button class="download" type="submit">Download</button></div>
-    </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.8uahf">Github link</a></br>
-    <a href="../news/release138uahf.html">Release notes</a></div>
-    </div></div>
-
-    <div class="release_box">
-    <div class="box eight-col">
-    <h2>Bitcoin Classic 1.3.8</h2>
-<p>Bitcoin Classic updates the 1.3 version with various bugfixes.</p>
-<p>This release by default follows the legacy chain, planned to upgrade to 2MB in November.</p>
-
-<p>For details on what is included in this release, please see the <a href="../news/release138.html">release notes</a>.</p>
-    </div>
-    <div class="box four-col">
-    <form id="1.3.8download" class="form_download" action="https://github.com/bitcoinclassic/bitcoinclassic/releases/download/v1.3.8/bitcoin-1.3.8-win64-setup.exe" method="get">
-    <fieldset><label>Choose your flavour</label><br />
-    <select class="download" id="1.3.8select" onchange="updateIsoUrl(&quot;1.3.8&quot;)">
-        <option value="-linux64.tar.gz">Linux tar</option>
-        <option value=".deb">Linux debian (deb)</option>
-        <option value="-osx.dmg">Mac OSX</option>
-        <option selected="selected" value="-win64-setup.exe">Windows setup</option>
-        <option value="-win64.zip">Win zip</option>
-    </select></fieldset>
-    <div><button class="download" type="submit">Download</button></div>
-    </form>
-    <div><a href="https://github.com/bitcoinclassic/bitcoinclassic/releases/tag/v1.3.8">Github link</a></br>
-    <a href="../news/release138.html">Release notes</a></div>
-    </div></div>
-
-     </section>
       </div>
 
     <footer>
